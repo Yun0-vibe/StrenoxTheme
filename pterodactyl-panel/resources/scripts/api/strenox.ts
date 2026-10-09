@@ -48,6 +48,20 @@ export function createStrenoxOrder(plan: string): Promise<{ id: number; plan: st
         .then(({ data }) => unwrap<{ id: number; plan: string }>(data));
 }
 
+export interface StrenoxOrder {
+    id: number;
+    plan: string;
+    amount: string;
+    status: 'pending' | 'completed' | 'cancelled';
+    date: string;
+}
+
+export function getStrenoxOrders(): Promise<StrenoxOrder[]> {
+    return http
+        .get('/api/client/account/strenox/store/orders')
+        .then(({ data }) => unwrap<StrenoxOrder[]>(data));
+}
+
 export function getStrenoxTickets(): Promise<StrenoxTicket[]> {
     return http.get('/api/client/account/strenox/tickets').then(({ data }) => unwrap<StrenoxTicket[]>(data));
 }

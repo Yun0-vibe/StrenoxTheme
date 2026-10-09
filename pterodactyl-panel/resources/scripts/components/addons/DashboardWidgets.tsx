@@ -28,7 +28,7 @@ const Hero = styled.div`
 `;
 
 const HeroLogo = styled.img`
-    ${tw`w-16 h-16 md:w-20 md:h-20 flex-shrink-0 strenox-float`};
+    ${tw`w-16 h-16 md:w-20 md:h-20 flex-shrink-0`};
     filter: drop-shadow(0 0 22px rgba(145, 35, 215, 0.6));
 `;
 
@@ -106,7 +106,11 @@ export default function DashboardWidgets() {
     return (
         <div className={'strenox-page'}>
             <Hero>
-                <HeroLogo src={'/favicons/strenoxcloud-logo.png'} alt={'StrenoxCloud'} />
+                <HeroLogo
+                    src={'/favicons/strenoxcloud-logo.png'}
+                    alt={'StrenoxCloud'}
+                    className={'strenox-float'}
+                />
                 <div>
                     <div css={tw`text-2xl font-bold text-neutral-100`}>
                         Welcome back, {username}

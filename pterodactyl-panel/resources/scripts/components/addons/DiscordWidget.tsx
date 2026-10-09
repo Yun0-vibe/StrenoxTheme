@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import tw from 'twin.macro';
 import styled from 'styled-components/macro';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -61,10 +61,22 @@ const ToggleSwitch = styled.button<{ active: boolean }>`
 `;
 
 export default function DiscordWidget() {
-    const [connected, setConnected] = useState(false);
-    const [roleSync, setRoleSync] = useState(true);
-    const [notifs, setNotifs] = useState(true);
+    const [connected, setConnected] = useState(
+        () => localStorage.getItem('strenox_discord_connected') === '1'
+    );
+    const [roleSync, setRoleSync] = useState(
+        () => localStorage.getItem('strenox_discord_rolesync') !== '0'
+    );
+    const [notifs, setNotifs] = useState(
+        () => localStorage.getItem('strenox_discord_notifs') !== '0'
+    );
     const [copied, setCopied] = useState(false);
+
+    useEffect(() => {
+        localStorage.setItem('strenox_discord_connected', connected ? '1' : '0');
+        localStorage.setItem('strenox_discord_rolesync', roleSync ? '1' : '0');
+        localStorage.setItem('strenox_discord_notifs', notifs ? '1' : '0');
+    }, [connected, roleSync, notifs]);
 
     const inviteUrl = 'https://discord.gg/strenoxcloud';
 
@@ -109,12 +121,20 @@ export default function DiscordWidget() {
                     </div>
                     <div>
                         {connected ? (
-                            <div
-                                css={tw`flex items-center gap-2 px-3 py-1 rounded-full text-sm`}
-                                style={{ background: '#22C55E20', color: '#22C55E' }}
-                            >
-                                <FontAwesomeIcon icon={faCheck} />
-                                Connected
+                            <div css={tw`flex flex-col items-end gap-2`}>
+                                <div
+                                    css={tw`flex items-center gap-2 px-3 py-1 rounded-full text-sm`}
+                                    style={{ background: '#22C55E20', color: '#22C55E' }}
+                                >
+                                    <FontAwesomeIcon icon={faCheck} />
+                                    Connected
+                                </div>
+                                <button
+                                    onClick={() => setConnected(false)}
+                                    css={tw`text-xs text-neutral-500 hover:text-red-400 transition-colors duration-150`}
+                                >
+                                    Disconnect
+                                </button>
                             </div>
                         ) : (
                             <ConnectButton onClick={() => setConnected(true)}>

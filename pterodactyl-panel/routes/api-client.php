@@ -48,6 +48,7 @@ Route::prefix('/account')->middleware(AccountSubject::class)->group(function () 
         Route::get('/announcements', Client\Strenox\AnnouncementController::class);
         Route::get('/store/plans', [Client\Strenox\StoreController::class, 'index']);
         Route::post('/store/orders', [Client\Strenox\StoreController::class, 'store']);
+        Route::get('/store/orders', [Client\Strenox\StoreController::class, 'orders']);
         Route::get('/tickets', [Client\Strenox\TicketController::class, 'index']);
         Route::post('/tickets', [Client\Strenox\TicketController::class, 'store']);
         Route::get('/tickets/{ticket}', [Client\Strenox\TicketController::class, 'view']);
