@@ -93,9 +93,22 @@ export default () => {
                 <img
                     src={'/favicons/strenoxcloud-logo.png'}
                     alt={'StrenoxCloud'}
-                    style={{ width: '2rem', height: '2rem', filter: 'drop-shadow(0 0 10px rgba(145,35,215,0.6))' }}
+                    style={{ width: '2.1rem', height: '2.1rem', filter: 'drop-shadow(0 0 12px rgba(145,35,215,0.7))' }}
                 />
-                <span style={{ color: '#9123D7', fontSize: '1.25rem', fontWeight: 700 }}>{name}</span>
+                <span
+                    style={{
+                        fontSize: '1.3rem',
+                        fontWeight: 800,
+                        letterSpacing: '0.01em',
+                        background: 'linear-gradient(135deg, #FFFFFF 0%, #C084FC 55%, #9123D7 100%)',
+                        WebkitBackgroundClip: 'text',
+                        backgroundClip: 'text',
+                        color: 'transparent',
+                        filter: 'drop-shadow(0 0 10px rgba(145,35,215,0.45))',
+                    }}
+                >
+                    {name}
+                </span>
             </Link>
             <div className={'px-4 pb-2'}>
                 <SearchContainer />

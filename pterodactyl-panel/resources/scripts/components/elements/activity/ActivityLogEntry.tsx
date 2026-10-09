@@ -45,10 +45,7 @@ export default ({ activity, children }: Props) => {
 
     return (
         <div
-            className={'grid grid-cols-10 py-4 px-3 mb-2 rounded-2xl border border-white/5 group transition-all duration-200 hover:border-[#9123D7]/50'}
-            style={{
-                background: 'linear-gradient(135deg, rgba(30,21,53,0.55) 0%, rgba(22,22,31,0.85) 100%)',
-            }}
+            className={'grid grid-cols-10 py-4 px-3 rounded-xl border-b border-white/5 group transition-colors duration-150 hover:bg-white/[0.03]'}
         >
             <div className={'hidden sm:flex sm:col-span-1 items-center justify-center select-none'}>
                 <div
