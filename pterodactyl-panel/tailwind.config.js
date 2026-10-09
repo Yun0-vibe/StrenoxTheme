@@ -35,7 +35,8 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                header: ['"IBM Plex Sans"', '"Roboto"', 'system-ui', 'sans-serif'],
+                header: ['"Space Grotesk"', '"IBM Plex Sans"', '"Roboto"', 'system-ui', 'sans-serif'],
+                sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
             },
             colors: {
                 black: '#0D0D12',

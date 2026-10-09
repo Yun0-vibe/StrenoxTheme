@@ -7,13 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faServer,
     faLifeRing,
-    faReceipt,
-    faWallet,
-    faPlus,
-    faStore,
+    faBullhorn,
+    faBook,
     faComments,
-    faArrowRight,
     faHeartbeat,
+    faArrowRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { useStoreState } from 'easy-peasy';
 import { ApplicationStore } from '@/state';
@@ -22,7 +20,7 @@ import Spinner from '@/components/elements/Spinner';
 import ServerRow from '@/components/dashboard/ServerRow';
 import getServers from '@/api/getServers';
 import { Server } from '@/api/server/getServer';
-import { getStrenoxTickets, getStrenoxOrders } from '@/api/strenox';
+import { getStrenoxTickets, getStrenoxAnnouncements } from '@/api/strenox';
 
 const Header = styled.div`
     ${tw`rounded-2xl px-6 py-5 mb-6 flex items-center gap-4 relative overflow-hidden border border-white/10`};
@@ -33,7 +31,7 @@ const Header = styled.div`
 `;
 
 const StatGrid = styled.div`
-    ${tw`grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6`};
+    ${tw`grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6`};
 `;
 
 const StatCard = styled(Link)`
@@ -59,7 +57,7 @@ const ActionDock = styled.div`
 `;
 
 const ActionTile = styled(Link)`
-    ${tw`rounded-2xl px-3 py-4 text-center no-underline transition-all duration-200 border border-white/10`};
+    ${tw`block rounded-2xl px-3 py-4 text-center no-underline transition-all duration-200 border border-white/10`};
     background: rgba(22, 22, 31, 0.8);
     color: #e2e2f0 !important;
 
@@ -70,6 +68,16 @@ const ActionTile = styled(Link)`
         box-shadow: 0 0 22px rgba(145, 35, 215, 0.4);
         transform: translateY(-2px);
     }
+`;
+
+const ActionIconBox = styled.div`
+    ${tw`mx-auto mb-2 flex items-center justify-center rounded-xl`};
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(145, 35, 215, 0.15);
+    border: 1px solid rgba(145, 35, 215, 0.3);
+    font-size: 1.05rem;
+    color: #a855f7;
 `;
 
 const container = {
@@ -87,8 +95,7 @@ export default function HomePage() {
     const [servers, setServers] = useState<Server[] | null>(null);
     const [total, setTotal] = useState(0);
     const [openTickets, setOpenTickets] = useState(0);
-    const [pendingOrders, setPendingOrders] = useState(0);
-    const [credits, setCredits] = useState('0.00');
+    const [newsCount, setNewsCount] = useState(0);
 
     useEffect(() => {
         getServers({ page: 1 })
@@ -102,30 +109,21 @@ export default function HomePage() {
             .then((tickets) => setOpenTickets(tickets.filter((t) => t.status === 'open').length))
             .catch(() => undefined);
 
-        getStrenoxOrders()
-            .then((orders) => {
-                setPendingOrders(orders.filter((o) => o.status === 'pending').length);
-                setCredits(
-                    orders
-                        .filter((o) => o.plan.startsWith('Credit Top-Up') && o.status === 'completed')
-                        .reduce((sum, o) => sum + parseFloat(o.amount), 0)
-                        .toFixed(2)
-                );
-            })
+        getStrenoxAnnouncements()
+            .then((news) => setNewsCount(news.length))
             .catch(() => undefined);
     }, []);
 
     const stats = [
         { icon: faServer, label: 'Servers', value: servers === null ? '…' : String(total), to: '/servers' },
         { icon: faLifeRing, label: 'Open Tickets', value: String(openTickets), to: '/tickets' },
-        { icon: faReceipt, label: 'Pending Orders', value: String(pendingOrders), to: '/store' },
-        { icon: faWallet, label: 'Credits', value: `$${credits}`, to: '/store' },
+        { icon: faBullhorn, label: 'Announcements', value: String(newsCount), to: '/announcements' },
     ];
 
     const actions = [
-        { icon: faPlus, label: 'Deploy', to: '/store' },
         { icon: faServer, label: 'Servers', to: '/servers' },
         { icon: faLifeRing, label: 'Tickets', to: '/tickets' },
+        { icon: faBook, label: 'Guides', to: '/knowledge-base' },
         { icon: faComments, label: 'Discord', to: '/discord' },
         { icon: faHeartbeat, label: 'Status', to: '/status' },
     ];
@@ -143,18 +141,18 @@ export default function HomePage() {
                         style={{ filter: 'drop-shadow(0 0 16px rgba(145,35,215,0.6))' }}
                     />
                     <div css={tw`flex-1 min-w-0`}>
-                        <div css={tw`text-xl font-bold text-neutral-100`}>Command Center</div>
+                        <div css={tw`text-xl font-bold text-neutral-100 font-header`}>Command Center</div>
                         <div css={tw`text-sm text-neutral-400`}>
                             {today} · Signed in as {username}
                         </div>
                     </div>
                     <Link
-                        to={'/store'}
+                        to={'/tickets'}
                         css={tw`hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white no-underline transition-all duration-200 flex-shrink-0`}
                         style={{ background: 'linear-gradient(135deg, #9123D7 0%, #7C3AED 100%)' }}
                     >
-                        <FontAwesomeIcon icon={faPlus} />
-                        Deploy
+                        <FontAwesomeIcon icon={faLifeRing} />
+                        Get Support
                     </Link>
                 </Header>
             </motion.div>
@@ -180,7 +178,9 @@ export default function HomePage() {
                     {actions.map((a) => (
                         <motion.div key={a.label} variants={item}>
                             <ActionTile to={a.to}>
-                                <FontAwesomeIcon icon={a.icon} css={tw`text-lg text-[#A855F7] mb-1`} />
+                                <ActionIconBox>
+                                    <FontAwesomeIcon icon={a.icon} />
+                                </ActionIconBox>
                                 <div css={tw`text-xs font-medium`}>{a.label}</div>
                             </ActionTile>
                         </motion.div>
@@ -193,14 +193,14 @@ export default function HomePage() {
                     <Spinner centered />
                 ) : servers.length === 0 ? (
                     <div css={tw`text-center py-6`}>
-                        <p css={tw`text-neutral-400 text-sm mb-4`}>No servers yet. Deploy your first one.</p>
+                        <p css={tw`text-neutral-400 text-sm mb-4`}>No servers yet. Contact an administrator to get one.</p>
                         <Link
-                            to={'/store'}
+                            to={'/knowledge-base'}
                             css={tw`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white no-underline`}
                             style={{ background: 'linear-gradient(135deg, #9123D7 0%, #7C3AED 100%)' }}
                         >
-                            <FontAwesomeIcon icon={faStore} />
-                            Open Store
+                            <FontAwesomeIcon icon={faBook} />
+                            Read the Guides
                         </Link>
                     </div>
                 ) : (

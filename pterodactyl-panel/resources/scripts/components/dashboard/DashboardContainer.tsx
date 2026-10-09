@@ -13,7 +13,6 @@ import useSWR from 'swr';
 import { PaginatedResult } from '@/api/http';
 import Pagination from '@/components/elements/Pagination';
 import { useLocation } from 'react-router-dom';
-import DashboardWidgets from '@/components/addons/DashboardWidgets';
 
 export default () => {
     const { search } = useLocation();
@@ -55,9 +54,6 @@ export default () => {
 
     return (
         <PageContentBlock title={'My Servers'} showFlashKey={'dashboard'}>
-            <div css={tw`mb-6`}>
-                <DashboardWidgets />
-            </div>
             {rootAdmin && (
                 <div css={tw`mb-2 flex justify-end items-center`}>
                     <p css={tw`uppercase text-xs text-neutral-400 mr-2`}>

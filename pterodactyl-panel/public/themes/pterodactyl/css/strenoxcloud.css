@@ -160,9 +160,19 @@ code {
     color: #9123D7 !important;
 }
 
-/* Content area */
+/* Content area with ambient light */
 .content-wrapper {
-    background: #0D0D12 !important;
+    background: #07070D !important;
+    background-image:
+        radial-gradient(ellipse 55% 35% at 10% -5%, rgba(145, 35, 215, 0.14), transparent),
+        radial-gradient(ellipse 45% 35% at 90% 5%, rgba(124, 58, 237, 0.1), transparent),
+        radial-gradient(ellipse 70% 50% at 50% 105%, rgba(145, 35, 215, 0.08), transparent) !important;
+    background-attachment: fixed !important;
+}
+
+.content-header > h1, .box-title {
+    font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+    letter-spacing: 0.01em;
 }
 
 /* Boxes */

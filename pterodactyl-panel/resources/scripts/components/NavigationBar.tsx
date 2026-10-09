@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faHome,
     faServer,
-    faStore,
     faLifeRing,
     faBook,
     faComments,
@@ -106,7 +105,6 @@ export default () => {
                     <SideLink to={'/'} exact icon={faHome} label={'Command Center'} />
                     <SideLink to={'/servers'} exact icon={faServer} label={'Servers'} />
                     <SectionLabel>Cloud</SectionLabel>
-                    <SideLink to={'/store'} icon={faStore} label={'Store'} />
                     <SideLink to={'/tickets'} icon={faLifeRing} label={'Support'} />
                     <SideLink to={'/knowledge-base'} icon={faBook} label={'Guides'} />
                     <SideLink to={'/discord'} icon={faComments} label={'Discord'} />

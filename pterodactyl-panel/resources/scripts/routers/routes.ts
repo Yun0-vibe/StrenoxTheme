@@ -14,7 +14,6 @@ import AccountSSHContainer from '@/components/dashboard/ssh/AccountSSHContainer'
 import ActivityLogContainer from '@/components/dashboard/activity/ActivityLogContainer';
 import ServerActivityLogContainer from '@/components/server/ServerActivityLogContainer';
 import KnowledgeBase from '@/components/addons/KnowledgeBase';
-import StorePage from '@/components/addons/StorePage';
 import DiscordWidget from '@/components/addons/DiscordWidget';
 import Announcements from '@/components/addons/Announcements';
 import SupportTickets from '@/components/addons/SupportTickets';
@@ -46,7 +45,7 @@ interface Routes {
     account: RouteDefinition[];
     // All of the routes available under "/server/:id"
     server: ServerRouteDefinition[];
-    // StrenoxCloud top-level pages ("/store", "/tickets", ...)
+    // StrenoxCloud top-level pages ("/tickets", "/status", ...)
     strenox: RouteDefinition[];
 }
 
@@ -75,11 +74,6 @@ export default {
         },
     ],
     strenox: [
-        {
-            path: '/store',
-            name: 'Store',
-            component: StorePage,
-        },
         {
             path: '/tickets',
             name: 'Support',

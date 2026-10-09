@@ -83,12 +83,14 @@ export default createGlobalStyle`
     body {
         background: #07070d !important;
         color: #E2E2F0 !important;
+        font-family: 'Inter', system-ui, sans-serif !important;
         background-image:
-            radial-gradient(ellipse 60% 40% at 15% 0%, rgba(145, 35, 215, 0.12), transparent),
-            radial-gradient(ellipse 50% 35% at 85% 20%, rgba(124, 58, 237, 0.1), transparent),
-            radial-gradient(ellipse 70% 50% at 50% 100%, rgba(59, 130, 246, 0.07), transparent),
-            radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px) !important;
-        background-size: auto, auto, auto, 28px 28px !important;
+            radial-gradient(ellipse 55% 35% at 10% -5%, rgba(145, 35, 215, 0.17), transparent),
+            radial-gradient(ellipse 45% 35% at 90% 5%, rgba(124, 58, 237, 0.14), transparent),
+            radial-gradient(ellipse 35% 30% at 75% 45%, rgba(59, 130, 246, 0.06), transparent),
+            radial-gradient(ellipse 70% 50% at 50% 105%, rgba(145, 35, 215, 0.1), transparent),
+            radial-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px) !important;
+        background-size: auto, auto, auto, auto, 28px 28px !important;
         background-attachment: fixed !important;
     }
 
