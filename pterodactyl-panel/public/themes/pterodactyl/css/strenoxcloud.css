@@ -725,9 +725,97 @@ a:hover, a:focus {
 /* ==================== STRENOXCLOUD FLOATING SHELL ==================== */
 /* Detached glass sidebar + icon rail + redesigned headers. Inner pages untouched. */
 
+/* No top navbar — sidebar carries everything. */
+.strenox-admin .main-header {
+    display: none !important;
+}
+
+.strenox-admin.fixed .content-wrapper,
+.strenox-admin.fixed .right-side,
+.strenox-admin .content-wrapper {
+    padding-top: 0 !important;
+}
+
+.strenox-admin .main-sidebar {
+    padding-top: 0 !important;
+}
+
+/* Floating action toggle */
+.sx-fab-toggle {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 1040;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    border: 1px solid rgba(145, 35, 215, 0.4);
+    background: linear-gradient(135deg, rgba(30, 21, 53, 0.95) 0%, rgba(13, 13, 18, 0.97) 100%);
+    color: #A855F7;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 18px rgba(145, 35, 215, 0.25);
+    transition: all 0.18s ease;
+}
+
+.sx-fab-toggle:hover {
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 28px rgba(145, 35, 215, 0.45);
+    transform: translateY(-1px);
+}
+
+/* Back to panel link */
+.sx-back {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 10px;
+    margin-bottom: 6px;
+    border-radius: 12px;
+    border: 1px dashed rgba(145, 35, 215, 0.45);
+    color: #C084FC !important;
+    font-weight: 600;
+    font-size: 13.5px;
+    text-decoration: none !important;
+    transition: all 0.18s ease;
+}
+
+.sx-back:hover {
+    background: rgba(145, 35, 215, 0.14);
+    box-shadow: 0 0 18px rgba(145, 35, 215, 0.25);
+    transform: translateX(-3px);
+}
+
+.sx-back .sx-ico {
+    background: transparent;
+    border-style: dashed;
+}
+
+/* Sidebar logout */
+.sx-logout {
+    margin-left: auto;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    color: #8888A8;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.sx-logout:hover {
+    color: #EF4444;
+    background: rgba(239, 68, 68, 0.12);
+}
+
 @media (min-width: 768px) {
     .strenox-admin .main-sidebar {
-        top: 62px !important;
+        top: 12px !important;
         bottom: 12px !important;
         left: 12px !important;
         width: 218px !important;
@@ -740,6 +828,14 @@ a:hover, a:focus {
     .strenox-admin .content-wrapper,
     .strenox-admin .main-footer {
         margin-left: 242px !important;
+    }
+
+    .strenox-admin .sx-fab-toggle {
+        left: 244px;
+    }
+
+    .strenox-admin.sidebar-collapse .sx-fab-toggle {
+        left: 88px;
     }
 
     /* Collapsed icon rail */

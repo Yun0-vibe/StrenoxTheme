@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>@yield('title', config('app.name', 'StrenoxCloud'))</title>
+        <title>@hasSection('title')@yield('title') · StrenoxCloud@elseStrenoxCloud@endif</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <meta name="_token" content="{{ csrf_token() }}">
 
@@ -37,51 +37,17 @@
     </head>
     <body class="hold-transition skin-blue fixed sidebar-mini strenox-admin">
         <div class="wrapper">
-            <header class="main-header strenox-header sx-topbar">
-                <nav class="navbar navbar-static-top">
-                    <a href="#" class="sidebar-toggle strenox-toggle" data-toggle="push-menu" role="button">
-                        <span class="sr-only">Toggle navigation</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="2" y1="5" x2="18" y2="5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="15" x2="18" y2="15"/></svg>
-                    </a>
-                    <span class="sx-top-title">StrenoxCloud <em>Control Center</em></span>
-                    <div class="navbar-custom-menu">
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a href="{{ route('index') }}" data-toggle="tooltip" data-placement="bottom" title="Exit Admin Control"><i class="fa fa-server"></i></a>
-                            </li>
-                            <li class="dropdown user user-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="https://www.gravatar.com/avatar/{{ md5(strtolower(Auth::user()->email)) }}?s=160" class="user-image" alt="User Image">
-                                    <span class="hidden-xs">{{ Auth::user()->name_first }} {{ Auth::user()->name_last }}</span>
-                                    <i class="fa fa-caret-down hidden-xs" style="margin-left:6px;font-size:10px;"></i>
-                                </a>
-                                <ul class="dropdown-menu strenox-user-menu">
-                                    <li class="user-header">
-                                        <img src="https://www.gravatar.com/avatar/{{ md5(strtolower(Auth::user()->email)) }}?s=160" class="img-circle" alt="User Image">
-                                        <p>
-                                            {{ Auth::user()->name_first }} {{ Auth::user()->name_last }}
-                                            <small>{{ Auth::user()->email }}</small>
-                                        </p>
-                                    </li>
-                                    <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="{{ route('index') }}" class="btn btn-default btn-flat">Exit Admin</a>
-                                        </div>
-                                        <div class="pull-right">
-                                            <a href="{{ route('auth.logout') }}" id="logoutButton" class="btn btn-default btn-flat">Logout</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </header>
+            <button class="sx-fab-toggle" data-toggle="push-menu" aria-label="Toggle navigation">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="2" y1="5" x2="18" y2="5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="15" x2="18" y2="15"/></svg>
+            </button>
             <aside class="main-sidebar sx-sidebar">
                 <section class="sidebar">
                     <a href="{{ route('admin.index') }}" class="sx-brand">
                         <img src="/favicons/strenoxcloud-logo.png" alt="StrenoxCloud">
                         <span><strong>StrenoxCloud</strong><small>Control Center</small></span>
+                    </a>
+                    <a href="{{ route('index') }}" class="sx-back">
+                        <span class="sx-ico"><i class="fa fa-arrow-left"></i></span><span class="sx-txt">Back to Panel</span>
                     </a>
                     @php
                         $sxActive = fn ($cond) => $cond ? 'sx-active' : '';
@@ -131,6 +97,7 @@
                             <strong>{{ Auth::user()->name_first }} {{ Auth::user()->name_last }}</strong>
                             <small><i class="fa fa-circle"></i> Administrator</small>
                         </span>
+                        <span id="logoutButton" class="sx-logout" title="Logout"><i class="fa fa-sign-out"></i></span>
                     </a>
                 </section>
             </aside>
