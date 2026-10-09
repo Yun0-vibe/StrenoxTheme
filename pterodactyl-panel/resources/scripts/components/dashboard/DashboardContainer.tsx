@@ -54,7 +54,7 @@ export default () => {
     }, [error]);
 
     return (
-        <PageContentBlock title={'Dashboard'} showFlashKey={'dashboard'}>
+        <PageContentBlock title={'My Servers'} showFlashKey={'dashboard'}>
             <div css={tw`mb-6`}>
                 <DashboardWidgets />
             </div>

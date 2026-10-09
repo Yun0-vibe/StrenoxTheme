@@ -46,6 +46,8 @@ interface Routes {
     account: RouteDefinition[];
     // All of the routes available under "/server/:id"
     server: ServerRouteDefinition[];
+    // StrenoxCloud top-level pages ("/store", "/tickets", ...)
+    strenox: RouteDefinition[];
 }
 
 export default {
@@ -71,15 +73,22 @@ export default {
             name: 'Activity',
             component: ActivityLogContainer,
         },
-        {
-            path: '/knowledge-base',
-            name: 'Knowledge Base',
-            component: KnowledgeBase,
-        },
+    ],
+    strenox: [
         {
             path: '/store',
             name: 'Store',
             component: StorePage,
+        },
+        {
+            path: '/tickets',
+            name: 'Support',
+            component: SupportTickets,
+        },
+        {
+            path: '/knowledge-base',
+            name: 'Guides',
+            component: KnowledgeBase,
         },
         {
             path: '/discord',
@@ -88,13 +97,8 @@ export default {
         },
         {
             path: '/announcements',
-            name: 'Announcements',
+            name: 'News',
             component: Announcements,
-        },
-        {
-            path: '/tickets',
-            name: 'Tickets',
-            component: SupportTickets,
         },
         {
             path: '/status',

@@ -77,6 +77,46 @@ export default () => {
                         </span>
                     </Link>
                 </div>
+                <div className={'hidden md:flex h-full items-center'}>
+                    <NavLink
+                        to={'/'}
+                        exact
+                        className={
+                            'h-full flex items-center px-4 text-sm no-underline text-neutral-300 hover:text-neutral-100 transition-colors duration-150'
+                        }
+                        activeStyle={{ color: '#fff', boxShadow: 'inset 0 -2px #9123D7' }}
+                    >
+                        Home
+                    </NavLink>
+                    <NavLink
+                        to={'/servers'}
+                        exact
+                        className={
+                            'h-full flex items-center px-4 text-sm no-underline text-neutral-300 hover:text-neutral-100 transition-colors duration-150'
+                        }
+                        activeStyle={{ color: '#fff', boxShadow: 'inset 0 -2px #9123D7' }}
+                    >
+                        Servers
+                    </NavLink>
+                    <NavLink
+                        to={'/store'}
+                        className={
+                            'h-full flex items-center px-4 text-sm no-underline text-neutral-300 hover:text-neutral-100 transition-colors duration-150'
+                        }
+                        activeStyle={{ color: '#fff', boxShadow: 'inset 0 -2px #9123D7' }}
+                    >
+                        Store
+                    </NavLink>
+                    <NavLink
+                        to={'/tickets'}
+                        className={
+                            'h-full flex items-center px-4 text-sm no-underline text-neutral-300 hover:text-neutral-100 transition-colors duration-150'
+                        }
+                        activeStyle={{ color: '#fff', boxShadow: 'inset 0 -2px #9123D7' }}
+                    >
+                        Support
+                    </NavLink>
+                </div>
                 <RightNavigation className={'flex h-full items-center justify-center'}>
                     <SearchContainer />
                     <Tooltip placement={'bottom'} content={'Dashboard'}>

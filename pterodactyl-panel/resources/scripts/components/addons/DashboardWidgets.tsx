@@ -97,10 +97,10 @@ export default function DashboardWidgets() {
     ];
 
     const actions = [
-        { icon: faPlus, label: 'Create Server', to: '/account/store' },
-        { icon: faStore, label: 'View Store', to: '/account/store' },
-        { icon: faLifeRing, label: 'Open Ticket', to: '/account/tickets' },
-        { icon: faComments, label: 'Discord', to: '/account/discord' },
+        { icon: faPlus, label: 'Create Server', to: '/store' },
+        { icon: faStore, label: 'View Store', to: '/store' },
+        { icon: faLifeRing, label: 'Open Ticket', to: '/tickets' },
+        { icon: faComments, label: 'Discord', to: '/discord' },
     ];
 
     return (

@@ -37,17 +37,17 @@
 </div>
 <div class="row">
     <div class="col-xs-6 col-sm-3 text-center">
-        <a href="/account/discord"><button class="btn btn-warning" style="width:100%;"><i class="fa fa-fw fa-support"></i> Get Help <small>(via Discord)</small></button></a>
+        <a href="/discord"><button class="btn btn-warning" style="width:100%;"><i class="fa fa-fw fa-support"></i> Get Help <small>(via Discord)</small></button></a>
     </div>
     <div class="col-xs-6 col-sm-3 text-center">
-        <a href="/account/knowledge-base"><button class="btn btn-primary" style="width:100%;"><i class="fa fa-fw fa-link"></i> Documentation</button></a>
+        <a href="/knowledge-base"><button class="btn btn-primary" style="width:100%;"><i class="fa fa-fw fa-link"></i> Documentation</button></a>
     </div>
     <div class="clearfix visible-xs-block">&nbsp;</div>
     <div class="col-xs-6 col-sm-3 text-center">
         <a href="https://github.com/Yun0-vibe/StrenoxTheme" target="_blank"><button class="btn btn-primary" style="width:100%;"><i class="fa fa-fw fa-support"></i> GitHub</button></a>
     </div>
     <div class="col-xs-6 col-sm-3 text-center">
-        <a href="/account/store"><button class="btn btn-success" style="width:100%;"><i class="fa fa-fw fa-money"></i> Upgrade Plan</button></a>
+        <a href="/store"><button class="btn btn-success" style="width:100%;"><i class="fa fa-fw fa-money"></i> Upgrade Plan</button></a>
     </div>
 </div>
 @endsection
