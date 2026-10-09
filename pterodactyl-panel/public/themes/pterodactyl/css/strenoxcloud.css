@@ -492,6 +492,36 @@ a:hover, a:focus {
     animation: strenox-admin-in 0.35s ease;
 }
 
+/* Staggered rise for dashboard cards */
+.content .strenox-hero {
+    animation: strenox-admin-in 0.4s ease;
+}
+
+.content .row:nth-of-type(2) > div {
+    animation: strenox-admin-in 0.45s ease backwards;
+}
+
+.content .row:nth-of-type(2) > div:nth-child(2) {
+    animation-delay: 0.07s;
+}
+
+.content .row:nth-of-type(2) > div:nth-child(3) {
+    animation-delay: 0.14s;
+}
+
+.content .row:nth-of-type(2) > div:nth-child(4) {
+    animation-delay: 0.21s;
+}
+
+.content .row:nth-of-type(3) > div {
+    animation: strenox-admin-in 0.45s ease backwards;
+    animation-delay: 0.12s;
+}
+
+.content .row:nth-of-type(3) > div:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
 @keyframes strenox-admin-in {
     from {
         opacity: 0;
