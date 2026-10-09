@@ -20,7 +20,7 @@ import Spinner from '@/components/elements/Spinner';
 import ServerRow from '@/components/dashboard/ServerRow';
 import getServers from '@/api/getServers';
 import { Server } from '@/api/server/getServer';
-import { getStrenoxTickets, getStrenoxAnnouncements } from '@/api/strenox';
+import { getOverview } from '@/api/strenox';
 
 const Header = styled.div`
     ${tw`rounded-2xl px-6 py-5 mb-6 flex items-center gap-4 relative overflow-hidden`};
@@ -110,12 +110,11 @@ export default function HomePage() {
             })
             .catch(() => setServers([]));
 
-        getStrenoxTickets()
-            .then((tickets) => setOpenTickets(tickets.filter((t) => t.status === 'open').length))
-            .catch(() => undefined);
-
-        getStrenoxAnnouncements()
-            .then((news) => setNewsCount(news.length))
+        getOverview()
+            .then((overview) => {
+                setOpenTickets(overview.open_tickets);
+                setNewsCount(overview.announcements);
+            })
             .catch(() => undefined);
     }, []);
 

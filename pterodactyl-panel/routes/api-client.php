@@ -57,6 +57,7 @@ Route::prefix('/account')->middleware(AccountSubject::class)->group(function () 
         Route::patch('/discord', [Client\Strenox\DiscordController::class, 'update']);
         Route::delete('/discord', [Client\Strenox\DiscordController::class, 'unlink']);
         Route::get('/status', Client\Strenox\NodeStatusController::class);
+        Route::get('/overview', Client\Strenox\OverviewController::class);
     });
 
     Route::prefix('/ssh-keys')->group(function () {
