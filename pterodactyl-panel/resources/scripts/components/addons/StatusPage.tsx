@@ -77,7 +77,7 @@ export default function StatusPage() {
             >
                 <FontAwesomeIcon
                     icon={allUp ? faCheckCircle : faExclamationCircle}
-                    css={tw`text-2xl ${allUp ? 'text-green-400' : 'text-red-400'}`}
+                    css={[tw`text-2xl`, allUp ? tw`text-green-400` : tw`text-red-400`]}
                 />
                 <div>
                     <div css={tw`font-semibold text-neutral-100`}>

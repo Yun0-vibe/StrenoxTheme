@@ -8,8 +8,8 @@ import {
     faLink,
     faCheck,
     faCopy,
+    faComments,
 } from '@fortawesome/free-solid-svg-icons';
-import { faDiscord as faDiscordBrand } from '@fortawesome/free-brands-svg-icons';
 import ContentBox from '@/components/elements/ContentBox';
 
 const DiscordCard = styled.div`
@@ -94,7 +94,7 @@ export default function DiscordWidget() {
                             style={{ background: '#5865F2' }}
                         >
                             <FontAwesomeIcon
-                                icon={faDiscordBrand}
+                                icon={faComments}
                                 css={tw`text-white text-2xl`}
                             />
                         </div>
@@ -189,7 +189,7 @@ export default function DiscordWidget() {
 
                         <SyncRow>
                             <div css={tw`flex items-center gap-3`}>
-                                <FontAwesomeIcon icon={faDiscordBrand} css={tw`text-[#5865F2]`} />
+                                <FontAwesomeIcon icon={faComments} css={tw`text-[#5865F2]`} />
                                 <div css={tw`flex-1`}>
                                     <div css={tw`text-sm font-medium text-neutral-100`}>
                                         Discord Invite

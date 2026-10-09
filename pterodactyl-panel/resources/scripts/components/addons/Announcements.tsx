@@ -164,13 +164,11 @@ export default function Announcements() {
                             <div css={tw`flex items-center gap-3`}>
                                 <FontAwesomeIcon
                                     icon={priorityIcon[announcement.priority]}
-                                    css={tw`${
-                                        announcement.priority === 'critical'
-                                            ? 'text-red-400'
-                                            : announcement.priority === 'warning'
-                                              ? 'text-amber-400'
-                                              : 'text-[#9123D7]'
-                                    }`}
+                                    css={[
+                                        announcement.priority === 'critical' && tw`text-red-400`,
+                                        announcement.priority === 'warning' && tw`text-amber-400`,
+                                        announcement.priority === 'info' && tw`text-[#9123D7]`,
+                                    ]}
                                 />
                                 <h3 css={tw`text-lg font-semibold text-neutral-100`}>
                                     {announcement.title}
