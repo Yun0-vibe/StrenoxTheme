@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { Suspense, lazy, useCallback, useEffect, useState } from 'react';
 import getFileContents from '@/api/server/files/getFileContents';
 import { httpErrorToHuman } from '@/api/http';
 import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
@@ -19,7 +19,11 @@ import { ServerContext } from '@/state/server';
 import ErrorBoundary from '@/components/elements/ErrorBoundary';
 import { encodePathSegments, hashToPath } from '@/helpers';
 import { dirname } from 'pathe';
-import CodemirrorEditor from '@/components/elements/CodemirrorEditor';
+import Spinner from '@/components/elements/Spinner';
+
+// Lazy-load CodeMirror so its large addon bundle only downloads when the
+// file editor is opened.
+const CodemirrorEditor = lazy(() => import('@/components/elements/CodemirrorEditor'));
 
 const getNewFileDraftKey = (uuid: string, directory: string) => `pterodactyl:new-file:${uuid}:${directory}`;
 
@@ -148,23 +152,25 @@ export default () => {
             />
             <div css={tw`relative`}>
                 <SpinnerOverlay visible={loading} />
-                <CodemirrorEditor
-                    mode={mode}
-                    filename={hash.replace(/^#/, '')}
-                    onModeChanged={setMode}
-                    initialContent={content}
-                    fetchContent={(value) => {
-                        fetchFileContent = value;
-                    }}
-                    onContentSaved={() => {
-                        if (action !== 'edit') {
-                            setModalVisible(true);
-                        } else {
-                            save();
-                        }
-                    }}
-                    onContentChanged={action === 'new' ? saveDraft : undefined}
-                />
+                <Suspense fallback={<Spinner centered size={'large'} />}>
+                    <CodemirrorEditor
+                        mode={mode}
+                        filename={hash.replace(/^#/, '')}
+                        onModeChanged={setMode}
+                        initialContent={content}
+                        fetchContent={(value) => {
+                            fetchFileContent = value;
+                        }}
+                        onContentSaved={() => {
+                            if (action !== 'edit') {
+                                setModalVisible(true);
+                            } else {
+                                save();
+                            }
+                        }}
+                        onContentChanged={action === 'new' ? saveDraft : undefined}
+                    />
+                </Suspense>
             </div>
             <div css={tw`flex justify-end mt-4`}>
                 <div css={tw`flex-1 sm:flex-none rounded bg-neutral-900 mr-4`}>

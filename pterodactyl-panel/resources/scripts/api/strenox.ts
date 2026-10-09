@@ -42,6 +42,17 @@ export function getStrenoxAnnouncements(): Promise<StrenoxAnnouncement[]> {
         .then(({ data }) => unwrap<StrenoxAnnouncement[]>(data));
 }
 
+export interface StrenoxOverview {
+    open_tickets: number;
+    announcements: number;
+}
+
+export function getOverview(): Promise<StrenoxOverview> {
+    return http
+        .get('/api/client/account/strenox/overview')
+        .then(({ data }) => unwrap<StrenoxOverview>(data));
+}
+
 export function createStrenoxOrder(plan: string): Promise<{ id: number; plan: string }> {
     return http
         .post('/api/client/account/strenox/store/orders', { plan })
@@ -130,16 +141,4 @@ export function getNodeStatus(): Promise<StrenoxNodeStatus[]> {
     return http
         .get('/api/client/account/strenox/status')
         .then(({ data }) => unwrap<StrenoxNodeStatus[]>(data));
-}
-
-export interface StrenoxOverview {
-    // eslint-disable-next-line camelcase
-    open_tickets: number;
-    announcements: number;
-}
-
-export function getOverview(): Promise<StrenoxOverview> {
-    return http
-        .get('/api/client/account/strenox/overview')
-        .then(({ data }) => unwrap<StrenoxOverview>(data));
 }

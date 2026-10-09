@@ -3,21 +3,18 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{{ config('app.name', 'Pterodactyl') }} - @yield('title')</title>
+        <title>@yield('title', config('app.name', 'StrenoxCloud'))</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <meta name="_token" content="{{ csrf_token() }}">
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
-        <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
-        <link rel="manifest" href="/favicons/manifest.json">
-        <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#bc6e3c">
-        <link rel="shortcut icon" href="/favicons/favicon.ico">
+        <link rel="apple-touch-icon" href="/favicons/strenoxcloud-logo.png">
+        <link rel="icon" type="image/png" href="/favicons/strenoxcloud-logo.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicons/strenoxcloud-logo.png" sizes="16x16">
+        <link rel="mask-icon" href="/favicons/strenoxcloud-logo.png" color="#9123D7">
+        <link rel="shortcut icon" href="/favicons/strenoxcloud-logo.png">
         <meta name="msapplication-config" content="/favicons/browserconfig.xml">
         <meta name="theme-color" content="#9123D7">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+        <meta name="color-scheme" content="dark">
 
         @include('layouts.scripts')
 
@@ -30,13 +27,12 @@
             {!! Theme::css('vendor/animate/animate.min.css?t={cache-version}') !!}
             {!! Theme::css('css/pterodactyl.css?t={cache-version}') !!}
             {!! Theme::css('css/strenoxcloud.css?t=v' . filemtime(public_path('themes/pterodactyl/css/strenoxcloud.css'))) !!}
+
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-
-            <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-            <![endif]-->
         @show
     </head>
     <body class="hold-transition skin-blue fixed sidebar-mini strenox-admin">
@@ -114,10 +110,10 @@
                             <span class="sx-ico"><i class="fa fa-sitemap"></i></span><span class="sx-txt">Nodes</span>
                         </a>
                         <a href="{{ route('admin.servers') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.servers')) }}">
-                            <span class="sx-ico"><i class="fa fa-server"></i></span><span class="sx-txt">Servers</span>
+                            <span class="sx-ico"><i class="fa fa-server"></i></span><span class="sx-txt">Servers{{ $serverCount ? ' · ' . $serverCount : '' }}</span>
                         </a>
                         <a href="{{ route('admin.users') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.users')) }}">
-                            <span class="sx-ico"><i class="fa fa-users"></i></span><span class="sx-txt">Users</span>
+                            <span class="sx-ico"><i class="fa fa-users"></i></span><span class="sx-txt">Users{{ $userCount ? ' · ' . $userCount : '' }}</span>
                         </a>
                     </nav>
                     <div class="sx-nav-label">Services</div>
@@ -213,7 +209,6 @@
                                 }
                         });
                     });
-                });
                 </script>
             @endif
 

@@ -101,6 +101,7 @@ export default function HomePage() {
     const [total, setTotal] = useState(0);
     const [openTickets, setOpenTickets] = useState(0);
     const [newsCount, setNewsCount] = useState(0);
+    const [newsLoading, setNewsLoading] = useState(false);
 
     useEffect(() => {
         getServers({ page: 1 })
@@ -110,18 +111,26 @@ export default function HomePage() {
             })
             .catch(() => setServers([]));
 
+        // Single combined request instead of two parallel round trips.
+        setNewsLoading(true);
         getOverview()
             .then((overview) => {
                 setOpenTickets(overview.open_tickets);
                 setNewsCount(overview.announcements);
             })
-            .catch(() => undefined);
+            .catch(() => undefined)
+            .finally(() => setNewsLoading(false));
     }, []);
 
     const stats = [
         { icon: faServer, label: 'Servers', value: servers === null ? '…' : String(total), to: '/servers' },
         { icon: faLifeRing, label: 'Open Tickets', value: String(openTickets), to: '/tickets' },
-        { icon: faBullhorn, label: 'Announcements', value: String(newsCount), to: '/announcements' },
+        {
+            icon: faBullhorn,
+            label: 'Announcements',
+            value: newsLoading ? '…' : String(newsCount),
+            to: '/announcements',
+        },
     ];
 
     const actions = [
