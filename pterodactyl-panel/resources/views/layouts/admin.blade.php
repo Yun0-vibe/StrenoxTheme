@@ -70,9 +70,10 @@
                         </a>
                         @php
                             $ticketCount = $sxSidebar['openTickets'] ?? 0;
+                            $ticketBadge = $ticketCount > 0 ? '<span class="sx-badge">' . $ticketCount . '</span>' : '';
                         @endphp
                         <a href="/tickets" class="{{ $sxActive(false) }}">
-                            <span class="sx-ico"><i class="fa fa-life-ring"></i></span><span class="sx-txt">Tickets@if($ticketCount > 0)<span class="sx-badge">{{ $ticketCount }}</span>@endif</span>
+                            <span class="sx-ico"><i class="fa fa-life-ring"></i></span><span class="sx-txt">Tickets{!! $ticketBadge !!}</span>
                         </a>
                     </nav>
                     <div class="sx-nav-label">Fleet</div>
