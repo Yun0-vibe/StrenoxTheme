@@ -11,6 +11,9 @@ import {
     faBullhorn,
     faHeartbeat,
     faUser,
+    faKey,
+    faTerminal,
+    faClock,
     faCogs,
     faSignOutAlt,
     faLayerGroup,
@@ -108,7 +111,10 @@ export default () => {
                 <SideLink to={'/announcements'} icon={faBullhorn} label={'News'} />
                 <SideLink to={'/status'} icon={faHeartbeat} label={'Status'} />
                 <SectionLabel>Account</SectionLabel>
-                <SideLink to={'/account'} icon={faUser} label={'My Account'} />
+                <SideLink to={'/account'} exact icon={faUser} label={'My Account'} />
+                <SideLink to={'/account/api'} icon={faKey} label={'API Keys'} />
+                <SideLink to={'/account/ssh'} icon={faTerminal} label={'SSH Keys'} />
+                <SideLink to={'/account/activity'} icon={faClock} label={'Activity'} />
                 {rootAdmin && (
                     <a href={'/admin'} rel={'noreferrer'} className={LINK_CLASS}>
                         <FontAwesomeIcon icon={faCogs} style={{ width: '1.1rem' }} />
