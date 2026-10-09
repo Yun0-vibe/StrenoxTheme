@@ -705,6 +705,8 @@ a:hover, a:focus {
 /* Guarantee backdrop always sits below the dialog so clicks reach buttons */
 .modal-backdrop {
     z-index: 1040 !important;
+    opacity: 0 !important;
+    background: none !important;
 }
 
 .modal {
@@ -713,6 +715,10 @@ a:hover, a:focus {
 
 .modal-dialog {
     pointer-events: auto !important;
+}
+
+.modal-body {
+    background: #1A1A25 !important;
 }
 
 /* Box lift */
