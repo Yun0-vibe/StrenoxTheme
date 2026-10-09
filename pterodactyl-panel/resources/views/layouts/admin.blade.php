@@ -39,7 +39,7 @@
             <![endif]-->
         @show
     </head>
-    <body class="hold-transition skin-blue fixed sidebar-mini">
+    <body class="hold-transition skin-blue fixed sidebar-mini strenox-admin">
         <div class="wrapper">
             <header class="main-header strenox-header">
                 <a href="{{ route('index') }}" class="logo" style="display:flex;align-items:center;gap:8px;justify-content:center;">

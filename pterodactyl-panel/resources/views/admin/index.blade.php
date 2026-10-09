@@ -92,4 +92,55 @@
         <a href="https://github.com/Yun0-vibe/StrenoxTheme" target="_blank"><button class="btn btn-primary" style="width:100%;"><i class="fa fa-fw fa-support"></i> GitHub</button></a>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Latest Servers</h3>
+                <div class="box-tools pull-right">
+                    <a href="{{ route('admin.servers') }}" class="btn btn-xs btn-primary">View All</a>
+                </div>
+            </div>
+            <div class="box-body no-padding">
+                <table class="table">
+                    <tbody>
+                        @forelse ($latestServers as $server)
+                            <tr>
+                                <td><a href="{{ route('admin.servers.view', $server->id) }}">{{ $server->name }}</a></td>
+                                <td class="text-right text-muted">{{ $server->created_at->diffForHumans() }}</td>
+                            </tr>
+                        @empty
+                            <tr><td class="text-center text-muted">No servers yet.</td></tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Latest Users</h3>
+                <div class="box-tools pull-right">
+                    <a href="{{ route('admin.users') }}" class="btn btn-xs btn-primary">View All</a>
+                </div>
+            </div>
+            <div class="box-body no-padding">
+                <table class="table">
+                    <tbody>
+                        @forelse ($latestUsers as $user)
+                            <tr>
+                                <td><a href="{{ route('admin.users.view', $user->id) }}">{{ $user->username }}</a></td>
+                                <td class="text-muted">{{ $user->email }}</td>
+                                <td class="text-right text-muted">{{ $user->created_at->diffForHumans() }}</td>
+                            </tr>
+                        @empty
+                            <tr><td class="text-center text-muted">No users yet.</td></tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

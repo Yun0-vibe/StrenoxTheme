@@ -30,6 +30,8 @@ class BaseController extends Controller
             'serverCount' => Server::count(),
             'nodeCount' => Node::count(),
             'locationCount' => Location::count(),
+            'latestUsers' => User::query()->orderByDesc('created_at')->limit(5)->get(['id', 'username', 'email', 'created_at']),
+            'latestServers' => Server::query()->orderByDesc('created_at')->limit(5)->get(['id', 'name', 'created_at']),
         ]);
     }
 }
