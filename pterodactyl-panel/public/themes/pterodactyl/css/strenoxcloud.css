@@ -815,6 +815,204 @@ a:hover, a:focus {
     padding-bottom: 12px !important;
 }
 
+/* ==================== STRENOXCLOUD CUSTOM ADMIN SHELL ==================== */
+/* New sidebar / topbar markup. Inner page content untouched. */
+
+.sx-sidebar section.sidebar {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 12px 12px !important;
+    overflow-y: auto;
+}
+
+.sx-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 8px 14px;
+    text-decoration: none !important;
+}
+
+.sx-brand img {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 10px rgba(145, 35, 215, 0.6));
+}
+
+.sx-brand strong {
+    display: block;
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    line-height: 1.2;
+}
+
+.sx-brand small {
+    color: #8888A8;
+    font-size: 11px;
+}
+
+.sx-nav-label {
+    color: #8888A8;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 12px 10px 6px;
+}
+
+.sx-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.sx-nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 10px;
+    border-radius: 12px;
+    color: #8888A8 !important;
+    font-weight: 500;
+    font-size: 13.5px;
+    text-decoration: none !important;
+    transition: all 0.18s ease;
+    border: 1px solid transparent;
+}
+
+.sx-nav a:hover {
+    color: #fff !important;
+    background: rgba(145, 35, 215, 0.1);
+    transform: translateX(3px);
+}
+
+.sx-nav a.sx-active {
+    color: #fff !important;
+    background: linear-gradient(90deg, rgba(145, 35, 215, 0.28) 0%, rgba(145, 35, 215, 0.07) 100%);
+    border-color: rgba(145, 35, 215, 0.25);
+    box-shadow: inset 3px 0 0 #9123D7, 0 0 18px rgba(145, 35, 215, 0.15);
+}
+
+.sx-ico {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    color: #A855F7;
+    font-size: 14px;
+}
+
+.sx-active .sx-ico {
+    background: linear-gradient(135deg, #9123D7, #7C3AED);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(145, 35, 215, 0.45);
+}
+
+.sx-profile {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    text-decoration: none !important;
+    transition: all 0.18s ease;
+}
+
+.sx-profile:hover {
+    border-color: rgba(145, 35, 215, 0.5);
+    box-shadow: 0 0 18px rgba(145, 35, 215, 0.2);
+}
+
+.sx-profile img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 2px solid rgba(145, 35, 215, 0.6);
+}
+
+.sx-profile strong {
+    display: block;
+    color: #E2E2F0;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+}
+
+.sx-profile small {
+    color: #8888A8;
+    font-size: 11px;
+}
+
+.sx-profile small .fa {
+    color: #22C55E;
+    font-size: 8px;
+    margin-right: 4px;
+}
+
+/* Top command bar */
+.sx-topbar .navbar {
+    display: flex;
+    align-items: center;
+}
+
+.sx-top-title {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #E2E2F0;
+    margin-left: 6px;
+    white-space: nowrap;
+}
+
+.sx-top-title em {
+    font-style: normal;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #A855F7;
+    margin-left: 8px;
+}
+
+/* Collapsed icon rail */
+@media (min-width: 768px) {
+    .strenox-admin.sidebar-collapse .sx-brand span,
+    .strenox-admin.sidebar-collapse .sx-nav-label,
+    .strenox-admin.sidebar-collapse .sx-nav .sx-txt,
+    .strenox-admin.sidebar-collapse .sx-profile .sx-txt {
+        display: none;
+    }
+
+    .strenox-admin.sidebar-collapse .sx-brand {
+        justify-content: center;
+        padding: 4px 0 14px;
+    }
+
+    .strenox-admin.sidebar-collapse .sx-nav a {
+        justify-content: center;
+        padding: 9px 0;
+    }
+
+    .strenox-admin.sidebar-collapse .sx-profile {
+        justify-content: center;
+        padding: 10px 0;
+    }
+}
+
 /* Overview hero */
 .strenox-hero {
     display: flex;

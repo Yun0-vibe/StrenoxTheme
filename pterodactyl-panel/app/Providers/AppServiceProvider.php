@@ -36,6 +36,14 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         }
 
+        // StrenoxCloud: always generate links from APP_URL, never from proxy
+        // headers. Without this, port-forwarded environments (Codespaces,
+        // tunnels) leak the internal host (e.g. localhost:8000) into every
+        // generated link in the admin area.
+        if (!empty(config('app.url'))) {
+            URL::forceRootUrl(config('app.url'));
+        }
+
         Relation::enforceMorphMap([
             'allocation' => Models\Allocation::class,
             'api_key' => Models\ApiKey::class,

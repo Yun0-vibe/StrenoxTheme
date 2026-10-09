@@ -41,16 +41,13 @@
     </head>
     <body class="hold-transition skin-blue fixed sidebar-mini strenox-admin">
         <div class="wrapper">
-            <header class="main-header strenox-header">
-                <a href="{{ route('index') }}" class="logo" style="display:flex;align-items:center;gap:8px;justify-content:center;">
-                    <img src="/favicons/strenoxcloud-logo.png" alt="StrenoxCloud" style="width:28px;height:28px;filter:drop-shadow(0 0 8px rgba(145,35,215,0.6));">
-                    <span>{{ config('app.name', 'StrenoxCloud') }}</span>
-                </a>
+            <header class="main-header strenox-header sx-topbar">
                 <nav class="navbar navbar-static-top">
                     <a href="#" class="sidebar-toggle strenox-toggle" data-toggle="push-menu" role="button">
                         <span class="sr-only">Toggle navigation</span>
-                        <i class="fa fa-lg fa-bars"></i>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="2" y1="5" x2="18" y2="5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="15" x2="18" y2="15"/></svg>
                     </a>
+                    <span class="sx-top-title">StrenoxCloud <em>Control Center</em></span>
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <li>
@@ -84,72 +81,61 @@
                     </div>
                 </nav>
             </header>
-            <aside class="main-sidebar">
+            <aside class="main-sidebar sx-sidebar">
                 <section class="sidebar">
-                    <div class="user-panel strenox-user-panel">
-                        <div class="pull-left image">
-                            <img src="https://www.gravatar.com/avatar/{{ md5(strtolower(Auth::user()->email)) }}?s=160" class="img-circle" alt="User Image">
-                        </div>
-                        <div class="pull-left info">
-                            <p>{{ Auth::user()->name_first }} {{ Auth::user()->name_last }}</p>
-                            <span><i class="fa fa-circle strenox-online-dot"></i> Administrator</span>
-                        </div>
-                    </div>
-                    <ul class="sidebar-menu" data-widget="tree">
-                        <li class="header">CONTROL CENTER</li>
-                        <li class="{{ Route::currentRouteName() !== 'admin.index' ?: 'active' }}">
-                            <a href="{{ route('admin.index') }}">
-                                <i class="fa fa-home"></i> <span>Overview</span>
-                            </a>
-                        </li>
-                        <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.settings') ?: 'active' }}">
-                            <a href="{{ route('admin.settings')}}">
-                                <i class="fa fa-wrench"></i> <span>Settings</span>
-                            </a>
-                        </li>
-                        <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.api') ?: 'active' }}">
-                            <a href="{{ route('admin.api.index')}}">
-                                <i class="fa fa-gamepad"></i> <span>Application API</span>
-                            </a>
-                        </li>
-                        <li class="header">FLEET</li>
-                        <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.databases') ?: 'active' }}">
-                            <a href="{{ route('admin.databases') }}">
-                                <i class="fa fa-database"></i> <span>Databases</span>
-                            </a>
-                        </li>
-                        <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.locations') ?: 'active' }}">
-                            <a href="{{ route('admin.locations') }}">
-                                <i class="fa fa-globe"></i> <span>Locations</span>
-                            </a>
-                        </li>
-                        <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.nodes') ?: 'active' }}">
-                            <a href="{{ route('admin.nodes') }}">
-                                <i class="fa fa-sitemap"></i> <span>Nodes</span>
-                            </a>
-                        </li>
-                        <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.servers') ?: 'active' }}">
-                            <a href="{{ route('admin.servers') }}">
-                                <i class="fa fa-server"></i> <span>Servers</span>
-                            </a>
-                        </li>
-                        <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.users') ?: 'active' }}">
-                            <a href="{{ route('admin.users') }}">
-                                <i class="fa fa-users"></i> <span>Users</span>
-                            </a>
-                        </li>
-                        <li class="header">SERVICES</li>
-                        <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.mounts') ?: 'active' }}">
-                            <a href="{{ route('admin.mounts') }}">
-                                <i class="fa fa-magic"></i> <span>Mounts</span>
-                            </a>
-                        </li>
-                        <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.nests') ?: 'active' }}">
-                            <a href="{{ route('admin.nests') }}">
-                                <i class="fa fa-th-large"></i> <span>Nests</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <a href="{{ route('admin.index') }}" class="sx-brand">
+                        <img src="/favicons/strenoxcloud-logo.png" alt="StrenoxCloud">
+                        <span><strong>StrenoxCloud</strong><small>Control Center</small></span>
+                    </a>
+                    @php
+                        $sxActive = fn ($cond) => $cond ? 'sx-active' : '';
+                    @endphp
+                    <div class="sx-nav-label">Control Center</div>
+                    <nav class="sx-nav">
+                        <a href="{{ route('admin.index') }}" class="{{ $sxActive(Route::currentRouteName() === 'admin.index') }}">
+                            <span class="sx-ico"><i class="fa fa-home"></i></span><span class="sx-txt">Overview</span>
+                        </a>
+                        <a href="{{ route('admin.settings') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.settings')) }}">
+                            <span class="sx-ico"><i class="fa fa-wrench"></i></span><span class="sx-txt">Settings</span>
+                        </a>
+                        <a href="{{ route('admin.api.index') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.api')) }}">
+                            <span class="sx-ico"><i class="fa fa-gamepad"></i></span><span class="sx-txt">Application API</span>
+                        </a>
+                    </nav>
+                    <div class="sx-nav-label">Fleet</div>
+                    <nav class="sx-nav">
+                        <a href="{{ route('admin.databases') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.databases')) }}">
+                            <span class="sx-ico"><i class="fa fa-database"></i></span><span class="sx-txt">Databases</span>
+                        </a>
+                        <a href="{{ route('admin.locations') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.locations')) }}">
+                            <span class="sx-ico"><i class="fa fa-globe"></i></span><span class="sx-txt">Locations</span>
+                        </a>
+                        <a href="{{ route('admin.nodes') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.nodes')) }}">
+                            <span class="sx-ico"><i class="fa fa-sitemap"></i></span><span class="sx-txt">Nodes</span>
+                        </a>
+                        <a href="{{ route('admin.servers') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.servers')) }}">
+                            <span class="sx-ico"><i class="fa fa-server"></i></span><span class="sx-txt">Servers</span>
+                        </a>
+                        <a href="{{ route('admin.users') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.users')) }}">
+                            <span class="sx-ico"><i class="fa fa-users"></i></span><span class="sx-txt">Users</span>
+                        </a>
+                    </nav>
+                    <div class="sx-nav-label">Services</div>
+                    <nav class="sx-nav">
+                        <a href="{{ route('admin.mounts') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.mounts')) }}">
+                            <span class="sx-ico"><i class="fa fa-magic"></i></span><span class="sx-txt">Mounts</span>
+                        </a>
+                        <a href="{{ route('admin.nests') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.nests')) }}">
+                            <span class="sx-ico"><i class="fa fa-th-large"></i></span><span class="sx-txt">Nests</span>
+                        </a>
+                    </nav>
+                    <a href="{{ route('account') }}" class="sx-profile">
+                        <img src="https://www.gravatar.com/avatar/{{ md5(strtolower(Auth::user()->email)) }}?s=160" alt="User">
+                        <span class="sx-txt">
+                            <strong>{{ Auth::user()->name_first }} {{ Auth::user()->name_last }}</strong>
+                            <small><i class="fa fa-circle"></i> Administrator</small>
+                        </span>
+                    </a>
                 </section>
             </aside>
             <div class="content-wrapper">
