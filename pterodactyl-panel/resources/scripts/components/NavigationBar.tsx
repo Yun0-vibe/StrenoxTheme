@@ -60,11 +60,21 @@ export default () => {
                     <Link
                         to={'/'}
                         className={
-                            'text-2xl font-header font-medium px-4 no-underline transition-colors duration-150'
+                            'flex items-center gap-2 px-4 no-underline transition-colors duration-150'
                         }
-                        style={{ color: '#9123D7' }}
                     >
-                        {name}
+                        <img
+                            src={'/favicons/strenoxcloud-logo.png'}
+                            alt={'StrenoxCloud'}
+                            className={'w-8 h-8'}
+                            style={{ filter: 'drop-shadow(0 0 10px rgba(145,35,215,0.6))' }}
+                        />
+                        <span
+                            className={'text-2xl font-header font-medium'}
+                            style={{ color: '#9123D7' }}
+                        >
+                            {name}
+                        </span>
                     </Link>
                 </div>
                 <RightNavigation className={'flex h-full items-center justify-center'}>
