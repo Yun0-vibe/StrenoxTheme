@@ -143,19 +143,6 @@ export function unlinkDiscord(): Promise<void> {
     return http.delete('/api/client/account/strenox/discord').then(() => undefined);
 }
 
-export interface StrenoxNodeStatus {
-    name: string;
-    location: string;
-    maintenance: boolean;
-    status: 'operational' | 'maintenance';
-}
-
-export function getNodeStatus(): Promise<StrenoxNodeStatus[]> {
-    return http
-        .get('/api/client/account/strenox/status')
-        .then(({ data }) => unwrap<StrenoxNodeStatus[]>(data));
-}
-
 export function getAvatarUrl(): Promise<string | null> {
     return http
         .get('/api/client/account/strenox/avatar')

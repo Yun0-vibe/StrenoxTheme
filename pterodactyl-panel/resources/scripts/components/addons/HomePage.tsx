@@ -9,7 +9,6 @@ import {
     faLifeRing,
     faBullhorn,
     faBook,
-    faHeartbeat,
     faArrowRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { useStoreState } from 'easy-peasy';
@@ -55,7 +54,7 @@ const StatIcon = styled.div`
 `;
 
 const ActionDock = styled.div`
-    ${tw`grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6`};
+    ${tw`grid grid-cols-2 lg:grid-cols-3 gap-3 mb-6`};
 `;
 
 const ActionTile = styled(Link)`
@@ -141,7 +140,6 @@ export default function HomePage() {
         { icon: faServer, label: 'Servers', to: '/servers' },
         { icon: faLifeRing, label: 'Tickets', to: '/tickets' },
         { icon: faBook, label: 'Guides', to: '/knowledge-base' },
-        { icon: faHeartbeat, label: 'Status', to: '/status' },
     ];
 
     const today = new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
@@ -157,7 +155,7 @@ export default function HomePage() {
                         style={{ filter: 'drop-shadow(0 0 16px rgba(145,35,215,0.6))' }}
                     />
                     <div css={tw`flex-1 min-w-0`}>
-                        <div css={tw`text-2xl font-bold text-neutral-100 font-header leading-snug`}>Command Center</div>
+                        <div css={tw`text-2xl font-bold text-neutral-100 font-header leading-snug`}>Home</div>
                         <div css={tw`text-sm text-neutral-400`}>
                             {today} · Signed in as {username}
                         </div>

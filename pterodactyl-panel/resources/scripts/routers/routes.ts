@@ -16,7 +16,6 @@ import ServerActivityLogContainer from '@/components/server/ServerActivityLogCon
 import KnowledgeBase from '@/components/addons/KnowledgeBase';
 import Announcements from '@/components/addons/Announcements';
 import SupportTickets from '@/components/addons/SupportTickets';
-import StatusPage from '@/components/addons/StatusPage';
 
 // Each of the router files is already code split out appropriately — so
 // all of the items above will only be loaded in when that router is loaded.
@@ -87,11 +86,6 @@ export default {
             path: '/announcements',
             name: 'News',
             component: Announcements,
-        },
-        {
-            path: '/status',
-            name: 'Status',
-            component: StatusPage,
         },
     ],
     server: [

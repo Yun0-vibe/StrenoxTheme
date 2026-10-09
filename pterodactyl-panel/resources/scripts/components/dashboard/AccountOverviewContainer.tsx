@@ -25,7 +25,8 @@ import { useStoreState } from 'easy-peasy';
 import { ApplicationStore } from '@/state';
 import Avatar from '@/components/Avatar';
 import DiscordWidget from '@/components/addons/DiscordWidget';
-import { getAvatarUrl, uploadAvatar, deleteAvatar } from '@/api/strenox';
+import { getAvatarUrl, uploadAvatar, deleteAvatar, getStrenoxTickets } from '@/api/strenox';
+import getServers from '@/api/getServers';
 
 const Container = styled.div`
     ${tw`flex flex-wrap`};
@@ -43,12 +44,26 @@ const Container = styled.div`
     }
 `;
 
-const ProfileHero = styled.div`
-    ${tw`rounded-2xl p-6 mb-8 flex flex-col sm:flex-row items-center gap-5 relative overflow-hidden border border-white/10`};
+const ProfileBanner = styled.div`
+    ${tw`relative overflow-hidden rounded-2xl border border-white/10 mb-[-2.5rem]`};
+    height: 9rem;
     background:
-        radial-gradient(ellipse 60% 120% at 90% 0%, rgba(145, 35, 215, 0.3), transparent),
-        linear-gradient(135deg, rgba(30, 21, 53, 0.9) 0%, rgba(13, 13, 18, 0.95) 100%);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+        radial-gradient(ellipse 60% 120% at 85% 0%, rgba(145, 35, 215, 0.45), transparent),
+        radial-gradient(ellipse 50% 100% at 10% 100%, rgba(59, 130, 246, 0.2), transparent),
+        linear-gradient(135deg, #1e1535 0%, #0d0d12 100%);
+`;
+
+const ProfileCard = styled.div`
+    ${tw`rounded-2xl p-6 pt-0 mb-8 border border-white/10 relative`};
+    background: linear-gradient(135deg, rgba(30, 21, 53, 0.85) 0%, rgba(22, 22, 31, 0.94) 100%);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 0 26px rgba(145, 35, 215, 0.12);
+`;
+
+const StatChip = styled.div`
+    ${tw`flex flex-col items-center px-5 py-2 rounded-xl`};
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    min-width: 5.5rem;
 `;
 
 const Badge = styled.span<{ $tone: 'purple' | 'green' | 'neutral' }>`
@@ -93,11 +108,19 @@ export default () => {
     const user = useStoreState((state: ApplicationStore) => state.user.data!);
     const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
     const [uploading, setUploading] = useState(false);
+    const [myServers, setMyServers] = useState(0);
+    const [myTickets, setMyTickets] = useState(0);
     const fileRef = React.useRef<HTMLInputElement>(null);
 
     React.useEffect(() => {
         getAvatarUrl()
             .then(setAvatarUrl)
+            .catch(() => undefined);
+        getServers({ page: 1 })
+            .then((res) => setMyServers(res.pagination.total))
+            .catch(() => undefined);
+        getStrenoxTickets()
+            .then((tickets) => setMyTickets(tickets.length))
             .catch(() => undefined);
     }, []);
 
@@ -137,67 +160,86 @@ export default () => {
                 </MessageBox>
             )}
 
-            <ProfileHero css={tw`mt-10`}>
-                <div css={tw`flex-shrink-0 flex flex-col items-center gap-2`}>
-                    <div
-                        css={tw`w-20 h-20 rounded-full overflow-hidden`}
-                        style={{ border: '3px solid rgba(145,35,215,0.6)', boxShadow: '0 0 24px rgba(145,35,215,0.4)' }}
-                    >
-                        {avatarUrl ? (
-                            <img src={avatarUrl} alt={'Profile'} css={tw`w-full h-full object-cover`} />
-                        ) : (
-                            <Avatar.User size={80} />
-                        )}
-                    </div>
-                    <input
-                        ref={fileRef}
-                        type={'file'}
-                        accept={'image/jpeg,image/png,image/webp,image/gif'}
-                        css={tw`hidden`}
-                        onChange={onFilePicked}
-                    />
-                    <div css={tw`flex gap-2`}>
-                        <button
-                            onClick={() => fileRef.current?.click()}
-                            disabled={uploading}
-                            css={tw`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium transition-all duration-150`}
-                            style={{ background: '#9123D720', color: '#A855F7', border: '1px solid #9123D7' }}
+            <ProfileBanner css={tw`mt-10`}>
+                <img
+                    src={'/favicons/strenoxcloud-logo.png'}
+                    alt={''}
+                    css={tw`absolute -right-6 -bottom-10 w-48 h-48 opacity-20 pointer-events-none`}
+                />
+            </ProfileBanner>
+            <ProfileCard>
+                <div css={tw`flex flex-col sm:flex-row sm:items-end gap-4`}>
+                    <div css={tw`flex-shrink-0 -mt-10 flex flex-col items-center gap-2`}>
+                        <div
+                            css={tw`w-24 h-24 rounded-3xl overflow-hidden`}
+                            style={{ border: '3px solid rgba(145,35,215,0.6)', boxShadow: '0 0 28px rgba(145,35,215,0.45)', background: '#16161F' }}
                         >
-                            <FontAwesomeIcon icon={faCamera} />
-                            {uploading ? '…' : avatarUrl ? 'Change' : 'Upload'}
-                        </button>
-                        {avatarUrl && (
+                            {avatarUrl ? (
+                                <img src={avatarUrl} alt={'Profile'} css={tw`w-full h-full object-cover`} />
+                            ) : (
+                                <Avatar.User size={96} />
+                            )}
+                        </div>
+                        <input
+                            ref={fileRef}
+                            type={'file'}
+                            accept={'image/jpeg,image/png,image/webp,image/gif'}
+                            css={tw`hidden`}
+                            onChange={onFilePicked}
+                        />
+                        <div css={tw`flex gap-2`}>
                             <button
-                                onClick={removeAvatar}
+                                onClick={() => fileRef.current?.click()}
                                 disabled={uploading}
                                 css={tw`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium transition-all duration-150`}
-                                style={{ background: '#EF444420', color: '#EF4444', border: '1px solid #EF4444' }}
+                                style={{ background: '#9123D720', color: '#A855F7', border: '1px solid #9123D7' }}
                             >
-                                <FontAwesomeIcon icon={faTrash} />
+                                <FontAwesomeIcon icon={faCamera} />
+                                {uploading ? '…' : avatarUrl ? 'Change' : 'Upload'}
                             </button>
-                        )}
+                            {avatarUrl && (
+                                <button
+                                    onClick={removeAvatar}
+                                    disabled={uploading}
+                                    css={tw`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium transition-all duration-150`}
+                                    style={{ background: '#EF444420', color: '#EF4444', border: '1px solid #EF4444' }}
+                                >
+                                    <FontAwesomeIcon icon={faTrash} />
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                    <div css={tw`flex-1 text-center sm:text-left min-w-0 pt-1`}>
+                        <div css={tw`text-2xl font-bold text-neutral-100 flex items-center justify-center sm:justify-start gap-2`}>
+                            <FontAwesomeIcon icon={faUser} css={tw`text-[#A855F7] text-lg`} />
+                            {user.username}
+                        </div>
+                        <div css={tw`text-sm text-neutral-400 mt-1 truncate`}>{user.email}</div>
+                        <div css={tw`flex gap-2 mt-3 justify-center sm:justify-start flex-wrap`}>
+                            <Badge $tone={user.rootAdmin ? 'purple' : 'neutral'}>
+                                {user.rootAdmin ? 'Administrator' : 'Member'}
+                            </Badge>
+                            <Badge $tone={user.useTotp ? 'green' : 'neutral'}>
+                                <FontAwesomeIcon icon={faShieldAlt} css={tw`mr-1`} />
+                                2FA {user.useTotp ? 'On' : 'Off'}
+                            </Badge>
+                            <Badge $tone={'neutral'}>
+                                Joined {new Date(user.createdAt).toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}
+                            </Badge>
+                        </div>
+                    </div>
+                    <div css={tw`flex sm:flex-col gap-2 justify-center`}>
+                        <StatChip>
+                            <span css={tw`text-xl font-bold text-neutral-100`}>{myServers}</span>
+                            <span css={tw`text-[0.65rem] uppercase tracking-wider text-neutral-400`}>Servers</span>
+                        </StatChip>
+                        <StatChip>
+                            <span css={tw`text-xl font-bold text-neutral-100`}>{myTickets}</span>
+                            <span css={tw`text-[0.65rem] uppercase tracking-wider text-neutral-400`}>Tickets</span>
+                        </StatChip>
                     </div>
                 </div>
-                <div css={tw`flex-1 text-center sm:text-left min-w-0`}>
-                    <div css={tw`text-2xl font-bold text-neutral-100 flex items-center justify-center sm:justify-start gap-2`}>
-                        <FontAwesomeIcon icon={faUser} css={tw`text-[#A855F7] text-lg`} />
-                        {user.username}
-                    </div>
-                    <div css={tw`text-sm text-neutral-400 mt-1 truncate`}>{user.email}</div>
-                    <div css={tw`flex gap-2 mt-3 justify-center sm:justify-start flex-wrap`}>
-                        <Badge $tone={user.rootAdmin ? 'purple' : 'neutral'}>
-                            {user.rootAdmin ? 'Administrator' : 'Member'}
-                        </Badge>
-                        <Badge $tone={user.useTotp ? 'green' : 'neutral'}>
-                            <FontAwesomeIcon icon={faShieldAlt} css={tw`mr-1`} />
-                            2FA {user.useTotp ? 'On' : 'Off'}
-                        </Badge>
-                        <Badge $tone={'neutral'}>
-                            Joined {new Date(user.createdAt).toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}
-                        </Badge>
-                    </div>
-                </div>
-            </ProfileHero>
+            </ProfileCard>
 
             <div css={tw`grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10`}>
                 {tiles.map((t) => (

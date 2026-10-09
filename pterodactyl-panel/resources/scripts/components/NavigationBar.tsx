@@ -116,7 +116,7 @@ export default () => {
             </div>
             <div className={'flex-1 overflow-y-auto pb-4'} onClick={() => setMobileOpen(false)}>
                 <SectionLabel>Overview</SectionLabel>
-                <SideLink to={'/'} exact icon={faHome} label={'Command Center'} />
+                <SideLink to={'/'} exact icon={faHome} label={'Home'} />
                 <SideLink to={'/servers'} exact icon={faServer} label={'Servers'} />
                 <SectionLabel>Cloud</SectionLabel>
                 <SideLink to={'/tickets'} icon={faLifeRing} label={'Support'} />

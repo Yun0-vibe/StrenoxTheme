@@ -62,7 +62,6 @@ Route::prefix('/account')->middleware(AccountSubject::class)->group(function () 
         Route::get('/avatar/file', [Client\Strenox\AvatarController::class, 'file']);
         Route::post('/avatar', [Client\Strenox\AvatarController::class, 'store']);
         Route::delete('/avatar', [Client\Strenox\AvatarController::class, 'destroy']);
-        Route::get('/status', Client\Strenox\NodeStatusController::class);
     });
 
     Route::prefix('/ssh-keys')->group(function () {
