@@ -32,6 +32,7 @@ class BaseController extends Controller
             'locationCount' => Location::count(),
             'latestUsers' => User::query()->orderByDesc('created_at')->limit(5)->get(['id', 'username', 'email', 'created_at']),
             'latestServers' => Server::query()->orderByDesc('created_at')->limit(5)->get(['id', 'name', 'created_at']),
+            'fleetNodes' => Node::query()->orderBy('name')->get(['id', 'name', 'fqdn', 'maintenance_mode']),
         ]);
     }
 }

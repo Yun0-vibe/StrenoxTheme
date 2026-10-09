@@ -815,6 +815,104 @@ a:hover, a:focus {
     padding-bottom: 12px !important;
 }
 
+/* Overview hero */
+.strenox-hero {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 22px 24px;
+    margin-bottom: 20px;
+    border-radius: 18px;
+    border: 1px solid rgba(145, 35, 215, 0.35);
+    background:
+        radial-gradient(ellipse 60% 130% at 95% 0%, rgba(145, 35, 215, 0.32), transparent),
+        linear-gradient(135deg, #1E1535 0%, #101016 100%);
+    box-shadow: 0 12px 44px rgba(0, 0, 0, 0.5), 0 0 32px rgba(145, 35, 215, 0.16);
+    animation: strenox-admin-in 0.4s ease;
+}
+
+.strenox-hero img {
+    width: 56px;
+    height: 56px;
+    filter: drop-shadow(0 0 18px rgba(145, 35, 215, 0.6));
+}
+
+.strenox-hero-text {
+    flex: 1;
+    min-width: 200px;
+}
+
+.strenox-hero-text h2 {
+    margin: 0 0 4px !important;
+    font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+}
+
+.strenox-hero-text p {
+    margin: 0 !important;
+    color: #8888A8 !important;
+    font-size: 13px !important;
+}
+
+.strenox-hero-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.strenox-hero-actions .btn {
+    border-radius: 12px !important;
+    padding: 9px 16px !important;
+}
+
+/* Status labels */
+.label-success {
+    background: rgba(34, 197, 94, 0.15) !important;
+    color: #22C55E !important;
+    border: 1px solid rgba(34, 197, 94, 0.4) !important;
+    border-radius: 999px !important;
+    padding: 4px 10px !important;
+    font-size: 11px !important;
+}
+
+.label-warning {
+    background: rgba(245, 158, 11, 0.15) !important;
+    color: #F59E0B !important;
+    border: 1px solid rgba(245, 158, 11, 0.4) !important;
+    border-radius: 999px !important;
+    padding: 4px 10px !important;
+    font-size: 11px !important;
+}
+
+.label-danger {
+    background: rgba(239, 68, 68, 0.15) !important;
+    color: #EF4444 !important;
+    border: 1px solid rgba(239, 68, 68, 0.4) !important;
+    border-radius: 999px !important;
+    padding: 4px 10px !important;
+    font-size: 11px !important;
+}
+
+.label-info, .label-primary {
+    background: rgba(145, 35, 215, 0.15) !important;
+    color: #C084FC !important;
+    border: 1px solid rgba(145, 35, 215, 0.4) !important;
+    border-radius: 999px !important;
+    padding: 4px 10px !important;
+    font-size: 11px !important;
+}
+
+/* Box tool buttons */
+.box-tools .btn {
+    border-radius: 999px !important;
+    text-transform: uppercase;
+    font-size: 10px !important;
+    letter-spacing: 0.06em;
+}
+
 /* AdminLTE Skin Override */
 .skin-blue .main-header .navbar {
     background: linear-gradient(180deg, #16161F 0%, #0D0D12 100%) !important;

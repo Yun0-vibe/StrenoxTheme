@@ -13,6 +13,19 @@
 @endsection
 
 @section('content')
+<div class="strenox-hero">
+    <img src="/favicons/strenoxcloud-logo.png" alt="StrenoxCloud">
+    <div class="strenox-hero-text">
+        <h2>StrenoxCloud Control</h2>
+        <p>Panel <code>{{ config('app.version') }}</code> · {{ $serverCount }} servers · {{ $userCount }} users · {{ $nodeCount }} nodes</p>
+    </div>
+    <div class="strenox-hero-actions">
+        <a href="{{ route('admin.servers.new') }}" class="btn btn-primary"><i class="fa fa-fw fa-server"></i> New Server</a>
+        <a href="{{ route('admin.users.new') }}" class="btn btn-primary"><i class="fa fa-fw fa-user"></i> New User</a>
+        <a href="{{ route('admin.nodes.new') }}" class="btn btn-primary"><i class="fa fa-fw fa-sitemap"></i> New Node</a>
+        <a href="{{ route('admin.settings.discord') }}" class="btn btn-default"><i class="fa fa-fw fa-comments"></i> Discord</a>
+    </div>
+</div>
 <div class="row">
     <div class="col-sm-6 col-md-3">
         <a href="{{ route('admin.servers') }}" style="text-decoration:none;">
@@ -136,6 +149,46 @@
                             </tr>
                         @empty
                             <tr><td class="text-center text-muted">No users yet.</td></tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Fleet Status</h3>
+                <div class="box-tools pull-right">
+                    <a href="{{ route('admin.nodes') }}" class="btn btn-xs btn-primary">Manage Nodes</a>
+                </div>
+            </div>
+            <div class="box-body no-padding">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Node</th>
+                            <th>Address</th>
+                            <th class="text-right">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($fleetNodes as $node)
+                            <tr>
+                                <td><a href="{{ route('admin.nodes.view', $node->id) }}">{{ $node->name }}</a></td>
+                                <td class="text-muted">{{ $node->fqdn }}</td>
+                                <td class="text-right">
+                                    @if ($node->maintenance_mode)
+                                        <span class="label label-warning">Maintenance</span>
+                                    @else
+                                        <span class="label label-success">Operational</span>
+                                    @endif
+                                </td>
+                            </tr>
+                        @empty
+                            <tr><td colspan="3" class="text-center text-muted">No nodes configured yet.</td></tr>
                         @endforelse
                     </tbody>
                 </table>
