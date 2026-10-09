@@ -511,26 +511,14 @@ a:hover, a:focus {
 
 /* Modern hamburger */
 .strenox-toggle {
-    padding: 15px !important;
+    padding: 16px 18px !important;
+    color: #8888A8 !important;
 }
 
-.strenox-toggle .icon-bar {
-    display: block !important;
-    width: 20px !important;
-    height: 2px !important;
-    border-radius: 2px !important;
-    background: #8888A8 !important;
-    margin-top: 5px !important;
-    transition: all 0.2s ease !important;
-}
-
-.strenox-toggle .icon-bar:first-of-type {
-    margin-top: 0 !important;
-}
-
-.strenox-toggle:hover .icon-bar {
-    background: #A855F7 !important;
-    box-shadow: 0 0 8px rgba(145, 35, 215, 0.6) !important;
+.strenox-toggle:hover {
+    color: #A855F7 !important;
+    background: rgba(145, 35, 215, 0.1) !important;
+    text-shadow: 0 0 10px rgba(145, 35, 215, 0.6);
 }
 
 /* Sidebar profile block */
