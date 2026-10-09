@@ -14,6 +14,52 @@
 
 @section('content')
 <div class="row">
+    <div class="col-sm-6 col-md-3">
+        <a href="{{ route('admin.servers') }}" style="text-decoration:none;">
+            <div class="strenox-stat">
+                <div class="strenox-stat-icon"><i class="fa fa-server"></i></div>
+                <div>
+                    <div class="strenox-stat-value">{{ $serverCount }}</div>
+                    <div class="strenox-stat-label">Servers</div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <a href="{{ route('admin.users') }}" style="text-decoration:none;">
+            <div class="strenox-stat">
+                <div class="strenox-stat-icon"><i class="fa fa-users"></i></div>
+                <div>
+                    <div class="strenox-stat-value">{{ $userCount }}</div>
+                    <div class="strenox-stat-label">Users</div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <a href="{{ route('admin.nodes') }}" style="text-decoration:none;">
+            <div class="strenox-stat">
+                <div class="strenox-stat-icon"><i class="fa fa-sitemap"></i></div>
+                <div>
+                    <div class="strenox-stat-value">{{ $nodeCount }}</div>
+                    <div class="strenox-stat-label">Nodes</div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <a href="{{ route('admin.locations') }}" style="text-decoration:none;">
+            <div class="strenox-stat">
+                <div class="strenox-stat-icon"><i class="fa fa-globe"></i></div>
+                <div>
+                    <div class="strenox-stat-value">{{ $locationCount }}</div>
+                    <div class="strenox-stat-label">Locations</div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="row">
     <div class="col-xs-12">
         <div class="box
             @if($version->isLatestPanel())
