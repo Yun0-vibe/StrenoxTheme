@@ -453,6 +453,10 @@ export default createGlobalStyle`
             animation: none;
         }
 
+        .strenox-timeline-row {
+            animation: none;
+        }
+
         body::after {
             animation: none;
             opacity: 0.7;
