@@ -243,7 +243,7 @@ export default function StorePage() {
                         <div css={tw`text-sm text-neutral-400`}>Account Credits</div>
                         <div css={tw`text-3xl font-bold text-neutral-100`}>${completedCredits}</div>
                         {pendingCount > 0 && (
-                            <div css={tw`text-xs text-amber-400 mt-1`}>
+                            <div css={tw`text-xs text-yellow-400 mt-1`}>
                                 {pendingCount} order{pendingCount === 1 ? '' : 's'} awaiting approval
                             </div>
                         )}
