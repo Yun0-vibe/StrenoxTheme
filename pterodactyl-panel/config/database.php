@@ -56,7 +56,7 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
                 PDO::MYSQL_ATTR_SSL_CERT => env('MYSQL_ATTR_SSL_CERT'),
                 PDO::MYSQL_ATTR_SSL_KEY => env('MYSQL_ATTR_SSL_KEY'),
-            ], defined('PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT') ? [PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => env('MYSQL_ATTR_SSL_VERIFY_SERVER_CERT', true)] : [])) : [],
+            ], defined('PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT') ? [constant('PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT') => env('MYSQL_ATTR_SSL_VERIFY_SERVER_CERT', true)] : [])) : [],
         ],
 
         'mariadb' => [
