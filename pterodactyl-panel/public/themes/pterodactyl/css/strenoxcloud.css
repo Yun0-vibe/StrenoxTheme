@@ -651,6 +651,19 @@ a:hover, a:focus {
     opacity: 1;
 }
 
+/* Guarantee backdrop always sits below the dialog so clicks reach buttons */
+.modal-backdrop {
+    z-index: 1040 !important;
+}
+
+.modal {
+    z-index: 1050 !important;
+}
+
+.modal-dialog {
+    pointer-events: auto !important;
+}
+
 /* Box lift */
 .box {
     transition: box-shadow 0.2s ease, transform 0.2s ease;
