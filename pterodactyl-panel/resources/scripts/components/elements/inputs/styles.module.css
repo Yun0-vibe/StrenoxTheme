@@ -1,8 +1,8 @@
 .checkbox_input {
-    @apply w-4 h-4 rounded-sm border-neutral-500 bg-neutral-600 text-primary-500;
+    @apply w-4 h-4 rounded-md border-neutral-500 bg-neutral-600 text-primary-500;
 
     &:focus, &:active {
-        @apply ring-2 ring-primary-500 ring-offset-2 ring-offset-neutral-700;
+        @apply ring-2 ring-primary-500 ring-offset-2 ring-offset-neutral-800;
     }
 
     &.indeterminate:checked {
@@ -12,11 +12,19 @@
 }
 
 .text_input {
-    @apply transition-shadow duration-75;
-    @apply w-full bg-neutral-800 rounded px-4 py-2 outline-none border-0;
+    @apply transition-all duration-150;
+    @apply w-full rounded-xl px-4 py-2.5 outline-none;
+    background: #16161f;
+    border: 1px solid #2a2a3a;
+    color: #e2e2f0;
+
+    &::placeholder {
+        color: #8888a8;
+    }
 
     &:focus, &:active {
-        @apply ring-4 ring-blue-300 ring-opacity-75;
+        border-color: #9123d7;
+        box-shadow: 0 0 0 3px rgba(145, 35, 215, 0.18), 0 0 18px rgba(145, 35, 215, 0.25);
     }
 
     &.loose {

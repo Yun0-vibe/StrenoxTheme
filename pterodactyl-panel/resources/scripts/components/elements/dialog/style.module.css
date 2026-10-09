@@ -3,8 +3,9 @@
 }
 
 .panel {
-    @apply relative bg-gray-600 rounded max-w-xl w-full mx-auto shadow-lg text-left;
-    @apply ring-4 ring-gray-800 ring-opacity-80;
+    @apply relative rounded-2xl max-w-xl w-full mx-auto shadow-lg text-left border border-white/10;
+    background: linear-gradient(135deg, rgba(30, 21, 53, 0.95) 0%, rgba(22, 22, 31, 0.98) 100%);
+    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(145, 35, 215, 0.15);
 }
 
 .title {
