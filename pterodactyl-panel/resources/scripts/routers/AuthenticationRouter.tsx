@@ -39,7 +39,7 @@ const MarketingPanel = () => (
                 <span css={tw`text-[#9123D7]`}>Cloud</span>
             </div>
         </div>
-        <h1 css={tw`text-5xl font-black italic leading-[1.05] tracking-tight mb-5`}>
+        <h1 css={tw`text-5xl xl:text-6xl font-black italic leading-[1.12] tracking-tight mb-5 overflow-visible pb-1`}>
             <span css={tw`text-neutral-100`}>WELCOME TO</span>
             <br />
             <span
@@ -111,7 +111,7 @@ export default () => {
                     animationDelay: '-9s',
                 }}
             />
-            <div className={'strenox-auth-content w-full max-w-5xl'}>
+            <div className={'strenox-auth-content w-full max-w-7xl'}>
                 <div css={tw`lg:hidden flex flex-col items-center mb-6`}>
                     <img
                         src={'/favicons/strenoxcloud-logo.png'}
@@ -125,9 +125,9 @@ export default () => {
                         <span css={tw`text-[#9123D7]`}>Cloud</span>
                     </div>
                 </div>
-                <div css={tw`grid lg:grid-cols-2 gap-10 items-center`}>
+                <div css={tw`grid lg:grid-cols-2 gap-12 xl:gap-20 items-center`}>
                     <MarketingPanel />
-                    <div css={tw`w-full max-w-md mx-auto lg:mx-0`}>
+                    <div css={tw`w-full max-w-lg mx-auto lg:mx-0 lg:justify-self-end lg:w-full`}>
                         <Switch location={location}>
                             <Route path={`${path}/login`} component={LoginContainer} exact />
                             <Route path={`${path}/login/checkpoint`} component={LoginCheckpointContainer} />

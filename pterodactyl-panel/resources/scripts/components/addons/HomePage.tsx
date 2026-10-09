@@ -144,17 +144,17 @@ export default function HomePage() {
     const today = new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
 
     return (
-        <div className={'strenox-page'} css={tw`max-w-6xl mx-auto px-4 py-8`}>
+        <div className={'strenox-page'} css={tw`max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-10`}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
                 <Header>
                     <img
                         src={'/favicons/strenoxcloud-logo.png'}
                         alt={'StrenoxCloud'}
-                        css={tw`w-12 h-12 flex-shrink-0`}
+                        css={tw`w-14 h-14 flex-shrink-0`}
                         style={{ filter: 'drop-shadow(0 0 16px rgba(145,35,215,0.6))' }}
                     />
                     <div css={tw`flex-1 min-w-0`}>
-                        <div css={tw`text-xl font-bold text-neutral-100 font-header`}>Command Center</div>
+                        <div css={tw`text-2xl font-bold text-neutral-100 font-header leading-snug`}>Command Center</div>
                         <div css={tw`text-sm text-neutral-400`}>
                             {today} · Signed in as {username}
                         </div>
@@ -179,7 +179,7 @@ export default function HomePage() {
                                     <FontAwesomeIcon icon={s.icon} />
                                 </StatIcon>
                                 <div>
-                                    <div css={tw`text-2xl font-bold text-neutral-100 leading-none`}>{s.value}</div>
+                                    <div css={tw`text-3xl font-bold text-neutral-100 leading-tight`}>{s.value}</div>
                                     <div css={tw`text-xs text-neutral-400 mt-1`}>{s.label}</div>
                                 </div>
                             </StatCard>

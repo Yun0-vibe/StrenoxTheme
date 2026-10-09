@@ -53,7 +53,7 @@ export default function StatusPage() {
     const allUp = (nodes ?? []).every((n) => !n.maintenance);
 
     return (
-        <div className={'strenox-page'} css={tw`max-w-4xl mx-auto px-4 py-8`}>
+        <div className={'strenox-page'} css={tw`max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-10`}>
             <div css={tw`mb-8`}>
                 <h1 css={tw`text-3xl font-bold text-neutral-100 mb-2 font-header`}>System Status</h1>
                 <p css={tw`text-neutral-400`}>Live status of the StrenoxCloud network</p>

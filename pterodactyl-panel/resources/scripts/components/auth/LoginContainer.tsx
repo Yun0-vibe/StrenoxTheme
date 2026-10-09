@@ -6,11 +6,11 @@ import { useStoreState } from 'easy-peasy';
 import { ErrorMessage, Field as FormikField, Formik, FormikHelpers } from 'formik';
 import { object, string } from 'yup';
 import tw from 'twin.macro';
-import Button from '@/components/elements/Button';
+import styled from 'styled-components/macro';
 import Reaptcha from 'reaptcha';
 import useFlash from '@/plugins/useFlash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLock, faEye, faEyeSlash, faArrowRight, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 interface Values {
     username: string;
@@ -18,7 +18,45 @@ interface Values {
 }
 
 const inputClass =
-    'w-full bg-[#101016] border border-white/10 rounded-2xl pl-11 pr-4 py-3 text-sm text-neutral-100 placeholder-neutral-500 outline-none transition-all duration-200 focus:border-[#9123D7]';
+    'w-full bg-[#101016] border border-white/10 rounded-2xl pl-11 pr-4 py-3.5 text-[15px] text-neutral-100 placeholder-neutral-500 outline-none transition-all duration-200 focus:border-[#9123D7]';
+
+const LoginButton = styled.button`
+    ${tw`relative w-full overflow-hidden rounded-2xl py-4 text-base font-bold tracking-[0.2em] text-white transition-all duration-200 flex items-center justify-center gap-3`};
+    background: linear-gradient(135deg, #a855f7 0%, #9123d7 45%, #7c3aed 100%);
+    box-shadow: 0 8px 32px rgba(145, 35, 215, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -80%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+        transform: skewX(-20deg);
+        transition: left 0.6s ease;
+    }
+
+    &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 44px rgba(145, 35, 215, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        filter: brightness(1.08);
+    }
+
+    &:hover:not(:disabled)::after {
+        left: 130%;
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(0);
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+`;
 
 const LoginContainer = ({ history }: RouteComponentProps) => {
     const ref = useRef<Reaptcha>(null);
@@ -143,15 +181,19 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
                         />
                     </div>
                     <div css={tw`mb-2`}>
-                        <Button
-                            type={'submit'}
-                            size={'xlarge'}
-                            isLoading={isSubmitting}
-                            disabled={isSubmitting}
-                            css={tw`w-full`}
-                        >
-                            Login
-                        </Button>
+                        <LoginButton type={'submit'} disabled={isSubmitting}>
+                            {isSubmitting ? (
+                                <>
+                                    <FontAwesomeIcon icon={faSpinner} spin />
+                                    LOGGING IN
+                                </>
+                            ) : (
+                                <>
+                                    LOGIN
+                                    <FontAwesomeIcon icon={faArrowRight} css={tw`text-sm`} />
+                                </>
+                            )}
+                        </LoginButton>
                     </div>
                     {recaptchaEnabled && (
                         <Reaptcha

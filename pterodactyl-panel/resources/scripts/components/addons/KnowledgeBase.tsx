@@ -153,7 +153,7 @@ export default function KnowledgeBase() {
     });
 
     return (
-        <div className={'strenox-page'} css={tw`max-w-6xl mx-auto px-4 py-8`}>
+        <div className={'strenox-page'} css={tw`max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-10`}>
             <div css={tw`mb-8`}>
                 <h1 css={tw`text-3xl font-bold text-neutral-100 mb-2`}>Knowledge Base</h1>
                 <p css={tw`text-neutral-400`}>
