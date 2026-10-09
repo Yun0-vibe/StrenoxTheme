@@ -166,7 +166,7 @@ export default function Announcements() {
                                     icon={priorityIcon[announcement.priority]}
                                     css={[
                                         announcement.priority === 'critical' && tw`text-red-400`,
-                                        announcement.priority === 'warning' && tw`text-amber-400`,
+                                        announcement.priority === 'warning' && tw`text-yellow-400`,
                                         announcement.priority === 'info' && tw`text-[#9123D7]`,
                                     ]}
                                 />
