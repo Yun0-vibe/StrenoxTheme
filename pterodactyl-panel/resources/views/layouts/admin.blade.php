@@ -70,8 +70,7 @@
                         </a>
                         <a href="{{ route('admin.strenox.tickets') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.strenox')) }}">
                             <span class="sx-ico"><i class="fa fa-life-ring"></i></span>@php
-                            $ticketCount = $sxSidebar['openTickets'] ?? 0;
-                            echo '<span class="sx-txt">Tickets' . ($ticketCount > 0 ? ' <span class="sx-badge">' . $ticketCount . '</span>' : '') . '</span>';
+                            echo '<span class="sx-txt">Tickets</span>';
                         @endphp
                         </a>
                     </nav>
