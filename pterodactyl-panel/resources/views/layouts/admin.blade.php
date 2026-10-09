@@ -19,6 +19,7 @@
         <meta name="msapplication-config" content="/favicons/browserconfig.xml">
         <meta name="theme-color" content="#9123D7">
         <meta name="color-scheme" content="dark">
+        <meta name="color-scheme" content="dark">
 
         @include('layouts.scripts')
 
