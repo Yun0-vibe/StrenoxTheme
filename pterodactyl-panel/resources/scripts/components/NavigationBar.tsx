@@ -29,11 +29,12 @@ import Tooltip from '@/components/elements/tooltip/Tooltip';
 import Avatar from '@/components/Avatar';
 
 const LINK_CLASS =
-    'flex items-center gap-3 px-4 py-2.5 mx-2 rounded-xl text-sm no-underline text-neutral-400 hover:text-neutral-100 hover:bg-white/5 transition-all duration-150';
+    'sx-side-link flex items-center gap-3 px-4 py-2.5 mx-2 rounded-xl text-sm no-underline text-neutral-400 hover:text-neutral-100 transition-all duration-150';
 const ACTIVE_STYLE = {
     color: '#fff',
-    background: 'rgba(145,35,215,0.16)',
-    boxShadow: 'inset 2px 0 0 #9123D7',
+    background: 'linear-gradient(90deg, rgba(145,35,215,0.30) 0%, rgba(145,35,215,0.08) 100%)',
+    boxShadow: 'inset 2px 0 0 #A855F7, 0 0 20px rgba(145,35,215,0.22)',
+    border: '1px solid rgba(145,35,215,0.30)',
 };
 
 const SectionLabel = ({ children }: { children: React.ReactNode }) => (
@@ -63,7 +64,9 @@ const SideLink = ({
     label: string;
 }) => (
     <NavLink to={to} exact={exact} className={LINK_CLASS} activeStyle={ACTIVE_STYLE}>
-        <FontAwesomeIcon icon={icon} style={{ width: '1.1rem' }} />
+        <span className={'sx-side-ico'}>
+            <FontAwesomeIcon icon={icon} />
+        </span>
         <span>{label}</span>
     </NavLink>
 );

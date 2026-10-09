@@ -129,6 +129,171 @@ export default createGlobalStyle`
         z-index: 1;
     }
 
+    /* Client sidebar v2 */
+    .sx-side-link {
+        border: 1px solid transparent;
+        position: relative;
+    }
+
+    .sx-side-link:hover {
+        background: rgba(145, 35, 215, 0.1);
+        transform: translateX(3px);
+    }
+
+    .sx-side-link:hover .sx-side-ico {
+        border-color: rgba(145, 35, 215, 0.5);
+        box-shadow: 0 0 12px rgba(145, 35, 215, 0.3);
+        color: #c084fc;
+    }
+
+    .sx-side-ico {
+        width: 2rem;
+        height: 2rem;
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.65rem;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        color: #8b90a5;
+        font-size: 0.8rem;
+        transition: all 0.18s ease;
+    }
+
+    a[style*='inset 2px'] .sx-side-ico,
+    .sx-side-link[aria-current='page'] .sx-side-ico {
+        background: linear-gradient(135deg, #a855f7, #7c3aed);
+        color: #fff;
+        border-color: transparent;
+        box-shadow: 0 4px 12px rgba(145, 35, 215, 0.5), 0 0 14px rgba(168, 85, 247, 0.35);
+    }
+
+    /* Activity timeline */
+    .strenox-activity-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .strenox-timeline-row {
+        display: grid;
+        grid-template-columns: 3.25rem 1fr;
+        gap: 0.25rem;
+        padding: 0.9rem 1rem;
+        border-radius: 1rem;
+        border: 1px solid rgba(145, 35, 215, 0.16);
+        background: linear-gradient(135deg, rgba(30, 21, 53, 0.5) 0%, rgba(22, 22, 31, 0.85) 100%);
+        box-shadow: 0 0 14px rgba(145, 35, 215, 0.06);
+        transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+        animation: strenox-row-in 0.4s ease backwards;
+    }
+
+    .strenox-timeline-row:hover {
+        border-color: rgba(145, 35, 215, 0.45);
+        box-shadow: 0 0 22px rgba(145, 35, 215, 0.16);
+        transform: translateY(-1px);
+    }
+
+    .strenox-activity-list > *:nth-child(2) { animation-delay: 0.05s; }
+    .strenox-activity-list > *:nth-child(3) { animation-delay: 0.1s; }
+    .strenox-activity-list > *:nth-child(4) { animation-delay: 0.15s; }
+    .strenox-activity-list > *:nth-child(5) { animation-delay: 0.2s; }
+    .strenox-activity-list > *:nth-child(6) { animation-delay: 0.25s; }
+    .strenox-activity-list > *:nth-child(7) { animation-delay: 0.3s; }
+    .strenox-activity-list > *:nth-child(n + 8) { animation-delay: 0.32s; }
+
+    @keyframes strenox-row-in {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .strenox-timeline-rail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .strenox-timeline-rail::after {
+        content: '';
+        flex: 1;
+        width: 2px;
+        margin-top: 0.5rem;
+        border-radius: 2px;
+        background: linear-gradient(180deg, rgba(145, 35, 215, 0.5), rgba(145, 35, 215, 0.05));
+    }
+
+    .strenox-activity-list > *:last-child .strenox-timeline-rail::after {
+        display: none;
+    }
+
+    .strenox-timeline-avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 9999px;
+        overflow: hidden;
+        flex-shrink: 0;
+        border: 2px solid rgba(145, 35, 215, 0.55);
+        box-shadow: 0 0 14px rgba(145, 35, 215, 0.3);
+    }
+
+    .strenox-timeline-body {
+        min-width: 0;
+    }
+
+    .strenox-timeline-head {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.15rem;
+    }
+
+    .strenox-timeline-actor {
+        font-weight: 600;
+        color: #e2e2f0;
+    }
+
+    .strenox-timeline-event {
+        margin-left: 0.4rem;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        padding: 0.15rem 0.55rem;
+        border-radius: 9999px;
+        color: #c084fc;
+        background: rgba(145, 35, 215, 0.14);
+        border: 1px solid rgba(145, 35, 215, 0.35);
+        text-decoration: none;
+        transition: all 0.15s ease;
+        white-space: nowrap;
+    }
+
+    .strenox-timeline-event:hover {
+        background: rgba(145, 35, 215, 0.28);
+        color: #fff;
+        box-shadow: 0 0 12px rgba(145, 35, 215, 0.35);
+    }
+
+    .strenox-timeline-meta {
+        margin-top: 0.35rem;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.75rem;
+        color: #8888a8;
+    }
+
+    .strenox-timeline-sep {
+        margin: 0 0.35rem;
+        color: #4a4a5e;
+    }
+
     /* Ambient aurora background for auth pages */
     .strenox-auth-bg {
         position: relative;
