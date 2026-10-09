@@ -75,10 +75,74 @@ export default createGlobalStyle`
         background: transparent;
     }
 
-    /* ==================== STRENOXCLOUD THEME ==================== */
+    /* ==================== STRENOXCLOUD LIQUID AMBIENT THEME ==================== */
+    html {
+        color-scheme: dark;
+    }
+
     body {
-        background: #0D0D12 !important;
+        background: #07070d !important;
         color: #E2E2F0 !important;
+        background-image:
+            radial-gradient(ellipse 60% 40% at 15% 0%, rgba(145, 35, 215, 0.12), transparent),
+            radial-gradient(ellipse 50% 35% at 85% 20%, rgba(124, 58, 237, 0.1), transparent),
+            radial-gradient(ellipse 70% 50% at 50% 100%, rgba(59, 130, 246, 0.07), transparent) !important;
+        background-attachment: fixed !important;
+    }
+
+    /* Ambient aurora background for auth pages */
+    .strenox-auth-bg {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        background: #07070d;
+    }
+
+    .strenox-orb {
+        position: absolute;
+        z-index: 0;
+        border-radius: 9999px;
+        filter: blur(70px);
+        opacity: 0.7;
+        pointer-events: none;
+        animation: strenox-drift 14s ease-in-out infinite alternate;
+    }
+
+    .strenox-auth-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    @keyframes strenox-drift {
+        from {
+            transform: translate(0, 0) scale(1);
+        }
+        to {
+            transform: translate(70px, -50px) scale(1.18);
+        }
+    }
+
+    /* Liquid glass utility */
+    .strenox-glass {
+        background: linear-gradient(135deg, rgba(30, 21, 53, 0.72) 0%, rgba(22, 22, 31, 0.82) 100%);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45), 0 0 32px rgba(145, 35, 215, 0.12);
+    }
+
+    /* Dark autofill fix */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus {
+        -webkit-text-fill-color: #E2E2F0;
+        -webkit-box-shadow: 0 0 0 1000px #16161F inset;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
+    /* Smoother everything */
+    button, a, input, select, textarea {
+        transition: all 0.2s ease;
     }
 
     ::selection {

@@ -3,8 +3,10 @@ import tw, { theme } from 'twin.macro';
 
 const SubNavigation = styled.div`
     ${tw`w-full shadow overflow-x-auto`};
-    background: #16161F;
-    border-bottom: 1px solid #2A2A3A;
+    background: rgba(22, 22, 31, 0.8);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(145, 35, 215, 0.18);
 
     & > div {
         ${tw`flex items-center text-sm mx-auto px-2`};

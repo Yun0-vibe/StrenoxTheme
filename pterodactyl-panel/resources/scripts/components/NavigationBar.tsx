@@ -46,7 +46,14 @@ export default () => {
     };
 
     return (
-        <div className={'w-full shadow-md overflow-x-auto'} style={{ background: 'linear-gradient(180deg, #16161F 0%, #0D0D12 100%)', borderBottom: '1px solid #9123D733' }}>
+        <div
+            className={'w-full shadow-md overflow-x-auto backdrop-blur-xl'}
+            style={{
+                background: 'linear-gradient(180deg, rgba(30,21,53,0.75) 0%, rgba(13,13,18,0.85) 100%)',
+                borderBottom: '1px solid rgba(145,35,215,0.35)',
+                boxShadow: '0 4px 30px rgba(145,35,215,0.12)',
+            }}
+        >
             <SpinnerOverlay visible={isLoggingOut} />
             <div className={'mx-auto w-full flex items-center h-[3.5rem] max-w-[1200px]'}>
                 <div id={'logo'} className={'flex-1'}>

@@ -33,9 +33,20 @@ export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => 
         {title && <h2 css={tw`text-3xl text-center text-neutral-100 font-medium py-4`}>{title}</h2>}
         <FlashMessageRender css={tw`mb-2 px-1`} />
         <Form {...props} ref={ref}>
-            <div css={tw`md:flex w-full bg-[#1A1A25] border border-[#2A2A3A] shadow-[0_0_40px_rgba(145,35,215,0.15)] rounded-lg p-6 md:pl-0 mx-1`}>
+            <div
+                css={tw`md:flex w-full rounded-2xl p-6 md:pl-0 mx-1 border border-white/10 backdrop-blur-xl shadow-[0_8px_60px_rgba(145,35,215,0.28)]`}
+                style={{
+                    background:
+                        'linear-gradient(135deg, rgba(30,21,53,0.88) 0%, rgba(22,22,31,0.92) 100%)',
+                }}
+            >
                 <div css={tw`flex-none select-none mb-6 md:mb-0 self-center`}>
-                    <img src={'/favicons/strenoxcloud.svg'} css={tw`block w-32 md:w-48 mx-auto`} />
+                    <img
+                        src={'/favicons/strenoxcloud-logo.png'}
+                        alt={'StrenoxCloud'}
+                        css={tw`block w-32 md:w-48 mx-auto`}
+                        style={{ filter: 'drop-shadow(0 0 24px rgba(145,35,215,0.55))' }}
+                    />
                 </div>
                 <div css={tw`flex-1`}>{props.children}</div>
             </div>
