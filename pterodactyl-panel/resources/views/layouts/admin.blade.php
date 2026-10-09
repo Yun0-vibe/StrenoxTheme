@@ -41,13 +41,13 @@
     </head>
     <body class="hold-transition skin-blue fixed sidebar-mini">
         <div class="wrapper">
-            <header class="main-header">
+            <header class="main-header strenox-header">
                 <a href="{{ route('index') }}" class="logo" style="display:flex;align-items:center;gap:8px;justify-content:center;">
                     <img src="/favicons/strenoxcloud-logo.png" alt="StrenoxCloud" style="width:28px;height:28px;filter:drop-shadow(0 0 8px rgba(145,35,215,0.6));">
                     <span>{{ config('app.name', 'StrenoxCloud') }}</span>
                 </a>
                 <nav class="navbar navbar-static-top">
-                    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <a href="#" class="sidebar-toggle strenox-toggle" data-toggle="push-menu" role="button">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -55,17 +55,32 @@
                     </a>
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
-                            <li class="user-menu">
-                                <a href="{{ route('account') }}">
+                            <li>
+                                <a href="{{ route('index') }}" data-toggle="tooltip" data-placement="bottom" title="Exit Admin Control"><i class="fa fa-server"></i></a>
+                            </li>
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     <img src="https://www.gravatar.com/avatar/{{ md5(strtolower(Auth::user()->email)) }}?s=160" class="user-image" alt="User Image">
                                     <span class="hidden-xs">{{ Auth::user()->name_first }} {{ Auth::user()->name_last }}</span>
+                                    <i class="fa fa-caret-down hidden-xs" style="margin-left:6px;font-size:10px;"></i>
                                 </a>
-                            </li>
-                            <li>
-                                <li><a href="{{ route('index') }}" data-toggle="tooltip" data-placement="bottom" title="Exit Admin Control"><i class="fa fa-server"></i></a></li>
-                            </li>
-                            <li>
-                                <li><a href="{{ route('auth.logout') }}" id="logoutButton" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="fa fa-sign-out"></i></a></li>
+                                <ul class="dropdown-menu strenox-user-menu">
+                                    <li class="user-header">
+                                        <img src="https://www.gravatar.com/avatar/{{ md5(strtolower(Auth::user()->email)) }}?s=160" class="img-circle" alt="User Image">
+                                        <p>
+                                            {{ Auth::user()->name_first }} {{ Auth::user()->name_last }}
+                                            <small>{{ Auth::user()->email }}</small>
+                                        </p>
+                                    </li>
+                                    <li class="user-footer">
+                                        <div class="pull-left">
+                                            <a href="{{ route('index') }}" class="btn btn-default btn-flat">Exit Admin</a>
+                                        </div>
+                                        <div class="pull-right">
+                                            <a href="{{ route('auth.logout') }}" id="logoutButton" class="btn btn-default btn-flat">Logout</a>
+                                        </div>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -73,7 +88,16 @@
             </header>
             <aside class="main-sidebar">
                 <section class="sidebar">
-                    <ul class="sidebar-menu">
+                    <div class="user-panel strenox-user-panel">
+                        <div class="pull-left image">
+                            <img src="https://www.gravatar.com/avatar/{{ md5(strtolower(Auth::user()->email)) }}?s=160" class="img-circle" alt="User Image">
+                        </div>
+                        <div class="pull-left info">
+                            <p>{{ Auth::user()->name_first }} {{ Auth::user()->name_last }}</p>
+                            <span><i class="fa fa-circle strenox-online-dot"></i> Administrator</span>
+                        </div>
+                    </div>
+                    <ul class="sidebar-menu" data-widget="tree">
                         <li class="header">CONTROL CENTER</li>
                         <li class="{{ Route::currentRouteName() !== 'admin.index' ?: 'active' }}">
                             <a href="{{ route('admin.index') }}">

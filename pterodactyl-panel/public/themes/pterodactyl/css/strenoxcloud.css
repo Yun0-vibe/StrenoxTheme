@@ -476,6 +476,261 @@ a:hover, a:focus {
     border-bottom-color: #2A2A3A !important;
 }
 
+/* ==================== STRENOXCLOUD ADMIN CHROME + MOTION ==================== */
+
+/* Page entrance */
+.content-wrapper > .content {
+    animation: strenox-admin-in 0.35s ease;
+}
+
+@keyframes strenox-admin-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-sidebar {
+    animation: strenox-admin-sidebar 0.3s ease;
+}
+
+@keyframes strenox-admin-sidebar {
+    from {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Modern hamburger */
+.strenox-toggle {
+    padding: 15px !important;
+}
+
+.strenox-toggle .icon-bar {
+    display: block !important;
+    width: 20px !important;
+    height: 2px !important;
+    border-radius: 2px !important;
+    background: #8888A8 !important;
+    margin-top: 5px !important;
+    transition: all 0.2s ease !important;
+}
+
+.strenox-toggle .icon-bar:first-of-type {
+    margin-top: 0 !important;
+}
+
+.strenox-toggle:hover .icon-bar {
+    background: #A855F7 !important;
+    box-shadow: 0 0 8px rgba(145, 35, 215, 0.6) !important;
+}
+
+/* Sidebar profile block */
+.strenox-user-panel {
+    padding: 14px 12px !important;
+    border-bottom: 1px solid #2A2A3A !important;
+    background: linear-gradient(135deg, rgba(145, 35, 215, 0.12) 0%, transparent 100%) !important;
+    overflow: hidden;
+}
+
+.strenox-user-panel .image img {
+    width: 42px !important;
+    height: 42px !important;
+    border: 2px solid rgba(145, 35, 215, 0.6) !important;
+    box-shadow: 0 0 12px rgba(145, 35, 215, 0.35) !important;
+}
+
+.strenox-user-panel .info {
+    padding: 4px 5px 5px 12px !important;
+}
+
+.strenox-user-panel .info > p {
+    font-weight: 700 !important;
+    color: #E2E2F0 !important;
+    margin-bottom: 2px !important;
+}
+
+.strenox-user-panel .info > span {
+    font-size: 11px !important;
+    color: #8888A8 !important;
+}
+
+.strenox-online-dot {
+    color: #22C55E !important;
+    font-size: 8px !important;
+    margin-right: 4px !important;
+    text-shadow: 0 0 6px #22C55E !important;
+}
+
+/* User dropdown */
+.strenox-user-menu {
+    width: 260px !important;
+    padding: 0 !important;
+    border-radius: 14px !important;
+    overflow: hidden;
+}
+
+.strenox-user-menu .user-header {
+    height: auto !important;
+    padding: 18px 12px !important;
+    background: linear-gradient(135deg, #1E1535 0%, #0D0D12 100%) !important;
+    border-bottom: 1px solid rgba(145, 35, 215, 0.3) !important;
+}
+
+.strenox-user-menu .user-header img {
+    width: 64px !important;
+    height: 64px !important;
+    border: 3px solid rgba(145, 35, 215, 0.6) !important;
+    box-shadow: 0 0 18px rgba(145, 35, 215, 0.4) !important;
+}
+
+.strenox-user-menu .user-header p {
+    color: #E2E2F0 !important;
+    font-weight: 700 !important;
+}
+
+.strenox-user-menu .user-header small {
+    color: #8888A8 !important;
+}
+
+.strenox-user-menu .user-footer {
+    background: #16161F !important;
+    padding: 10px !important;
+}
+
+/* Button shine sweep */
+.btn-primary, .btn-success, .btn-warning, .btn-danger {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after, .btn-success::after, .btn-warning::after, .btn-danger::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::after, .btn-success:hover::after, .btn-warning:hover::after, .btn-danger:hover::after {
+    left: 130%;
+}
+
+/* Sidebar link slide */
+.skin-blue .sidebar-menu > li > a:hover {
+    transform: translateX(3px);
+}
+
+/* Table row indicator */
+.table-hover > tbody > tr {
+    position: relative;
+}
+
+.table-hover > tbody > tr:hover > td:first-child {
+    box-shadow: inset 3px 0 0 #9123D7;
+}
+
+/* Modal pop-in */
+.modal.fade .modal-dialog {
+    transform: scale(0.95) translateY(10px);
+    transition: transform 0.22s ease, opacity 0.22s ease;
+    opacity: 0;
+}
+
+.modal.in .modal-dialog {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* Box lift */
+.box {
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* Tab slide indicator */
+.nav-tabs-custom > .nav-tabs > li > a {
+    position: relative;
+    transition: color 0.18s ease;
+}
+
+.nav-tabs-custom > .nav-tabs > li.active > a::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: -1px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #9123D7, #7C3AED);
+    box-shadow: 0 0 8px rgba(145, 35, 215, 0.6);
+}
+
+/* Content header glow title */
+.content-header > h1 {
+    text-shadow: 0 0 24px rgba(145, 35, 215, 0.25);
+}
+
+/* Ambient orbs behind content */
+.content-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.content-wrapper::before,
+.content-wrapper::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(110px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.content-wrapper::before {
+    width: 480px;
+    height: 480px;
+    top: -180px;
+    right: -140px;
+    background: radial-gradient(circle, rgba(145, 35, 215, 0.16) 0%, transparent 70%);
+}
+
+.content-wrapper::after {
+    width: 420px;
+    height: 420px;
+    bottom: -160px;
+    left: -120px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+}
+
+.content-wrapper > section {
+    position: relative;
+    z-index: 1;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .content-wrapper > .content,
+    .main-sidebar {
+        animation: none;
+    }
+
+    .btn-primary::after, .btn-success::after, .btn-warning::after, .btn-danger::after {
+        display: none;
+    }
+}
+
 /* AdminLTE Skin Override */
 .skin-blue .main-header .navbar {
     background: linear-gradient(180deg, #16161F 0%, #0D0D12 100%) !important;
