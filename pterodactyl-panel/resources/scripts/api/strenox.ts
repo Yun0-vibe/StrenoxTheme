@@ -155,3 +155,23 @@ export function getNodeStatus(): Promise<StrenoxNodeStatus[]> {
         .get('/api/client/account/strenox/status')
         .then(({ data }) => unwrap<StrenoxNodeStatus[]>(data));
 }
+
+export function getAvatarUrl(): Promise<string | null> {
+    return http
+        .get('/api/client/account/strenox/avatar')
+        .then(({ data }) => unwrap<{ avatar_url: string | null }>(data).avatar_url);
+}
+
+export function uploadAvatar(file: File): Promise<string | null> {
+    const form = new FormData();
+    form.append('avatar', file);
+    return http
+        .post('/api/client/account/strenox/avatar', form, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+        })
+        .then(({ data }) => unwrap<{ avatar_url: string | null }>(data).avatar_url);
+}
+
+export function deleteAvatar(): Promise<void> {
+    return http.delete('/api/client/account/strenox/avatar').then(() => undefined);
+}

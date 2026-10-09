@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import ContentBox from '@/components/elements/ContentBox';
 import UpdatePasswordForm from '@/components/dashboard/forms/UpdatePasswordForm';
 import UpdateEmailAddressForm from '@/components/dashboard/forms/UpdateEmailAddressForm';
@@ -17,11 +18,14 @@ import {
     faLifeRing,
     faShieldAlt,
     faUser,
+    faCamera,
+    faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 import { useStoreState } from 'easy-peasy';
 import { ApplicationStore } from '@/state';
 import Avatar from '@/components/Avatar';
 import DiscordWidget from '@/components/addons/DiscordWidget';
+import { getAvatarUrl, uploadAvatar, deleteAvatar } from '@/api/strenox';
 
 const Container = styled.div`
     ${tw`flex flex-wrap`};
@@ -87,6 +91,36 @@ const QuickTile = styled(Link)`
 export default () => {
     const { state } = useLocation<undefined | { twoFactorRedirect?: boolean }>();
     const user = useStoreState((state: ApplicationStore) => state.user.data!);
+    const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
+    const [uploading, setUploading] = useState(false);
+    const fileRef = React.useRef<HTMLInputElement>(null);
+
+    React.useEffect(() => {
+        getAvatarUrl()
+            .then(setAvatarUrl)
+            .catch(() => undefined);
+    }, []);
+
+    const onFilePicked = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        setUploading(true);
+        uploadAvatar(file)
+            .then(setAvatarUrl)
+            .catch(() => undefined)
+            .finally(() => {
+                setUploading(false);
+                if (fileRef.current) fileRef.current.value = '';
+            });
+    };
+
+    const removeAvatar = () => {
+        setUploading(true);
+        deleteAvatar()
+            .then(() => setAvatarUrl(null))
+            .catch(() => undefined)
+            .finally(() => setUploading(false));
+    };
 
     const tiles = [
         { icon: faKey, label: 'API Keys', to: '/account/api' },
@@ -104,11 +138,45 @@ export default () => {
             )}
 
             <ProfileHero css={tw`mt-10`}>
-                <div
-                    css={tw`w-20 h-20 rounded-full overflow-hidden flex-shrink-0`}
-                    style={{ border: '3px solid rgba(145,35,215,0.6)', boxShadow: '0 0 24px rgba(145,35,215,0.4)' }}
-                >
-                    <Avatar.User size={80} />
+                <div css={tw`flex-shrink-0 flex flex-col items-center gap-2`}>
+                    <div
+                        css={tw`w-20 h-20 rounded-full overflow-hidden`}
+                        style={{ border: '3px solid rgba(145,35,215,0.6)', boxShadow: '0 0 24px rgba(145,35,215,0.4)' }}
+                    >
+                        {avatarUrl ? (
+                            <img src={avatarUrl} alt={'Profile'} css={tw`w-full h-full object-cover`} />
+                        ) : (
+                            <Avatar.User size={80} />
+                        )}
+                    </div>
+                    <input
+                        ref={fileRef}
+                        type={'file'}
+                        accept={'image/jpeg,image/png,image/webp,image/gif'}
+                        css={tw`hidden`}
+                        onChange={onFilePicked}
+                    />
+                    <div css={tw`flex gap-2`}>
+                        <button
+                            onClick={() => fileRef.current?.click()}
+                            disabled={uploading}
+                            css={tw`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium transition-all duration-150`}
+                            style={{ background: '#9123D720', color: '#A855F7', border: '1px solid #9123D7' }}
+                        >
+                            <FontAwesomeIcon icon={faCamera} />
+                            {uploading ? '…' : avatarUrl ? 'Change' : 'Upload'}
+                        </button>
+                        {avatarUrl && (
+                            <button
+                                onClick={removeAvatar}
+                                disabled={uploading}
+                                css={tw`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium transition-all duration-150`}
+                                style={{ background: '#EF444420', color: '#EF4444', border: '1px solid #EF4444' }}
+                            >
+                                <FontAwesomeIcon icon={faTrash} />
+                            </button>
+                        )}
+                    </div>
                 </div>
                 <div css={tw`flex-1 text-center sm:text-left min-w-0`}>
                     <div css={tw`text-2xl font-bold text-neutral-100 flex items-center justify-center sm:justify-start gap-2`}>

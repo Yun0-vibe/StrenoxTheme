@@ -1041,6 +1041,7 @@ a:hover, a:focus {
 
 .strenox-msg {
     max-width: 85%;
+    width: fit-content;
     border-radius: 12px;
     padding: 12px 14px;
     font-size: 13px;
@@ -1048,6 +1049,8 @@ a:hover, a:focus {
 
 .strenox-msg-staff {
     align-self: flex-start;
+    margin-right: auto;
+    text-align: left;
     background: rgba(145, 35, 215, 0.12);
     border: 1px solid rgba(145, 35, 215, 0.45);
     box-shadow: 0 0 16px rgba(145, 35, 215, 0.12);
@@ -1055,6 +1058,8 @@ a:hover, a:focus {
 
 .strenox-msg-user {
     align-self: flex-end;
+    margin-left: auto;
+    text-align: left;
     background: #16161F;
     border: 1px solid #2A2A3A;
 }

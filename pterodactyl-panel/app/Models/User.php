@@ -139,6 +139,7 @@ class User extends Model implements
         'discord_avatar',
         'discord_notifications',
         'discord_role_sync',
+        'avatar_path',
     ];
 
     /**
