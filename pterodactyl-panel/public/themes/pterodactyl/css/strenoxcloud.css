@@ -184,20 +184,21 @@ code {
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4) !important;
 }
 
-.box.box-success {
-    border-top-color: #22C55E !important;
-}
-
-.box.box-danger {
-    border-top-color: #EF4444 !important;
-}
-
-.box.box-warning {
-    border-top-color: #F59E0B !important;
-}
-
+.box.box-success,
+.box.box-danger,
+.box.box-warning,
 .box.box-primary {
     border-top-color: #9123D7 !important;
+}
+
+.box-header {
+    background: linear-gradient(90deg, rgba(145, 35, 215, 0.14) 0%, transparent 70%) !important;
+    border-radius: 8px 8px 0 0 !important;
+    padding: 14px 18px !important;
+}
+
+.box-header .box-title {
+    font-size: 17px !important;
 }
 
 .box-header > .box-tools .btn {
@@ -241,9 +242,14 @@ code {
 }
 
 .btn-warning {
-    background: linear-gradient(135deg, #D97706 0%, #B45309 100%) !important;
-    border-color: #F59E0B !important;
+    background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%) !important;
+    border-color: #5865F2 !important;
     color: #fff !important;
+}
+
+.btn-warning:hover {
+    filter: brightness(1.1) !important;
+    box-shadow: 0 4px 22px rgba(88, 101, 242, 0.5) !important;
 }
 
 .btn-danger {
@@ -740,30 +746,29 @@ a:hover, a:focus {
     padding-top: 0 !important;
 }
 
-/* Floating action toggle */
+/* Floating action toggle — mobile drawer only. Desktop sidebar is fixed. */
 .sx-fab-toggle {
-    position: fixed;
-    top: 14px;
-    left: 14px;
-    z-index: 1040;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 14px;
-    border: 1px solid rgba(145, 35, 215, 0.4);
-    background: linear-gradient(135deg, rgba(30, 21, 53, 0.95) 0%, rgba(13, 13, 18, 0.97) 100%);
-    color: #A855F7;
-    cursor: pointer;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 18px rgba(145, 35, 215, 0.25);
-    transition: all 0.18s ease;
+    display: none;
 }
 
-.sx-fab-toggle:hover {
-    color: #fff;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 28px rgba(145, 35, 215, 0.45);
-    transform: translateY(-1px);
+@media (max-width: 767px) {
+    .sx-fab-toggle {
+        position: fixed;
+        top: 14px;
+        left: 14px;
+        z-index: 1040;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px;
+        border: 1px solid rgba(145, 35, 215, 0.4);
+        background: linear-gradient(135deg, rgba(30, 21, 53, 0.95) 0%, rgba(13, 13, 18, 0.97) 100%);
+        color: #A855F7;
+        cursor: pointer;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 18px rgba(145, 35, 215, 0.25);
+    }
 }
 
 /* Back to panel link */
