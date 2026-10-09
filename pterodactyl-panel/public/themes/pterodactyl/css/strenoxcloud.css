@@ -363,8 +363,16 @@ select.form-control {
 }
 
 .nav-tabs-custom > .nav-tabs > li.active > a {
-    border-top: 3px solid #9123D7 !important;
+    border-top: 3px solid transparent !important;
+    border-top-color: transparent !important;
     color: #fff !important;
+}
+
+/* Kill any leftover AdminLTE teal/cyan active-tab indicators anywhere */
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    border-top-color: transparent !important;
 }
 
 .nav-tabs-custom > .tab-content {
