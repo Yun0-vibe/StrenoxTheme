@@ -134,6 +134,11 @@ class User extends Model implements
         'totp_authenticated_at',
         'gravatar',
         'root_admin',
+        'discord_id',
+        'discord_username',
+        'discord_avatar',
+        'discord_notifications',
+        'discord_role_sync',
     ];
 
     /**
@@ -144,6 +149,8 @@ class User extends Model implements
         'use_totp' => 'boolean',
         'gravatar' => 'boolean',
         'totp_authenticated_at' => 'datetime',
+        'discord_notifications' => 'boolean',
+        'discord_role_sync' => 'boolean',
     ];
 
     /**

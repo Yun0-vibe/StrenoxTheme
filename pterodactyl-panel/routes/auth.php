@@ -46,5 +46,15 @@ Route::post('/logout', [Auth\LoginController::class, 'logout'])
     ->middleware('auth')
     ->name('auth.logout');
 
+// Discord account linking (StrenoxCloud). Requires a logged-in panel user.
+Route::get('/discord', [Auth\DiscordController::class, 'redirect'])
+    ->withoutMiddleware('guest')
+    ->middleware('auth')
+    ->name('auth.discord.link');
+Route::get('/discord/callback', [Auth\DiscordController::class, 'callback'])
+    ->withoutMiddleware('guest')
+    ->middleware('auth')
+    ->name('auth.discord.callback');
+
 // Catch any other combinations of routes and pass them off to the React component.
 Route::fallback([Auth\LoginController::class, 'index']);

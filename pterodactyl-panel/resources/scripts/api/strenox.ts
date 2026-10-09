@@ -83,3 +83,51 @@ export function replyStrenoxTicket(id: number, message: string): Promise<Strenox
         .post(`/api/client/account/strenox/tickets/${id}/reply`, { message })
         .then(({ data }) => unwrap<StrenoxTicketMessage>(data));
 }
+
+export interface StrenoxDiscordStatus {
+    linked: boolean;
+    username: string | null;
+    // eslint-disable-next-line camelcase
+    avatar_url: string | null;
+    notifications: boolean;
+    // eslint-disable-next-line camelcase
+    role_sync: boolean;
+    // eslint-disable-next-line camelcase
+    invite_url: string | null;
+    // eslint-disable-next-line camelcase
+    member_count: number | null;
+    // eslint-disable-next-line camelcase
+    oauth_configured: boolean;
+}
+
+export function getDiscordStatus(): Promise<StrenoxDiscordStatus> {
+    return http
+        .get('/api/client/account/strenox/discord')
+        .then(({ data }) => unwrap<StrenoxDiscordStatus>(data));
+}
+
+export function updateDiscordPrefs(
+    notifications: boolean,
+    roleSync: boolean
+): Promise<{ notifications: boolean; role_sync: boolean }> {
+    return http
+        .patch('/api/client/account/strenox/discord', { notifications, role_sync: roleSync })
+        .then(({ data }) => unwrap<{ notifications: boolean; role_sync: boolean }>(data));
+}
+
+export function unlinkDiscord(): Promise<void> {
+    return http.delete('/api/client/account/strenox/discord').then(() => undefined);
+}
+
+export interface StrenoxNodeStatus {
+    name: string;
+    location: string;
+    maintenance: boolean;
+    status: 'operational' | 'maintenance';
+}
+
+export function getNodeStatus(): Promise<StrenoxNodeStatus[]> {
+    return http
+        .get('/api/client/account/strenox/status')
+        .then(({ data }) => unwrap<StrenoxNodeStatus[]>(data));
+}

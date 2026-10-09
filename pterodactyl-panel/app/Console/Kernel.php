@@ -35,6 +35,11 @@ class Kernel extends ConsoleKernel
         $schedule->command(ProcessRunnableCommand::class)->everyMinute()->withoutOverlapping();
         $schedule->command(CleanServiceBackupFilesCommand::class)->daily();
 
+        // Post the StrenoxCloud network status embed to Discord hourly.
+        // Requires the webhook URL in Admin → Settings → Discord, plus a
+        // system cron running `php artisan schedule:run` every minute.
+        $schedule->command('strenox:discord-status')->hourly();
+
         if (config('backups.prune_age')) {
             // Every 30 minutes, run the backup pruning command so that any abandoned backups can be deleted.
             $schedule->command(PruneOrphanedBackupsCommand::class)->everyThirtyMinutes();

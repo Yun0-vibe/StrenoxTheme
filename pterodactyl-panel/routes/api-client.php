@@ -53,6 +53,10 @@ Route::prefix('/account')->middleware(AccountSubject::class)->group(function () 
         Route::post('/tickets', [Client\Strenox\TicketController::class, 'store']);
         Route::get('/tickets/{ticket}', [Client\Strenox\TicketController::class, 'view']);
         Route::post('/tickets/{ticket}/reply', [Client\Strenox\TicketController::class, 'reply']);
+        Route::get('/discord', [Client\Strenox\DiscordController::class, 'status']);
+        Route::patch('/discord', [Client\Strenox\DiscordController::class, 'update']);
+        Route::delete('/discord', [Client\Strenox\DiscordController::class, 'unlink']);
+        Route::get('/status', Client\Strenox\NodeStatusController::class);
     });
 
     Route::prefix('/ssh-keys')->group(function () {
