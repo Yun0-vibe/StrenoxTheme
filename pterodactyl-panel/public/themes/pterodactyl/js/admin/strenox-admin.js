@@ -26,4 +26,15 @@
             $('body').removeClass('modal-open');
         }
     });
+
+    // Deterministic stacking: whenever any modal is triggered, force the
+    // backdrop below the dialog with inline styles. Inline styles beat any
+    // stylesheet ordering issue, so no invisible layer can ever sit between
+    // the cursor and the dialog buttons.
+    $(document).on('click.strenoxModalFix', '[data-toggle="modal"]', function () {
+        setTimeout(function () {
+            $('.modal-backdrop').css({ 'z-index': '1040', opacity: '0', background: 'none' });
+            $('.modal.in, .modal.show').css('z-index', '1060');
+        }, 60);
+    });
 })(jQuery);
