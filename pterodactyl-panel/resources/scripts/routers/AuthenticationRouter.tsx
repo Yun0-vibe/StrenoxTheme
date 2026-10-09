@@ -39,7 +39,7 @@ const MarketingPanel = () => (
                 <span css={tw`text-[#9123D7]`}>Cloud</span>
             </div>
         </div>
-        <h1 css={tw`text-5xl xl:text-6xl font-black italic leading-[1.12] tracking-tight mb-5 overflow-visible pb-1`}>
+        <h1 css={tw`text-4xl xl:text-5xl font-extrabold italic leading-[1.18] tracking-normal mb-5 overflow-visible pb-2 pr-3`}>
             <span css={tw`text-neutral-100`}>WELCOME TO</span>
             <br />
             <span

@@ -87,6 +87,7 @@ export default createGlobalStyle`
         -webkit-font-smoothing: antialiased !important;
         -moz-osx-font-smoothing: grayscale !important;
         text-rendering: optimizeLegibility !important;
+        font-synthesis: none !important;
         background-image:
             radial-gradient(ellipse 55% 35% at 10% -5%, rgba(145, 35, 215, 0.17), transparent),
             radial-gradient(ellipse 45% 35% at 90% 5%, rgba(124, 58, 237, 0.14), transparent),

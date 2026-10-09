@@ -27,7 +27,7 @@ export default forwardRef<HTMLFormElement, Props>(({ title, eyebrow, ...props },
                     </div>
                 )}
                 {title && (
-                    <h2 css={tw`text-3xl font-black italic text-neutral-100 tracking-tight`}>{title}</h2>
+                    <h2 css={tw`text-3xl font-extrabold italic text-neutral-100 tracking-normal leading-snug overflow-visible pb-1`}>{title}</h2>
                 )}
             </div>
         )}
