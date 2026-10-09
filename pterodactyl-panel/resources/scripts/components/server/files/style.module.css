@@ -15,8 +15,16 @@
 }
 
 .file_row {
-    @apply flex items-center cursor-pointer bg-neutral-700 rounded-sm mb-px text-sm no-underline;
-    @apply hover:text-neutral-100 hover:bg-neutral-600;
+    @apply flex items-center cursor-pointer rounded-xl mb-1 text-sm no-underline border border-transparent transition-all duration-150;
+    background: rgba(22, 22, 31, 0.75);
+    @apply hover:text-neutral-100;
+    border-color: rgba(255, 255, 255, 0.05);
+
+    &:hover {
+        border-color: rgba(145, 35, 215, 0.55);
+        background: rgba(30, 21, 53, 0.7);
+        box-shadow: 0 0 16px rgba(145, 35, 215, 0.12);
+    }
 
     & > .details {
         @apply flex flex-1 items-center text-neutral-300 no-underline px-4 py-2 overflow-hidden truncate;

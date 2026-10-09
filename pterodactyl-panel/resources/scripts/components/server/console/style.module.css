@@ -1,16 +1,19 @@
 .stat_block {
-    @apply flex items-center rounded shadow-lg relative;
+    @apply flex items-center rounded-2xl shadow-lg relative border border-white/10;
     @apply col-span-3 md:col-span-2 lg:col-span-6;
     @apply px-3 py-2 md:p-3 lg:p-4;
+    background: linear-gradient(135deg, rgba(30, 21, 53, 0.75) 0%, rgba(22, 22, 31, 0.9) 100%);
 
     & > .status_bar {
         @apply w-1 h-full absolute left-0 top-0 rounded-l sm:hidden;
     }
 
     & > .icon {
-        @apply hidden flex-shrink-0 items-center justify-center rounded-lg shadow-md w-12 h-12;
+        @apply hidden flex-shrink-0 items-center justify-center rounded-xl shadow-md w-12 h-12 text-white;
         @apply transition-colors duration-500;
         @apply sm:flex sm:mr-4;
+        background: linear-gradient(135deg, #9123d7 0%, #7c3aed 100%);
+        box-shadow: 0 4px 14px rgba(145, 35, 215, 0.4);
 
         & > svg {
             @apply w-6 h-6 m-auto;
@@ -19,7 +22,8 @@
 }
 
 .terminal {
-    @apply flex flex-col w-full;
+    @apply flex flex-col w-full rounded-2xl overflow-hidden border border-white/10;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 24px rgba(145, 35, 215, 0.1);
 
     & .overflows_container {
         @apply -ml-4 sm:ml-0;
@@ -47,17 +51,19 @@
     }
 
     & .command_icon {
-        @apply flex items-center top-0 left-0 absolute z-10 select-none h-full px-3 transition-colors duration-100;
+        @apply flex items-center top-0 left-0 absolute z-10 select-none h-full px-3 transition-colors duration-100 text-[#A855F7];
     }
 
     & .command_input {
-        @apply relative bg-gray-900 px-2 text-gray-100 pl-10 pr-4 py-2 w-full font-mono text-sm sm:rounded-b;
+        @apply relative px-2 text-gray-100 pl-10 pr-4 py-2 w-full font-mono text-sm sm:rounded-b;
+        background: #101016;
         @apply focus:ring-0 outline-none focus-visible:outline-none;
         @apply border-0 border-b-2 border-transparent transition-colors duration-100;
-        @apply active:border-cyan-500 focus:border-cyan-500;
+        @apply active:border-[#9123D7] focus:border-[#9123D7];
     }
 }
 
 .chart_container {
-    @apply bg-gray-600 rounded shadow-lg pt-2 border-b-4 border-gray-700 relative;
+    @apply rounded-2xl shadow-lg pt-2 border border-white/10 relative;
+    background: linear-gradient(135deg, rgba(30, 21, 53, 0.75) 0%, rgba(22, 22, 31, 0.9) 100%);
 }
