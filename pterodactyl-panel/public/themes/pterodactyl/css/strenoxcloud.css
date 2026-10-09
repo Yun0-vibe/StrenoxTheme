@@ -879,21 +879,25 @@ a:hover, a:focus {
 /* Sidebar logout */
 .sx-logout {
     margin-left: auto;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 9px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     color: #8888A8;
     cursor: pointer;
     transition: all 0.18s ease;
 }
 
 .sx-logout:hover {
-    color: #EF4444;
-    background: rgba(239, 68, 68, 0.12);
+    color: #fff;
+    background: linear-gradient(135deg, #DC2626, #991B1B);
+    border-color: transparent;
+    box-shadow: 0 0 14px rgba(239, 68, 68, 0.45);
 }
 
 @media (min-width: 768px) {
@@ -1011,6 +1015,20 @@ a:hover, a:focus {
     font-weight: 600;
 }
 
+/* Sidebar count badge */
+.sx-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #EF4444, #991B1B);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+    vertical-align: middle;
+}
+
 /* Sidebar footer mini-links */
 .strenox-admin .sidebar-menu {
     padding-bottom: 12px !important;
@@ -1073,6 +1091,17 @@ a:hover, a:focus {
     gap: 10px;
     padding: 4px 8px 14px;
     text-decoration: none !important;
+    position: relative;
+}
+
+.sx-brand::after {
+    content: '';
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 4px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(145, 35, 215, 0.5), transparent);
 }
 
 .sx-brand img {
@@ -1099,9 +1128,19 @@ a:hover, a:focus {
     color: #8888A8;
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    padding: 12px 10px 6px;
+    padding: 14px 10px 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sx-nav-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(145, 35, 215, 0.3), transparent);
 }
 
 .sx-nav {
@@ -1116,7 +1155,7 @@ a:hover, a:focus {
     gap: 12px;
     padding: 9px 10px;
     border-radius: 12px;
-    color: #8888A8 !important;
+    color: #9AA0B4 !important;
     font-weight: 500;
     font-size: 13.5px;
     text-decoration: none !important;
@@ -1130,11 +1169,18 @@ a:hover, a:focus {
     transform: translateX(3px);
 }
 
+.sx-nav a:hover .sx-ico {
+    border-color: rgba(145, 35, 215, 0.5);
+    box-shadow: 0 0 14px rgba(145, 35, 215, 0.3);
+    color: #C084FC;
+}
+
 .sx-nav a.sx-active {
     color: #fff !important;
-    background: linear-gradient(90deg, rgba(145, 35, 215, 0.28) 0%, rgba(145, 35, 215, 0.07) 100%);
-    border-color: rgba(145, 35, 215, 0.25);
-    box-shadow: inset 3px 0 0 #9123D7, 0 0 18px rgba(145, 35, 215, 0.15);
+    background: linear-gradient(90deg, rgba(145, 35, 215, 0.32) 0%, rgba(145, 35, 215, 0.08) 100%);
+    border-color: rgba(145, 35, 215, 0.35);
+    box-shadow: inset 3px 0 0 #A855F7, 0 0 22px rgba(145, 35, 215, 0.22);
+    font-weight: 600;
 }
 
 .sx-ico {
@@ -1145,17 +1191,18 @@ a:hover, a:focus {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.07);
-    color: #A855F7;
+    color: #8B90A5;
     font-size: 14px;
+    transition: all 0.18s ease;
 }
 
 .sx-active .sx-ico {
-    background: linear-gradient(135deg, #9123D7, #7C3AED);
+    background: linear-gradient(135deg, #A855F7, #7C3AED);
     color: #fff;
     border-color: transparent;
-    box-shadow: 0 4px 12px rgba(145, 35, 215, 0.45);
+    box-shadow: 0 4px 14px rgba(145, 35, 215, 0.55), 0 0 18px rgba(168, 85, 247, 0.35);
 }
 
 .sx-profile {
@@ -1165,10 +1212,11 @@ a:hover, a:focus {
     gap: 10px;
     padding: 12px;
     border-radius: 14px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: linear-gradient(135deg, rgba(145, 35, 215, 0.12) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(145, 35, 215, 0.22);
     text-decoration: none !important;
     transition: all 0.18s ease;
+    box-shadow: 0 0 16px rgba(145, 35, 215, 0.08);
 }
 
 .sx-profile:hover {

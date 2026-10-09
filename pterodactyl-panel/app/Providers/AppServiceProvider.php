@@ -25,6 +25,17 @@ class AppServiceProvider extends ServiceProvider
         View::share('appVersion', $this->versionData()['version'] ?? 'undefined');
         View::share('appIsGit', $this->versionData()['is_git'] ?? false);
 
+        // Sidebar counters + ticket badge for the admin shell. These run on
+        // every admin page (the overview controller only feeds its own view),
+        // so the navigation never hits an undefined variable.
+        View::composer('layouts.admin', function ($view) {
+            $view->with('sxSidebar', [
+                'servers' => Models\Server::count(),
+                'users' => Models\User::count(),
+                'openTickets' => Models\StrenoxTicket::query()->where('status', 'open')->count(),
+            ]);
+        });
+
         Paginator::useBootstrap();
 
         // If the APP_URL value is set with https:// make sure we force it here. Theoretically

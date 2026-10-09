@@ -68,6 +68,9 @@
                         <a href="{{ route('admin.api.index') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.api')) }}">
                             <span class="sx-ico"><i class="fa fa-gamepad"></i></span><span class="sx-txt">Application API</span>
                         </a>
+                        <a href="/tickets" class="{{ $sxActive(false) }}">
+                            <span class="sx-ico"><i class="fa fa-life-ring"></i></span><span class="sx-txt">Tickets@if(($sxSidebar['openTickets'] ?? 0) > 0)<span class="sx-badge">{{ $sxSidebar['openTickets'] }}</span>@endif</span>
+                        </a>
                     </nav>
                     <div class="sx-nav-label">Fleet</div>
                     <nav class="sx-nav">
