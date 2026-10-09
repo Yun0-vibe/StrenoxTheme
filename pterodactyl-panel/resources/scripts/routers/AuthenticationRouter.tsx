@@ -30,7 +30,8 @@ const MarketingPanel = () => (
             <img
                 src={'/favicons/strenoxcloud-logo.png'}
                 alt={'StrenoxCloud'}
-                css={tw`w-14 h-14 strenox-float`}
+                className={'strenox-float'}
+                css={tw`w-14 h-14`}
                 style={{ filter: 'drop-shadow(0 0 20px rgba(145,35,215,0.6))' }}
             />
             <div css={tw`text-2xl font-bold tracking-wide`}>
@@ -115,7 +116,8 @@ export default () => {
                     <img
                         src={'/favicons/strenoxcloud-logo.png'}
                         alt={'StrenoxCloud'}
-                        css={tw`w-14 h-14 mb-2 strenox-float`}
+                        className={'strenox-float'}
+                        css={tw`w-14 h-14 mb-2`}
                         style={{ filter: 'drop-shadow(0 0 18px rgba(145,35,215,0.6))' }}
                     />
                     <div css={tw`text-xl font-bold tracking-wide`}>
