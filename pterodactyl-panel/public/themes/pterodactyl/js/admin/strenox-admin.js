@@ -37,4 +37,17 @@
             $('.modal.in, .modal.show').css('z-index', '1060');
         }, 60);
     });
+
+    // No backdrop layer, period: strip it the moment any modal finishes
+    // opening (and shortly after the trigger as a fallback). Cancel, X,
+    // Create and Escape keep working; there is simply no overlay element
+    // left that could ever intercept a click.
+    $(document).on('shown.bs.modal.strenoxNoBackdrop', '.modal', function () {
+        $('.modal-backdrop').remove();
+    });
+    $(document).on('click.strenoxNoBackdrop', '[data-toggle="modal"]', function () {
+        setTimeout(function () {
+            $('.modal-backdrop').remove();
+        }, 350);
+    });
 })(jQuery);
