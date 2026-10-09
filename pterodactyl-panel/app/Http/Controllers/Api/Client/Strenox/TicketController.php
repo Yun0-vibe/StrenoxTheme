@@ -132,7 +132,9 @@ class TicketController extends ClientApiController
         $message = $ticket->messages()->create([
             'user_id' => $request->user()->id,
             'message' => $request->input('message'),
-            'is_staff' => (bool) $request->user()->root_admin,
+            // Staff flag means an administrator replying to somebody else's
+            // ticket — never the owner's own messages, even if they are admin.
+            'is_staff' => (bool) $request->user()->root_admin && $ticket->user_id !== $request->user()->id,
         ]);
 
         if ($ticket->status === 'closed') {
