@@ -6,6 +6,9 @@ use Pterodactyl\Http\Middleware\Admin\Servers\ServerInstalled;
 
 Route::get('/', [Admin\BaseController::class, 'index'])->name('admin.index');
 Route::get('/tickets', [Admin\StrenoxTicketController::class, 'index'])->name('admin.strenox.tickets');
+Route::get('/tickets/{ticket}', [Admin\StrenoxTicketController::class, 'view'])->name('admin.strenox.ticket.view');
+Route::post('/tickets/{ticket}/reply', [Admin\StrenoxTicketController::class, 'reply'])->name('admin.strenox.ticket.reply');
+Route::post('/tickets/{ticket}/status', [Admin\StrenoxTicketController::class, 'status'])->name('admin.strenox.ticket.status');
 
 /*
 |--------------------------------------------------------------------------

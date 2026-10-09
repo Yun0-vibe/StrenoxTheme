@@ -1029,6 +1029,59 @@ a:hover, a:focus {
     vertical-align: middle;
 }
 
+/* Staff ticket thread */
+.strenox-thread {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 520px;
+    overflow-y: auto;
+    padding: 4px;
+}
+
+.strenox-msg {
+    max-width: 85%;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 13px;
+}
+
+.strenox-msg-staff {
+    align-self: flex-start;
+    background: rgba(145, 35, 215, 0.12);
+    border: 1px solid rgba(145, 35, 215, 0.45);
+    box-shadow: 0 0 16px rgba(145, 35, 215, 0.12);
+}
+
+.strenox-msg-user {
+    align-self: flex-end;
+    background: #16161F;
+    border: 1px solid #2A2A3A;
+}
+
+.strenox-msg-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: #A855F7;
+    margin-bottom: 4px;
+}
+
+.strenox-msg-tag-user {
+    color: #8888A8;
+}
+
+.strenox-msg-body {
+    color: #E2E2F0;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.strenox-msg-date {
+    font-size: 11px;
+    color: #8888A8;
+    margin-top: 6px;
+}
+
 /* Sidebar footer mini-links */
 .strenox-admin .sidebar-menu {
     padding-bottom: 12px !important;

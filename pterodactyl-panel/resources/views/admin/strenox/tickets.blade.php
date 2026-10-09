@@ -35,7 +35,7 @@
                         @forelse ($tickets as $ticket)
                             <tr>
                                 <td><code>#{{ $ticket->id }}</code></td>
-                                <td><a href="/tickets?open={{ $ticket->id }}">{{ $ticket->subject }}</a></td>
+                                <td><a href="{{ route('admin.strenox.ticket.view', $ticket->id) }}">{{ $ticket->subject }}</a></td>
                                 <td class="text-muted">{{ $ticket->user?->username ?? '—' }}<br><small>{{ $ticket->user?->email ?? '' }}</small></td>
                                 <td>
                                     @if ($ticket->priority === 'high')
