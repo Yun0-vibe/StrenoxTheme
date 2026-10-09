@@ -73,6 +73,88 @@
     </div>
 </div>
 <div class="row">
+    <div class="col-md-8">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">User Growth <small style="color:#8888A8;">· signups per day, last 14 days</small></h3>
+            </div>
+            <div class="box-body">
+                <div class="strenox-chart-wrap"><canvas id="sxUsersChart" height="110"></canvas></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Servers by Status</h3>
+            </div>
+            <div class="box-body">
+                <div class="strenox-chart-wrap"><canvas id="sxServersChart" height="168"></canvas></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/themes/pterodactyl/vendor/chartjs/chart.min.js"></script>
+<script>
+(function () {
+    if (typeof Chart === 'undefined') return;
+    Chart.defaults.global.defaultFontColor = '#8888A8';
+    Chart.defaults.global.defaultFontFamily = "'Inter', sans-serif";
+
+    var usersEl = document.getElementById('sxUsersChart');
+    if (usersEl) {
+        new Chart(usersEl, {
+            type: 'line',
+            data: {
+                labels: {!! json_encode($userGrowth['labels']) !!},
+                datasets: [{
+                    data: {!! json_encode($userGrowth['data']) !!},
+                    borderColor: '#A855F7',
+                    backgroundColor: 'rgba(145,35,215,0.16)',
+                    pointBackgroundColor: '#A855F7',
+                    pointBorderColor: '#fff',
+                    pointRadius: 3,
+                    borderWidth: 2,
+                    lineTension: 0.35,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: { display: false },
+                scales: {
+                    xAxes: [{ gridLines: { display: false }, ticks: { maxTicksLimit: 7 } }],
+                    yAxes: [{ ticks: { beginAtZero: true, stepSize: 1 }, gridLines: { color: 'rgba(255,255,255,0.06)' } }]
+                }
+            }
+        });
+    }
+
+    var serversEl = document.getElementById('sxServersChart');
+    if (serversEl) {
+        new Chart(serversEl, {
+            type: 'doughnut',
+            data: {
+                labels: {!! json_encode($serverStatus['labels']) !!},
+                datasets: [{
+                    data: {!! json_encode($serverStatus['data']) !!},
+                    backgroundColor: ['#9123D7', '#22C55E', '#F59E0B', '#EF4444', '#3B82F6'],
+                    borderColor: '#1A1A25',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: { position: 'bottom', labels: { boxWidth: 12, padding: 12 } },
+                cutoutPercentage: 62
+            }
+        });
+    }
+})();
+</script>
+<div class="row">
     <div class="col-xs-12">
         <div class="box
             @if($version->isLatestPanel())
@@ -149,6 +231,61 @@
                             </tr>
                         @empty
                             <tr><td class="text-center text-muted">No users yet.</td></tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Recent Activity</h3>
+            </div>
+            <div class="box-body no-padding">
+                <table class="table">
+                    <tbody>
+                        @forelse ($recentActivity as $log)
+                            <tr>
+                                <td>
+                                    <span class="strenox-event">{{ ucfirst(str_replace([':', '_', '.'], ' ', $log->event)) }}</span>
+                                    <span class="text-muted">· {{ $log->actor->username ?? 'System' }}</span>
+                                </td>
+                                <td class="text-right text-muted" style="white-space:nowrap;">{{ $log->timestamp->diffForHumans() }}</td>
+                            </tr>
+                        @empty
+                            <tr><td class="text-center text-muted">No activity recorded yet.</td></tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Support Tickets @if($openTickets)<span class="label label-warning" style="margin-left:6px;">{{ $openTickets }} open</span>@endif</h3>
+            </div>
+            <div class="box-body no-padding">
+                <table class="table">
+                    <tbody>
+                        @forelse ($latestTickets as $ticket)
+                            <tr>
+                                <td><span class="text-muted">#{{ $ticket->id }}</span> {{ Str::limit($ticket->subject, 42) }}</td>
+                                <td class="text-right">
+                                    @if ($ticket->status === 'open')
+                                        <span class="label label-success">Open</span>
+                                    @elseif ($ticket->status === 'answered')
+                                        <span class="label label-info">Answered</span>
+                                    @else
+                                        <span class="label label-default">Closed</span>
+                                    @endif
+                                </td>
+                            </tr>
+                        @empty
+                            <tr><td class="text-center text-muted">No tickets yet.</td></tr>
                         @endforelse
                     </tbody>
                 </table>

@@ -838,8 +838,11 @@ a:hover, a:focus {
         left: 12px !important;
         width: 218px !important;
         border-radius: 18px !important;
-        border: 1px solid rgba(145, 35, 215, 0.28) !important;
-        box-shadow: 0 12px 44px rgba(0, 0, 0, 0.5), 0 0 28px rgba(145, 35, 215, 0.12) !important;
+        border: 1px solid rgba(145, 35, 215, 0.45) !important;
+        background: linear-gradient(180deg, rgba(46, 28, 80, 0.88) 0%, rgba(16, 16, 24, 0.94) 100%) !important;
+        backdrop-filter: blur(22px) !important;
+        -webkit-backdrop-filter: blur(22px) !important;
+        box-shadow: 0 12px 44px rgba(0, 0, 0, 0.55), 0 0 32px rgba(145, 35, 215, 0.18) !important;
         overflow: hidden;
     }
 
@@ -930,6 +933,17 @@ a:hover, a:focus {
 /* Selected toggle/radio buttons must stand out */
 .btn.active, .btn:active {
     filter: brightness(1.15);
+}
+
+/* Overview charts + activity */
+.strenox-chart-wrap {
+    position: relative;
+    min-height: 180px;
+}
+
+.strenox-event {
+    color: #C084FC;
+    font-weight: 600;
 }
 
 /* Sidebar footer mini-links */
