@@ -9,6 +9,10 @@ Route::get('/tickets', [Admin\StrenoxTicketController::class, 'index'])->name('a
 Route::get('/tickets/{ticket}', [Admin\StrenoxTicketController::class, 'view'])->name('admin.strenox.ticket.view');
 Route::post('/tickets/{ticket}/reply', [Admin\StrenoxTicketController::class, 'reply'])->name('admin.strenox.ticket.reply');
 Route::post('/tickets/{ticket}/status', [Admin\StrenoxTicketController::class, 'status'])->name('admin.strenox.ticket.status');
+Route::get('/news', [Admin\StrenoxAnnouncementController::class, 'index'])->name('admin.strenox.announcements');
+Route::post('/news', [Admin\StrenoxAnnouncementController::class, 'store'])->name('admin.strenox.announcements.store');
+Route::post('/news/{announcement}/toggle', [Admin\StrenoxAnnouncementController::class, 'toggle'])->name('admin.strenox.announcements.toggle');
+Route::delete('/news/{announcement}', [Admin\StrenoxAnnouncementController::class, 'destroy'])->name('admin.strenox.announcements.destroy');
 
 /*
 |--------------------------------------------------------------------------

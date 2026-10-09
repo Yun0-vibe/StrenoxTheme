@@ -9,7 +9,6 @@ import {
     faLifeRing,
     faBullhorn,
     faBook,
-    faComments,
     faHeartbeat,
     faArrowRight,
 } from '@fortawesome/free-solid-svg-icons';
@@ -20,7 +19,7 @@ import Spinner from '@/components/elements/Spinner';
 import ServerRow from '@/components/dashboard/ServerRow';
 import getServers from '@/api/getServers';
 import { Server } from '@/api/server/getServer';
-import { getOverview } from '@/api/strenox';
+import { getOverview, getStrenoxAnnouncements, StrenoxAnnouncement } from '@/api/strenox';
 
 const Header = styled.div`
     ${tw`rounded-2xl px-6 py-5 mb-6 flex items-center gap-4 relative overflow-hidden`};
@@ -56,7 +55,7 @@ const StatIcon = styled.div`
 `;
 
 const ActionDock = styled.div`
-    ${tw`grid grid-cols-2 lg:grid-cols-5 gap-3 mb-6`};
+    ${tw`grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6`};
 `;
 
 const ActionTile = styled(Link)`
@@ -102,6 +101,7 @@ export default function HomePage() {
     const [openTickets, setOpenTickets] = useState(0);
     const [newsCount, setNewsCount] = useState(0);
     const [newsLoading, setNewsLoading] = useState(false);
+    const [latestNews, setLatestNews] = useState<StrenoxAnnouncement[]>([]);
 
     useEffect(() => {
         getServers({ page: 1 })
@@ -120,6 +120,10 @@ export default function HomePage() {
             })
             .catch(() => undefined)
             .finally(() => setNewsLoading(false));
+
+        getStrenoxAnnouncements()
+            .then((items) => setLatestNews(items.slice(0, 3)))
+            .catch(() => undefined);
     }, []);
 
     const stats = [
@@ -137,7 +141,6 @@ export default function HomePage() {
         { icon: faServer, label: 'Servers', to: '/servers' },
         { icon: faLifeRing, label: 'Tickets', to: '/tickets' },
         { icon: faBook, label: 'Guides', to: '/knowledge-base' },
-        { icon: faComments, label: 'Discord', to: '/discord' },
         { icon: faHeartbeat, label: 'Status', to: '/status' },
     ];
 
@@ -232,6 +235,32 @@ export default function HomePage() {
                     </div>
                 )}
             </ContentBox>
+
+            {latestNews.length > 0 && (
+                <ContentBox
+                    title={'Latest News'}
+                    css={tw`mt-6`}
+                    className={'strenox-news-box'}
+                >
+                    <div css={tw`space-y-3`}>
+                        {latestNews.map((item) => (
+                            <Link
+                                key={item.id}
+                                to={'/announcements'}
+                                css={tw`flex items-center gap-3 p-3 rounded-xl no-underline transition-all duration-150 hover:border-[#9123D7]`}
+                                style={{ background: '#16161F', border: '1px solid #2A2A3A' }}
+                            >
+                                <FontAwesomeIcon icon={faBullhorn} css={tw`text-[#A855F7] flex-shrink-0`} />
+                                <div css={tw`flex-1 min-w-0`}>
+                                    <div css={tw`text-sm font-semibold text-neutral-100 truncate`}>{item.title}</div>
+                                    <div css={tw`text-xs text-neutral-500`}>{item.date}</div>
+                                </div>
+                                <FontAwesomeIcon icon={faArrowRight} css={tw`text-neutral-500 text-xs flex-shrink-0`} />
+                            </Link>
+                        ))}
+                    </div>
+                </ContentBox>
+            )}
         </div>
     );
 }

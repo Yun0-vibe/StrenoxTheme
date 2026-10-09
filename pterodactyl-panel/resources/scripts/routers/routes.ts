@@ -14,7 +14,6 @@ import AccountSSHContainer from '@/components/dashboard/ssh/AccountSSHContainer'
 import ActivityLogContainer from '@/components/dashboard/activity/ActivityLogContainer';
 import ServerActivityLogContainer from '@/components/server/ServerActivityLogContainer';
 import KnowledgeBase from '@/components/addons/KnowledgeBase';
-import DiscordWidget from '@/components/addons/DiscordWidget';
 import Announcements from '@/components/addons/Announcements';
 import SupportTickets from '@/components/addons/SupportTickets';
 import StatusPage from '@/components/addons/StatusPage';
@@ -83,11 +82,6 @@ export default {
             path: '/knowledge-base',
             name: 'Guides',
             component: KnowledgeBase,
-        },
-        {
-            path: '/discord',
-            name: 'Discord',
-            component: DiscordWidget,
         },
         {
             path: '/announcements',

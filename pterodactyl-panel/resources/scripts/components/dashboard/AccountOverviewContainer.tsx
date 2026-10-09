@@ -14,7 +14,6 @@ import {
     faKey,
     faTerminal,
     faClock,
-    faComments,
     faLifeRing,
     faShieldAlt,
     faUser,
@@ -22,6 +21,7 @@ import {
 import { useStoreState } from 'easy-peasy';
 import { ApplicationStore } from '@/state';
 import Avatar from '@/components/Avatar';
+import DiscordWidget from '@/components/addons/DiscordWidget';
 
 const Container = styled.div`
     ${tw`flex flex-wrap`};
@@ -92,7 +92,6 @@ export default () => {
         { icon: faKey, label: 'API Keys', to: '/account/api' },
         { icon: faTerminal, label: 'SSH Keys', to: '/account/ssh' },
         { icon: faClock, label: 'Activity', to: '/account/activity' },
-        { icon: faComments, label: 'Discord', to: '/discord' },
         { icon: faLifeRing, label: 'Support', to: '/tickets' },
     ];
 
@@ -132,7 +131,7 @@ export default () => {
                 </div>
             </ProfileHero>
 
-            <div css={tw`grid grid-cols-2 sm:grid-cols-5 gap-3 mb-10`}>
+            <div css={tw`grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10`}>
                 {tiles.map((t) => (
                     <QuickTile key={t.label} to={t.to}>
                         <FontAwesomeIcon icon={t.icon} css={tw`text-lg text-[#A855F7] mb-1`} />
@@ -140,7 +139,8 @@ export default () => {
                     </QuickTile>
                 ))}
             </div>
-            <Container css={[tw`lg:grid lg:grid-cols-3 mb-10`, state?.twoFactorRedirect ? tw`mt-4` : tw`mt-10`]}>
+            <DiscordWidget />
+            <Container css={[tw`lg:grid lg:grid-cols-3 mb-10 mt-10`, state?.twoFactorRedirect ? tw`mt-4` : tw`mt-10`]}>
                 <ContentBox title={'Update Password'} showFlashes={'account:password'}>
                     <UpdatePasswordForm />
                 </ContentBox>

@@ -94,6 +94,9 @@
                     </nav>
                     <div class="sx-nav-label">Services</div>
                     <nav class="sx-nav">
+                        <a href="{{ route('admin.strenox.announcements') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.strenox.announcements')) }}">
+                            <span class="sx-ico"><i class="fa fa-bullhorn"></i></span><span class="sx-txt">News</span>
+                        </a>
                         <a href="{{ route('admin.mounts') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.mounts')) }}">
                             <span class="sx-ico"><i class="fa fa-magic"></i></span><span class="sx-txt">Mounts</span>
                         </a>

@@ -7,9 +7,7 @@ import {
     faServer,
     faLifeRing,
     faBook,
-    faComments,
     faBullhorn,
-    faHeartbeat,
     faUser,
     faKey,
     faTerminal,
@@ -123,9 +121,7 @@ export default () => {
                 <SectionLabel>Cloud</SectionLabel>
                 <SideLink to={'/tickets'} icon={faLifeRing} label={'Support'} />
                 <SideLink to={'/knowledge-base'} icon={faBook} label={'Guides'} />
-                <SideLink to={'/discord'} icon={faComments} label={'Discord'} />
                 <SideLink to={'/announcements'} icon={faBullhorn} label={'News'} />
-                <SideLink to={'/status'} icon={faHeartbeat} label={'Status'} />
                 <SectionLabel>Account</SectionLabel>
                 <SideLink to={'/account'} exact icon={faUser} label={'My Account'} />
                 <SideLink to={'/account/api'} icon={faKey} label={'API Keys'} />
