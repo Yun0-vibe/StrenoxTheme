@@ -914,9 +914,54 @@ a:hover, a:focus {
     box-shadow: 0 0 12px rgba(145, 35, 215, 0.4);
 }
 
+/* Selected toggle/radio buttons must stand out */
+.btn.active, .btn:active {
+    filter: brightness(1.15);
+}
+
 /* Sidebar footer mini-links */
 .strenox-admin .sidebar-menu {
     padding-bottom: 12px !important;
+}
+
+.btn-group .btn {
+    border-radius: 0 !important;
+}
+
+.btn-group .btn:first-child {
+    border-radius: 10px 0 0 10px !important;
+}
+
+.btn-group .btn:last-child {
+    border-radius: 0 10px 10px 0 !important;
+}
+
+.btn-group .btn-primary:not(.active) {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: #2A2A3A !important;
+    color: #8888A8 !important;
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+.btn-group .btn-primary:not(.active):hover {
+    color: #E2E2F0 !important;
+    border-color: rgba(145, 35, 215, 0.5) !important;
+}
+
+.btn-group .btn-primary.active {
+    box-shadow: 0 0 0 2px rgba(145, 35, 215, 0.45), 0 4px 16px rgba(145, 35, 215, 0.4) !important;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-group .btn-default.active {
+    background: rgba(145, 35, 215, 0.2) !important;
+    border-color: #9123D7 !important;
+    color: #fff !important;
+    box-shadow: 0 0 0 2px rgba(145, 35, 215, 0.35) !important;
+    position: relative;
+    z-index: 2;
 }
 
 /* ==================== STRENOXCLOUD CUSTOM ADMIN SHELL ==================== */
