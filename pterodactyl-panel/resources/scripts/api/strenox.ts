@@ -77,6 +77,19 @@ export function getStrenoxTickets(): Promise<StrenoxTicket[]> {
     return http.get('/api/client/account/strenox/tickets').then(({ data }) => unwrap<StrenoxTicket[]>(data));
 }
 
+export interface StrenoxTicketAdmin extends StrenoxTicket {
+    // eslint-disable-next-line camelcase
+    user_name: string | null;
+    // eslint-disable-next-line camelcase
+    user_email: string | null;
+}
+
+export function getAllStrenoxTickets(): Promise<StrenoxTicketAdmin[]> {
+    return http
+        .get('/api/client/account/strenox/tickets/all')
+        .then(({ data }) => unwrap<StrenoxTicketAdmin[]>(data));
+}
+
 export function createStrenoxTicket(subject: string, priority: string, message: string): Promise<StrenoxTicket> {
     return http
         .post('/api/client/account/strenox/tickets', { subject, priority, message })

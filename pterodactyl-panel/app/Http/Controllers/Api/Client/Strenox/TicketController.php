@@ -31,6 +31,37 @@ class TicketController extends ClientApiController
     }
 
     /**
+     * Returns every ticket in the system with its owner attached.
+     * Root administrators only — this is what powers the staff view.
+     * Regular users can never reach this: they only ever see their own
+     * tickets through index().
+     */
+    public function adminIndex(ClientApiRequest $request): array
+    {
+        if (!$request->user()->root_admin) {
+            abort(403, 'Only administrators can view all tickets.');
+        }
+
+        $tickets = StrenoxTicket::query()
+            ->with('user:id,username,email')
+            ->orderByDesc('created_at')
+            ->limit(100)
+            ->get();
+
+        return [
+            'data' => $tickets->map(fn (StrenoxTicket $t) => [
+                'id' => $t->id,
+                'subject' => $t->subject,
+                'status' => $t->status,
+                'priority' => $t->priority,
+                'date' => $t->created_at->toDateString(),
+                'user_name' => $t->user?->username,
+                'user_email' => $t->user?->email,
+            ])->all(),
+        ];
+    }
+
+    /**
      * Creates a new support ticket with the first message.
      */
     public function store(ClientApiRequest $request): array

@@ -12,12 +12,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import ContentBox from '@/components/elements/ContentBox';
 import Spinner from '@/components/elements/Spinner';
+import { useStoreState } from 'easy-peasy';
+import { ApplicationStore } from '@/state';
 import {
     getStrenoxTickets,
+    getAllStrenoxTickets,
     createStrenoxTicket,
     getStrenoxTicket,
     replyStrenoxTicket,
     StrenoxTicket,
+    StrenoxTicketAdmin,
     StrenoxTicketDetail,
 } from '@/api/strenox';
 
@@ -114,7 +118,8 @@ const MessageBubble = styled.div<{ staff: boolean }>`
 `;
 
 export default function SupportTickets() {
-    const [tickets, setTickets] = useState<StrenoxTicket[] | null>(null);
+    const isAdmin = useStoreState((state: ApplicationStore) => state.user.data!.rootAdmin);
+    const [tickets, setTickets] = useState<(StrenoxTicket | StrenoxTicketAdmin)[] | null>(null);
     const [selected, setSelected] = useState<StrenoxTicketDetail | null>(null);
     const [showNew, setShowNew] = useState(false);
     const [subject, setSubject] = useState('');
@@ -124,10 +129,11 @@ export default function SupportTickets() {
     const [saving, setSaving] = useState(false);
 
     useEffect(() => {
-        getStrenoxTickets()
-            .then(setTickets)
-            .catch(() => setTickets([]));
-    }, []);
+        // Admins load every ticket in the system; regular users only
+        // ever receive their own (enforced server-side too).
+        const loader = isAdmin ? getAllStrenoxTickets() : getStrenoxTickets();
+        loader.then(setTickets).catch(() => setTickets([]));
+    }, [isAdmin]);
 
     const openTicket = (id: number) => {
         getStrenoxTicket(id)
@@ -168,8 +174,14 @@ export default function SupportTickets() {
         <div className={'strenox-page'} css={tw`max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-10`}>
             <div css={tw`mb-8 flex items-center justify-between`}>
                 <div>
-                    <h1 css={tw`text-3xl font-bold text-neutral-100 mb-2`}>Support Tickets</h1>
-                    <p css={tw`text-neutral-400`}>Get help from the StrenoxCloud team</p>
+                    <h1 css={tw`text-3xl font-bold text-neutral-100 mb-2`}>
+                        {isAdmin ? 'All Support Tickets' : 'Support Tickets'}
+                    </h1>
+                    <p css={tw`text-neutral-400`}>
+                        {isAdmin
+                            ? 'Every ticket in the system — click one to read and reply as staff.'
+                            : 'Get help from the StrenoxCloud team'}
+                    </p>
                 </div>
                 <SubmitButton onClick={() => setShowNew(!showNew)}>
                     <FontAwesomeIcon icon={showNew ? faTimes : faPlus} />
@@ -207,12 +219,12 @@ export default function SupportTickets() {
             )}
 
             <div css={tw`grid grid-cols-1 lg:grid-cols-2 gap-6`}>
-                <ContentBox title={'Your Tickets'}>
+                <ContentBox title={isAdmin ? 'Every Ticket' : 'Your Tickets'}>
                     {tickets === null ? (
                         <Spinner centered />
                     ) : tickets.length === 0 ? (
                         <p css={tw`text-neutral-400 text-sm text-center py-8`}>
-                            No tickets yet. Open one and we will help you out.
+                            {isAdmin ? 'No tickets in the system yet.' : 'No tickets yet. Open one and we will help you out.'}
                         </p>
                     ) : (
                         <div css={tw`space-y-3`}>
@@ -223,6 +235,12 @@ export default function SupportTickets() {
                                         <div css={tw`text-sm font-medium text-neutral-100 truncate`}>
                                             #{ticket.id} — {ticket.subject}
                                         </div>
+                                        {'user_name' in ticket && ticket.user_name ? (
+                                            <div css={tw`text-xs text-[#A855F7] font-medium mt-0.5 truncate`}>
+                                                {ticket.user_name}
+                                                {ticket.user_email ? ` · ${ticket.user_email}` : ''}
+                                            </div>
+                                        ) : null}
                                         <div css={tw`text-xs text-neutral-400 flex items-center gap-1 mt-1`}>
                                             <FontAwesomeIcon icon={faClock} />
                                             {ticket.date}
