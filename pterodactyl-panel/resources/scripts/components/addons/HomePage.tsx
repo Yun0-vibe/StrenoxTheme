@@ -23,11 +23,12 @@ import { Server } from '@/api/server/getServer';
 import { getStrenoxTickets, getStrenoxAnnouncements } from '@/api/strenox';
 
 const Header = styled.div`
-    ${tw`rounded-2xl px-6 py-5 mb-6 flex items-center gap-4 relative overflow-hidden border border-white/10`};
+    ${tw`rounded-2xl px-6 py-5 mb-6 flex items-center gap-4 relative overflow-hidden`};
     background:
         radial-gradient(ellipse 60% 120% at 90% 0%, rgba(145, 35, 215, 0.3), transparent),
         linear-gradient(135deg, rgba(30, 21, 53, 0.9) 0%, rgba(13, 13, 18, 0.95) 100%);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(145, 35, 215, 0.3);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(145, 35, 215, 0.12);
 `;
 
 const StatGrid = styled.div`
@@ -35,13 +36,15 @@ const StatGrid = styled.div`
 `;
 
 const StatCard = styled(Link)`
-    ${tw`rounded-2xl p-4 flex items-center gap-4 no-underline transition-all duration-200 border border-white/10`};
+    ${tw`rounded-2xl p-4 flex items-center gap-4 no-underline transition-all duration-200`};
     background: linear-gradient(135deg, rgba(30, 21, 53, 0.75) 0%, rgba(22, 22, 31, 0.9) 100%);
     backdrop-filter: blur(12px);
+    border: 1px solid rgba(145, 35, 215, 0.28);
+    box-shadow: 0 0 20px rgba(145, 35, 215, 0.1);
 
     &:hover {
-        border-color: rgba(145, 35, 215, 0.6);
-        box-shadow: 0 0 24px rgba(145, 35, 215, 0.2);
+        border-color: rgba(145, 35, 215, 0.65);
+        box-shadow: 0 0 30px rgba(145, 35, 215, 0.25);
         transform: translateY(-2px);
     }
 `;
@@ -57,15 +60,17 @@ const ActionDock = styled.div`
 `;
 
 const ActionTile = styled(Link)`
-    ${tw`block rounded-2xl px-3 py-4 text-center no-underline transition-all duration-200 border border-white/10`};
+    ${tw`block rounded-2xl px-3 py-4 text-center no-underline transition-all duration-200`};
     background: rgba(22, 22, 31, 0.8);
+    border: 1px solid rgba(145, 35, 215, 0.22);
+    box-shadow: 0 0 16px rgba(145, 35, 215, 0.08);
     color: #e2e2f0 !important;
 
     &:hover {
         background: linear-gradient(135deg, #9123d7 0%, #7c3aed 100%);
         border-color: #9123d7;
         color: white !important;
-        box-shadow: 0 0 22px rgba(145, 35, 215, 0.4);
+        box-shadow: 0 0 28px rgba(145, 35, 215, 0.45);
         transform: translateY(-2px);
     }
 `;

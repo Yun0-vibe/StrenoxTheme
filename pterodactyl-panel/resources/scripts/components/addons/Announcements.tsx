@@ -13,9 +13,9 @@ import Spinner from '@/components/elements/Spinner';
 import { getStrenoxAnnouncements, StrenoxAnnouncement } from '@/api/strenox';
 
 const AnnouncementCard = styled.div<{ priority: 'info' | 'warning' | 'critical' }>`
-    ${tw`rounded-lg p-5 transition-all duration-200`};
-    background: #1A1A25;
-    border: 1px solid #2A2A3A;
+    ${tw`rounded-2xl p-5 transition-all duration-200`};
+    background: linear-gradient(135deg, rgba(30, 21, 53, 0.7) 0%, rgba(22, 22, 31, 0.9) 100%);
+    border: 1px solid rgba(145, 35, 215, 0.25);
     border-left: 3px solid ${(props) => {
         switch (props.priority) {
             case 'critical':
@@ -26,10 +26,11 @@ const AnnouncementCard = styled.div<{ priority: 'info' | 'warning' | 'critical' 
                 return '#9123D7';
         }
     }};
+    box-shadow: 0 0 20px rgba(145, 35, 215, 0.1);
 
     &:hover {
-        border-color: #9123D7;
-        box-shadow: 0 0 20px rgba(145, 35, 215, 0.1);
+        border-color: #9123d7;
+        box-shadow: 0 0 28px rgba(145, 35, 215, 0.22);
         transform: translateY(-2px);
     }
 `;

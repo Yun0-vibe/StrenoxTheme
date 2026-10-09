@@ -21,12 +21,16 @@ const CategoryGrid = styled.div`
 
 const CategoryCard = styled.button<{ active: boolean }>`
     ${tw`rounded-2xl p-5 cursor-pointer transition-all duration-200 text-left border`};
-    background: ${(props) => (props.active ? 'rgba(145,35,215,0.12)' : '#1A1A25')};
-    border-color: ${(props) => (props.active ? '#9123D7' : '#2A2A3A')};
+    background: ${(props) =>
+        props.active
+            ? 'rgba(145,35,215,0.14)'
+            : 'linear-gradient(135deg, rgba(30,21,53,0.6) 0%, rgba(22,22,31,0.9) 100%)'};
+    border-color: ${(props) => (props.active ? '#9123D7' : 'rgba(145,35,215,0.22)')};
+    box-shadow: ${(props) => (props.active ? '0 0 24px rgba(145,35,215,0.2)' : '0 0 16px rgba(145,35,215,0.08)')};
 
     &:hover {
         border-color: #9123d7;
-        box-shadow: 0 0 20px rgba(145, 35, 215, 0.15);
+        box-shadow: 0 0 26px rgba(145, 35, 215, 0.22);
         transform: translateY(-2px);
     }
 `;

@@ -16,9 +16,10 @@ import Spinner from '@/components/elements/Spinner';
 import { getDiscordStatus, updateDiscordPrefs, unlinkDiscord, StrenoxDiscordStatus } from '@/api/strenox';
 
 const DiscordCard = styled.div`
-    ${tw`rounded-2xl p-6 border border-white/10`};
+    ${tw`rounded-2xl p-6 border`};
     background: linear-gradient(135deg, rgba(30, 21, 53, 0.85) 0%, rgba(22, 22, 31, 0.94) 100%);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45), 0 0 28px rgba(145, 35, 215, 0.12);
+    border-color: rgba(145, 35, 215, 0.35);
+    box-shadow: 0 0 30px rgba(145, 35, 215, 0.16), 0 8px 40px rgba(0, 0, 0, 0.45);
 `;
 
 const StatItem = styled.div`

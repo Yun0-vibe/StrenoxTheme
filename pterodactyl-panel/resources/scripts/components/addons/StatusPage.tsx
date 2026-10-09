@@ -8,11 +8,14 @@ import Spinner from '@/components/elements/Spinner';
 import { getNodeStatus, StrenoxNodeStatus } from '@/api/strenox';
 
 const NodeRow = styled.div`
-    ${tw`flex items-center gap-4 p-4 rounded-2xl transition-all duration-150 border border-white/10`};
-    background: rgba(22, 22, 31, 0.8);
+    ${tw`flex items-center gap-4 p-4 rounded-2xl transition-all duration-150`};
+    background: linear-gradient(135deg, rgba(30, 21, 53, 0.6) 0%, rgba(22, 22, 31, 0.9) 100%);
+    border: 1px solid rgba(145, 35, 215, 0.22);
+    box-shadow: 0 0 16px rgba(145, 35, 215, 0.08);
 
     &:hover {
-        border-color: rgba(145, 35, 215, 0.5);
+        border-color: rgba(145, 35, 215, 0.55);
+        box-shadow: 0 0 22px rgba(145, 35, 215, 0.18);
     }
 `;
 

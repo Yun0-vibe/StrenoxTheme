@@ -22,13 +22,14 @@ import {
 } from '@/api/strenox';
 
 const TicketRow = styled.div`
-    ${tw`flex items-center gap-3 p-4 rounded-lg cursor-pointer transition-all duration-150`};
-    background: #16161F;
-    border: 1px solid #2A2A3A;
+    ${tw`flex items-center gap-3 p-4 rounded-2xl cursor-pointer transition-all duration-150`};
+    background: linear-gradient(135deg, rgba(30, 21, 53, 0.6) 0%, rgba(22, 22, 31, 0.9) 100%);
+    border: 1px solid rgba(145, 35, 215, 0.22);
+    box-shadow: 0 0 16px rgba(145, 35, 215, 0.08);
 
     &:hover {
-        border-color: #9123D7;
-        box-shadow: 0 0 15px rgba(145, 35, 215, 0.12);
+        border-color: #9123d7;
+        box-shadow: 0 0 22px rgba(145, 35, 215, 0.2);
     }
 `;
 
