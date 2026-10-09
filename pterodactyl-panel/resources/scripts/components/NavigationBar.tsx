@@ -2,38 +2,71 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCogs, faLayerGroup, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+    faHome,
+    faServer,
+    faStore,
+    faLifeRing,
+    faBook,
+    faComments,
+    faBullhorn,
+    faHeartbeat,
+    faUser,
+    faCogs,
+    faSignOutAlt,
+    faLayerGroup,
+} from '@fortawesome/free-solid-svg-icons';
 import { useStoreState } from 'easy-peasy';
 import { ApplicationStore } from '@/state';
 import SearchContainer from '@/components/dashboard/search/SearchContainer';
-import tw, { theme } from 'twin.macro';
-import styled from 'styled-components/macro';
 import http from '@/api/http';
 import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
 import Tooltip from '@/components/elements/tooltip/Tooltip';
 import Avatar from '@/components/Avatar';
 
-const RightNavigation = styled.div`
-    & > a,
-    & > button,
-    & > .navigation-link {
-        ${tw`flex items-center h-full no-underline text-neutral-300 px-6 cursor-pointer transition-all duration-150`};
+const LINK_CLASS =
+    'flex items-center gap-3 px-4 py-2.5 mx-2 rounded-xl text-sm no-underline text-neutral-400 hover:text-neutral-100 hover:bg-white/5 transition-all duration-150';
+const ACTIVE_STYLE = {
+    color: '#fff',
+    background: 'rgba(145,35,215,0.16)',
+    boxShadow: 'inset 2px 0 0 #9123D7',
+};
 
-        &:active,
-        &:hover {
-            ${tw`text-neutral-100 bg-black`};
-        }
+const SectionLabel = ({ children }: { children: React.ReactNode }) => (
+    <div
+        style={{
+            color: '#8888A8',
+            fontSize: '0.68rem',
+            textTransform: 'uppercase',
+            letterSpacing: '0.1em',
+            padding: '1rem 1.25rem 0.35rem',
+            fontWeight: 700,
+        }}
+    >
+        {children}
+    </div>
+);
 
-        &:active,
-        &:hover,
-        &.active {
-            box-shadow: inset 0 -2px #9123D7;
-        }
-    }
-`;
+const SideLink = ({
+    to,
+    exact,
+    icon,
+    label,
+}: {
+    to: string;
+    exact?: boolean;
+    icon: React.ComponentProps<typeof FontAwesomeIcon>['icon'];
+    label: string;
+}) => (
+    <NavLink to={to} exact={exact} className={LINK_CLASS} activeStyle={ACTIVE_STYLE}>
+        <FontAwesomeIcon icon={icon} style={{ width: '1.1rem' }} />
+        <span>{label}</span>
+    </NavLink>
+);
 
 export default () => {
     const name = useStoreState((state: ApplicationStore) => state.settings.data!.name);
+    const username = useStoreState((state: ApplicationStore) => state.user.data!.username);
     const rootAdmin = useStoreState((state: ApplicationStore) => state.user.data!.rootAdmin);
     const [isLoggingOut, setIsLoggingOut] = useState(false);
 
@@ -46,105 +79,100 @@ export default () => {
     };
 
     return (
-        <div
-            className={'w-full shadow-md overflow-x-auto backdrop-blur-xl'}
-            style={{
-                background: 'linear-gradient(180deg, rgba(30,21,53,0.75) 0%, rgba(13,13,18,0.85) 100%)',
-                borderBottom: '1px solid rgba(145,35,215,0.35)',
-                boxShadow: '0 4px 30px rgba(145,35,215,0.12)',
-            }}
-        >
-            <SpinnerOverlay visible={isLoggingOut} />
-            <div className={'mx-auto w-full flex items-center h-[3.5rem] max-w-[1200px]'}>
-                <div id={'logo'} className={'flex-1'}>
-                    <Link
-                        to={'/'}
-                        className={
-                            'flex items-center gap-2 px-4 no-underline transition-colors duration-150'
-                        }
-                    >
-                        <img
-                            src={'/favicons/strenoxcloud-logo.png'}
-                            alt={'StrenoxCloud'}
-                            className={'w-8 h-8'}
-                            style={{ filter: 'drop-shadow(0 0 10px rgba(145,35,215,0.6))' }}
-                        />
-                        <span
-                            className={'text-2xl font-header font-medium'}
-                            style={{ color: '#9123D7' }}
-                        >
-                            {name}
-                        </span>
-                    </Link>
-                </div>
-                <div className={'hidden md:flex h-full items-center'}>
-                    <NavLink
-                        to={'/'}
-                        exact
-                        className={
-                            'h-full flex items-center px-4 text-sm no-underline text-neutral-300 hover:text-neutral-100 transition-colors duration-150'
-                        }
-                        activeStyle={{ color: '#fff', boxShadow: 'inset 0 -2px #9123D7' }}
-                    >
-                        Home
-                    </NavLink>
-                    <NavLink
-                        to={'/servers'}
-                        exact
-                        className={
-                            'h-full flex items-center px-4 text-sm no-underline text-neutral-300 hover:text-neutral-100 transition-colors duration-150'
-                        }
-                        activeStyle={{ color: '#fff', boxShadow: 'inset 0 -2px #9123D7' }}
-                    >
-                        Servers
-                    </NavLink>
-                    <NavLink
-                        to={'/store'}
-                        className={
-                            'h-full flex items-center px-4 text-sm no-underline text-neutral-300 hover:text-neutral-100 transition-colors duration-150'
-                        }
-                        activeStyle={{ color: '#fff', boxShadow: 'inset 0 -2px #9123D7' }}
-                    >
-                        Store
-                    </NavLink>
-                    <NavLink
-                        to={'/tickets'}
-                        className={
-                            'h-full flex items-center px-4 text-sm no-underline text-neutral-300 hover:text-neutral-100 transition-colors duration-150'
-                        }
-                        activeStyle={{ color: '#fff', boxShadow: 'inset 0 -2px #9123D7' }}
-                    >
-                        Support
-                    </NavLink>
-                </div>
-                <RightNavigation className={'flex h-full items-center justify-center'}>
+        <>
+            {/* Desktop sidebar */}
+            <div
+                className={'hidden md:flex flex-col fixed left-0 top-0 h-screen w-60 z-40'}
+                style={{
+                    background: 'linear-gradient(180deg, rgba(30,21,53,0.92) 0%, rgba(10,10,15,0.97) 100%)',
+                    borderRight: '1px solid rgba(145,35,215,0.25)',
+                    backdropFilter: 'blur(16px)',
+                }}
+            >
+                <SpinnerOverlay visible={isLoggingOut} />
+                <Link to={'/'} className={'flex items-center gap-2 px-5 pt-5 pb-4 no-underline'}>
+                    <img
+                        src={'/favicons/strenoxcloud-logo.png'}
+                        alt={'StrenoxCloud'}
+                        style={{ width: '2rem', height: '2rem', filter: 'drop-shadow(0 0 10px rgba(145,35,215,0.6))' }}
+                    />
+                    <span style={{ color: '#9123D7', fontSize: '1.25rem', fontWeight: 700 }}>{name}</span>
+                </Link>
+                <div className={'px-4 pb-2'}>
                     <SearchContainer />
-                    <Tooltip placement={'bottom'} content={'Dashboard'}>
-                        <NavLink to={'/'} exact>
-                            <FontAwesomeIcon icon={faLayerGroup} />
-                        </NavLink>
-                    </Tooltip>
+                </div>
+                <div className={'flex-1 overflow-y-auto pb-4'}>
+                    <SectionLabel>Overview</SectionLabel>
+                    <SideLink to={'/'} exact icon={faHome} label={'Command Center'} />
+                    <SideLink to={'/servers'} exact icon={faServer} label={'Servers'} />
+                    <SectionLabel>Cloud</SectionLabel>
+                    <SideLink to={'/store'} icon={faStore} label={'Store'} />
+                    <SideLink to={'/tickets'} icon={faLifeRing} label={'Support'} />
+                    <SideLink to={'/knowledge-base'} icon={faBook} label={'Guides'} />
+                    <SideLink to={'/discord'} icon={faComments} label={'Discord'} />
+                    <SideLink to={'/announcements'} icon={faBullhorn} label={'News'} />
+                    <SideLink to={'/status'} icon={faHeartbeat} label={'Status'} />
+                    <SectionLabel>Account</SectionLabel>
+                    <SideLink to={'/account'} icon={faUser} label={'My Account'} />
                     {rootAdmin && (
-                        <Tooltip placement={'bottom'} content={'Admin'}>
-                            <a href={'/admin'} rel={'noreferrer'}>
-                                <FontAwesomeIcon icon={faCogs} />
-                            </a>
-                        </Tooltip>
+                        <a href={'/admin'} rel={'noreferrer'} className={LINK_CLASS}>
+                            <FontAwesomeIcon icon={faCogs} style={{ width: '1.1rem' }} />
+                            <span>Admin Panel</span>
+                        </a>
                     )}
-                    <Tooltip placement={'bottom'} content={'Account Settings'}>
-                        <NavLink to={'/account'}>
-                            <span className={'flex items-center w-5 h-5'}>
-                                <Avatar.User />
-                            </span>
-                        </NavLink>
-                    </Tooltip>
-                    <Tooltip placement={'bottom'} content={'Sign Out'}>
-                        <button onClick={onTriggerLogout}>
+                </div>
+                <div
+                    className={'flex items-center gap-3 px-4 py-3'}
+                    style={{ borderTop: '1px solid rgba(145,35,215,0.2)' }}
+                >
+                    <span className={'flex items-center w-8 h-8'}>
+                        <Avatar.User />
+                    </span>
+                    <span className={'flex-1 text-sm text-neutral-200 truncate'}>{username}</span>
+                    <Tooltip placement={'top'} content={'Sign Out'}>
+                        <button
+                            onClick={onTriggerLogout}
+                            className={'text-neutral-400 hover:text-red-400 transition-colors duration-150'}
+                        >
                             <FontAwesomeIcon icon={faSignOutAlt} />
                         </button>
                     </Tooltip>
-                </RightNavigation>
+                </div>
             </div>
-        </div>
+
+            {/* Mobile top bar */}
+            <div
+                className={'md:hidden w-full flex items-center px-4 h-14 gap-1 overflow-x-auto'}
+                style={{
+                    background: 'linear-gradient(180deg, rgba(30,21,53,0.9) 0%, rgba(13,13,18,0.95) 100%)',
+                    borderBottom: '1px solid rgba(145,35,215,0.3)',
+                }}
+            >
+                <SpinnerOverlay visible={isLoggingOut} />
+                <Link to={'/'} className={'flex items-center gap-2 mr-2 no-underline flex-shrink-0'}>
+                    <img
+                        src={'/favicons/strenoxcloud-logo.png'}
+                        alt={'StrenoxCloud'}
+                        style={{ width: '1.6rem', height: '1.6rem' }}
+                    />
+                    <span style={{ color: '#9123D7', fontWeight: 700 }}>{name}</span>
+                </Link>
+                <div className={'flex-1'} />
+                <NavLink to={'/'} exact className={'p-3 text-neutral-300'} activeStyle={{ color: '#9123D7' }}>
+                    <FontAwesomeIcon icon={faHome} />
+                </NavLink>
+                <NavLink to={'/servers'} exact className={'p-3 text-neutral-300'} activeStyle={{ color: '#9123D7' }}>
+                    <FontAwesomeIcon icon={faLayerGroup} />
+                </NavLink>
+                <NavLink to={'/account'} className={'p-3 text-neutral-300'} activeStyle={{ color: '#9123D7' }}>
+                    <span className={'flex items-center w-5 h-5'}>
+                        <Avatar.User />
+                    </span>
+                </NavLink>
+                <button onClick={onTriggerLogout} className={'p-3 text-neutral-300'}>
+                    <FontAwesomeIcon icon={faSignOutAlt} />
+                </button>
+            </div>
+        </>
     );
 };

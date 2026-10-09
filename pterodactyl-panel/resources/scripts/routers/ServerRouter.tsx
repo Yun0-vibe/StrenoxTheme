@@ -65,6 +65,7 @@ export default () => {
     return (
         <React.Fragment key={'server-router'}>
             <NavigationBar />
+            <div className={'md:pl-60'}>
             {!uuid || !id ? (
                 error ? (
                     <ServerError message={error} />
@@ -123,6 +124,7 @@ export default () => {
                     )}
                 </>
             )}
+            </div>
         </React.Fragment>
     );
 };

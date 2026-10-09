@@ -58,6 +58,39 @@ const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | unde
     }
 `;
 
+const StatusPill = styled.span<{ $tone: 'green' | 'red' | 'yellow' | 'neutral' }>`
+    ${tw`inline-block px-2 py-0.5 rounded-full text-xs font-semibold ml-2 align-middle whitespace-nowrap`};
+    ${(props) =>
+        props.$tone === 'green'
+            ? tw`bg-green-500/15 text-green-400`
+            : props.$tone === 'red'
+            ? tw`bg-red-500/15 text-red-400`
+            : props.$tone === 'yellow'
+            ? tw`bg-yellow-500/15 text-yellow-400`
+            : tw`bg-neutral-500/15 text-neutral-400`};
+`;
+
+const UsageBar = ({ label, pct, text }: { label: string; pct: number; text: string }) => (
+    <div css={tw`flex-1 min-w-0`}>
+        <div css={tw`flex justify-between text-xs text-neutral-400 mb-1`}>
+            <span>{label}</span>
+            <span>{text}</span>
+        </div>
+        <div css={tw`h-1.5 rounded-full overflow-hidden`} style={{ background: '#2A2A3A' }}>
+            <div
+                css={tw`h-full rounded-full transition-all duration-500`}
+                style={{
+                    width: `${Math.max(0, Math.min(100, pct))}%`,
+                    background:
+                        pct >= 90
+                            ? 'linear-gradient(90deg, #EF4444, #F59E0B)'
+                            : 'linear-gradient(90deg, #9123D7, #22C55E)',
+                }}
+            />
+        </div>
+    </div>
+);
+
 type Timer = ReturnType<typeof setInterval>;
 
 export default ({ server, className }: { server: Server; className?: string }) => {
@@ -99,6 +132,31 @@ export default ({ server, className }: { server: Server; className?: string }) =
     const memoryLimit = server.limits.memory !== 0 ? bytesToString(mbToBytes(server.limits.memory)) : 'Unlimited';
     const cpuLimit = server.limits.cpu !== 0 ? server.limits.cpu + ' %' : 'Unlimited';
 
+    const statusTone = isSuspended || stats?.status === 'offline' ? 'red' : stats?.status === 'running' ? 'green' : stats ? 'yellow' : 'neutral';
+    const statusLabel = isSuspended
+        ? 'Suspended'
+        : !stats
+        ? 'Loading'
+        : stats.status === 'running'
+        ? 'Running'
+        : stats.status === 'offline'
+        ? 'Offline'
+        : 'Starting';
+
+    const cpuPct = stats
+        ? server.limits.cpu !== 0
+            ? (stats.cpuUsagePercent / server.limits.cpu) * 100
+            : stats.cpuUsagePercent
+        : 0;
+    const memPct =
+        stats && server.limits.memory !== 0
+            ? (stats.memoryUsageInBytes / mbToBytes(server.limits.memory)) * 100
+            : 0;
+    const diskPct =
+        stats && server.limits.disk !== 0
+            ? (stats.diskUsageInBytes / mbToBytes(server.limits.disk)) * 100
+            : 0;
+
     return (
         <StatusIndicatorBox as={Link} to={`/server/${server.id}`} className={className} $status={stats?.status}>
             <div css={tw`flex items-center col-span-12 sm:col-span-5 lg:col-span-6`}>
@@ -106,7 +164,10 @@ export default ({ server, className }: { server: Server; className?: string }) =
                     <FontAwesomeIcon icon={faServer} />
                 </div>
                 <div>
-                    <p css={tw`text-lg break-words`}>{server.name}</p>
+                    <p css={tw`text-lg break-words`}>
+                        {server.name}
+                        <StatusPill $tone={statusTone}>{statusLabel}</StatusPill>
+                    </p>
                     {!!server.description && (
                         <p css={tw`text-sm text-neutral-300 break-words line-clamp-2`}>{server.description}</p>
                     )}
@@ -187,6 +248,13 @@ export default ({ server, className }: { server: Server; className?: string }) =
                     </React.Fragment>
                 )}
             </div>
+            {stats && !isSuspended && !server.isNodeUnderMaintenance && (
+                <div css={tw`col-span-12 flex flex-col sm:flex-row gap-3 mt-1`}>
+                    <UsageBar label={'CPU'} pct={cpuPct} text={`${stats.cpuUsagePercent.toFixed(1)}%`} />
+                    <UsageBar label={'Memory'} pct={memPct} text={bytesToString(stats.memoryUsageInBytes)} />
+                    <UsageBar label={'Disk'} pct={diskPct} text={bytesToString(stats.diskUsageInBytes)} />
+                </div>
+            )}
             <div className={'status-bar'} />
         </StatusIndicatorBox>
     );

@@ -20,6 +20,7 @@ export default () => {
     return (
         <>
             <NavigationBar />
+            <div className={'md:pl-60'}>
             {isAccount && (
                 <SubNavigation>
                     <div>
@@ -82,6 +83,7 @@ export default () => {
                     </Switch>
                 </React.Suspense>
             </TransitionRouter>
+            </div>
         </>
     );
 };
