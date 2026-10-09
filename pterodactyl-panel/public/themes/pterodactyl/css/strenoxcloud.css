@@ -104,6 +104,378 @@ code {
     color: #8888A8 !important;
 }
 
+/* ==================== STRENOXCLOUD ADMINLTE REPLACEMENT ==================== */
+/* Everything below rebuilds the AdminLTE look into the StrenoxCloud system. */
+
+/* Smooth everything */
+.main-sidebar a, .main-header a, .btn, .nav-tabs > li > a, .pagination > li > a {
+    transition: all 0.18s ease !important;
+}
+
+/* ---- Top navbar ---- */
+.skin-blue .main-header .navbar .sidebar-toggle {
+    color: #8888A8 !important;
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+    color: #9123D7 !important;
+    background: rgba(145, 35, 215, 0.1) !important;
+}
+
+.skin-blue .main-header .logo {
+    font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em;
+}
+
+/* ---- Sidebar ---- */
+.skin-blue .main-sidebar .user-panel {
+    border-bottom: 1px solid #2A2A3A !important;
+}
+
+.skin-blue .sidebar a {
+    color: #8888A8 !important;
+}
+
+.skin-blue .sidebar-menu > li > a {
+    border-radius: 10px !important;
+    margin: 2px 10px !important;
+    font-weight: 500 !important;
+}
+
+.skin-blue .sidebar-menu > li > a > .fa {
+    width: 26px !important;
+    color: #8888A8 !important;
+}
+
+.skin-blue .sidebar-menu > li:hover > a,
+.skin-blue .sidebar-menu > li.active > a {
+    color: #fff !important;
+    background: linear-gradient(90deg, rgba(145, 35, 215, 0.25) 0%, rgba(145, 35, 215, 0.06) 100%) !important;
+}
+
+.skin-blue .sidebar-menu > li:hover > a > .fa,
+.skin-blue .sidebar-menu > li.active > a > .fa {
+    color: #A855F7 !important;
+}
+
+.skin-blue .sidebar-menu > li > .treeview-menu {
+    margin: 0 10px !important;
+    border-radius: 0 0 10px 10px !important;
+}
+
+.skin-blue .treeview-menu > li > a {
+    border-radius: 8px !important;
+    margin: 1px 6px !important;
+}
+
+.skin-blue .treeview-menu > li.active > a,
+.skin-blue .treeview-menu > li > a:hover {
+    color: #fff !important;
+    background: rgba(145, 35, 215, 0.18) !important;
+}
+
+/* ---- Boxes ---- */
+.box {
+    border-top: 3px solid #9123D7 !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4) !important;
+}
+
+.box.box-success {
+    border-top-color: #22C55E !important;
+}
+
+.box.box-danger {
+    border-top-color: #EF4444 !important;
+}
+
+.box.box-warning {
+    border-top-color: #F59E0B !important;
+}
+
+.box.box-primary {
+    border-top-color: #9123D7 !important;
+}
+
+.box-header > .box-tools .btn {
+    border-radius: 8px !important;
+}
+
+.box-footer {
+    background: #16161F !important;
+    border-top-color: #2A2A3A !important;
+    border-radius: 0 0 8px 8px !important;
+}
+
+/* ---- Buttons ---- */
+.btn {
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    transition: all 0.18s ease !important;
+}
+
+.btn:active, .btn.active {
+    box-shadow: none !important;
+}
+
+.btn-primary, .btn-info {
+    background: linear-gradient(135deg, #9123D7 0%, #7C3AED 100%) !important;
+    border-color: #9123D7 !important;
+    color: #fff !important;
+    box-shadow: 0 4px 14px rgba(145, 35, 215, 0.35) !important;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-info:hover, .btn-info:focus {
+    filter: brightness(1.1) !important;
+    box-shadow: 0 4px 22px rgba(145, 35, 215, 0.5) !important;
+    color: #fff !important;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #16A34A 0%, #15803D 100%) !important;
+    border-color: #22C55E !important;
+    color: #fff !important;
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #D97706 0%, #B45309 100%) !important;
+    border-color: #F59E0B !important;
+    color: #fff !important;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%) !important;
+    border-color: #EF4444 !important;
+    color: #fff !important;
+}
+
+.btn-default {
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-color: #2A2A3A !important;
+    color: #E2E2F0 !important;
+}
+
+.btn-default:hover {
+    border-color: #9123D7 !important;
+    color: #A855F7 !important;
+}
+
+/* ---- Tables ---- */
+.table > thead > tr > th {
+    text-transform: uppercase !important;
+    font-size: 11px !important;
+    letter-spacing: 0.08em !important;
+    color: #A855F7 !important;
+    border-bottom: 2px solid #9123D7 !important;
+}
+
+.table-bordered {
+    border-color: #2A2A3A !important;
+}
+
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > td {
+    border-color: #2A2A3A !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.table-hover > tbody > tr:hover {
+    background: rgba(145, 35, 215, 0.08) !important;
+}
+
+.table a:not(.btn) {
+    color: #A855F7 !important;
+}
+
+/* ---- Forms ---- */
+.form-group label, .control-label {
+    color: #E2E2F0 !important;
+    font-weight: 600 !important;
+}
+
+.help-block {
+    color: #8888A8 !important;
+}
+
+.input-group-addon {
+    background: #16161F !important;
+    border-color: #2A2A3A !important;
+    color: #A855F7 !important;
+}
+
+input[type='checkbox'], input[type='radio'] {
+    accent-color: #9123D7 !important;
+    width: 16px;
+    height: 16px;
+}
+
+select.form-control option {
+    background: #1A1A25 !important;
+    color: #E2E2F0 !important;
+}
+
+/* ---- Tabs ---- */
+.nav-tabs-custom {
+    background: #1A1A25 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4) !important;
+}
+
+.nav-tabs-custom > .nav-tabs {
+    border-bottom-color: #2A2A3A !important;
+}
+
+.nav-tabs-custom > .nav-tabs > li > a {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.nav-tabs-custom > .nav-tabs > li.active > a {
+    border-top: 3px solid #9123D7 !important;
+    color: #fff !important;
+}
+
+.nav-tabs-custom > .tab-content {
+    background: transparent !important;
+}
+
+/* ---- Callouts, labels, badges ---- */
+.callout {
+    border-radius: 12px !important;
+    border-left-width: 4px !important;
+}
+
+.callout.callout-info {
+    background: rgba(145, 35, 215, 0.1) !important;
+    border-color: #9123D7 !important;
+    color: #E2E2F0 !important;
+}
+
+.callout.callout-danger {
+    background: rgba(239, 68, 68, 0.1) !important;
+    border-color: #EF4444 !important;
+}
+
+.callout.callout-warning {
+    background: rgba(245, 158, 11, 0.1) !important;
+    border-color: #F59E0B !important;
+}
+
+.callout.callout-success {
+    background: rgba(34, 197, 94, 0.1) !important;
+    border-color: #22C55E !important;
+}
+
+.label-primary, .badge-primary, .bg-purple {
+    background: linear-gradient(135deg, #9123D7, #7C3AED) !important;
+}
+
+/* ---- Progress bars ---- */
+.progress {
+    background: #2A2A3A !important;
+    border-radius: 999px !important;
+}
+
+.progress-bar-primary, .progress-bar-info {
+    background: linear-gradient(90deg, #9123D7, #7C3AED) !important;
+}
+
+.progress-bar-success {
+    background: linear-gradient(90deg, #22C55E, #16A34A) !important;
+}
+
+.progress-bar-danger {
+    background: linear-gradient(90deg, #EF4444, #991B1B) !important;
+}
+
+.progress-bar-warning {
+    background: linear-gradient(90deg, #F59E0B, #B45309) !important;
+}
+
+/* ---- Modals ---- */
+.modal-header {
+    border-radius: 12px 12px 0 0 !important;
+}
+
+.modal-footer {
+    background: #16161F !important;
+    border-top-color: #2A2A3A !important;
+    border-radius: 0 0 12px 12px !important;
+}
+
+.modal-content {
+    border-radius: 14px !important;
+    box-shadow: 0 16px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(145, 35, 215, 0.12) !important;
+}
+
+.close {
+    color: #E2E2F0 !important;
+    opacity: 0.6 !important;
+}
+
+.close:hover {
+    color: #A855F7 !important;
+    opacity: 1 !important;
+}
+
+/* ---- SweetAlert ---- */
+.sweet-alert {
+    background: #1A1A25 !important;
+    border: 1px solid #2A2A3A !important;
+    border-radius: 16px !important;
+}
+
+.sweet-alert h2, .sweet-alert p {
+    color: #E2E2F0 !important;
+}
+
+.sweet-alert button {
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+}
+
+.sweet-alert button.confirm {
+    background: linear-gradient(135deg, #9123D7, #7C3AED) !important;
+}
+
+.sweet-alert .sa-icon.sa-success::before,
+.sweet-alert .sa-icon.sa-success::after,
+.sweet-alert .sa-icon.sa-success .sa-fix {
+    background: #1A1A25 !important;
+}
+
+/* ---- Misc ---- */
+pre {
+    background: #16161F !important;
+    border-color: #2A2A3A !important;
+    color: #E2E2F0 !important;
+    border-radius: 10px !important;
+}
+
+blockquote {
+    border-left-color: #9123D7 !important;
+}
+
+.text-muted {
+    color: #8888A8 !important;
+}
+
+a {
+    color: #A855F7 !important;
+}
+
+a:hover, a:focus {
+    color: #C084FC !important;
+}
+
+.dropdown-menu > li.header {
+    background: #16161F !important;
+    color: #8888A8 !important;
+    border-bottom-color: #2A2A3A !important;
+}
+
 /* AdminLTE Skin Override */
 .skin-blue .main-header .navbar {
     background: linear-gradient(180deg, #16161F 0%, #0D0D12 100%) !important;
