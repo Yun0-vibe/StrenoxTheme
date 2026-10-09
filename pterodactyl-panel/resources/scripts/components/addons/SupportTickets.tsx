@@ -12,6 +12,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import ContentBox from '@/components/elements/ContentBox';
 import Spinner from '@/components/elements/Spinner';
+import FlashMessageRender from '@/components/FlashMessageRender';
+import useFlash from '@/plugins/useFlash';
+import { useLocation } from 'react-router-dom';
 import { useStoreState } from 'easy-peasy';
 import { ApplicationStore } from '@/state';
 import {
@@ -119,6 +122,8 @@ const MessageBubble = styled.div<{ staff: boolean }>`
 
 export default function SupportTickets() {
     const isAdmin = useStoreState((state: ApplicationStore) => state.user.data!.rootAdmin);
+    const { search } = useLocation();
+    const { clearFlashes, clearAndAddHttpError } = useFlash();
     const [tickets, setTickets] = useState<(StrenoxTicket | StrenoxTicketAdmin)[] | null>(null);
     const [selected, setSelected] = useState<StrenoxTicketDetail | null>(null);
     const [showNew, setShowNew] = useState(false);
@@ -135,6 +140,15 @@ export default function SupportTickets() {
         loader.then(setTickets).catch(() => setTickets([]));
     }, [isAdmin]);
 
+    useEffect(() => {
+        // Deep link from the admin tickets table: /tickets?open=ID.
+        const id = Number(new URLSearchParams(search).get('open'));
+        if (!isNaN(id) && id > 0) {
+            openTicket(id);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     const openTicket = (id: number) => {
         getStrenoxTicket(id)
             .then(setSelected)
@@ -144,6 +158,7 @@ export default function SupportTickets() {
     const submitNew = () => {
         if (!subject.trim() || !message.trim()) return;
         setSaving(true);
+        clearFlashes('tickets');
         createStrenoxTicket(subject.trim(), priority, message.trim())
             .then((ticket) => {
                 setTickets((prev) => (prev ? [ticket, ...prev] : [ticket]));
@@ -152,13 +167,14 @@ export default function SupportTickets() {
                 setPriority('medium');
                 setShowNew(false);
             })
-            .catch(() => undefined)
+            .catch((error) => clearAndAddHttpError({ key: 'tickets', error }))
             .finally(() => setSaving(false));
     };
 
     const submitReply = () => {
         if (!selected || !reply.trim()) return;
         setSaving(true);
+        clearFlashes('tickets');
         replyStrenoxTicket(selected.id, reply.trim())
             .then((msg) => {
                 setSelected((prev) =>
@@ -166,12 +182,13 @@ export default function SupportTickets() {
                 );
                 setReply('');
             })
-            .catch(() => undefined)
+            .catch((error) => clearAndAddHttpError({ key: 'tickets', error }))
             .finally(() => setSaving(false));
     };
 
     return (
         <div className={'strenox-page'} css={tw`max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-10`}>
+            <FlashMessageRender byKey={'tickets'} css={tw`mb-4`} />
             <div css={tw`mb-8 flex items-center justify-between`}>
                 <div>
                     <h1 css={tw`text-3xl font-bold text-neutral-100 mb-2`}>

@@ -68,12 +68,11 @@
                         <a href="{{ route('admin.api.index') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.api')) }}">
                             <span class="sx-ico"><i class="fa fa-gamepad"></i></span><span class="sx-txt">Application API</span>
                         </a>
-                        @php
+                        <a href="{{ route('admin.strenox.tickets') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.strenox')) }}">
+                            <span class="sx-ico"><i class="fa fa-life-ring"></i></span>@php
                             $ticketCount = $sxSidebar['openTickets'] ?? 0;
-                            $ticketBadge = $ticketCount > 0 ? '<span class="sx-badge">' . $ticketCount . '</span>' : '';
+                            echo '<span class="sx-txt">Tickets' . ($ticketCount > 0 ? ' <span class="sx-badge">' . $ticketCount . '</span>' : '') . '</span>';
                         @endphp
-                        <a href="/tickets" class="{{ $sxActive(false) }}">
-                            <span class="sx-ico"><i class="fa fa-life-ring"></i></span><span class="sx-txt">Tickets{!! $ticketBadge !!}</span>
                         </a>
                     </nav>
                     <div class="sx-nav-label">Fleet</div>
