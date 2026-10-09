@@ -1,0 +1,286 @@
+/* StrenoxCloud Admin Panel Theme Overrides */
+/* This file extends the default Pterodactyl admin CSS with StrenoxCloud branding */
+
+/* AdminLTE Skin Override */
+.skin-blue .main-header .navbar {
+    background: linear-gradient(180deg, #16161F 0%, #0D0D12 100%) !important;
+    border-bottom: 1px solid rgba(145, 35, 215, 0.2) !important;
+}
+
+.skin-blue .main-header .navbar .nav > li > a {
+    color: #8888A8 !important;
+}
+
+.skin-blue .main-header .navbar .nav > li > a:hover,
+.skin-blue .main-header .navbar .nav > li > a:focus {
+    color: #9123D7 !important;
+    background: rgba(145, 35, 215, 0.1) !important;
+}
+
+.skin-blue .main-header .logo {
+    background: #0D0D12 !important;
+    color: #9123D7 !important;
+    font-weight: 700;
+}
+
+.skin-blue .main-header .logo:hover {
+    background: #16161F !important;
+}
+
+/* Sidebar */
+.skin-blue .main-sidebar {
+    background: #0D0D12 !important;
+    border-right: 1px solid #2A2A3A !important;
+}
+
+.skin-blue .sidebar-menu > li > a {
+    color: #8888A8 !important;
+    border-left: 3px solid transparent !important;
+}
+
+.skin-blue .sidebar-menu > li > a:hover,
+.skin-blue .sidebar-menu > li.active > a {
+    color: #9123D7 !important;
+    background: #16161F !important;
+    border-left-color: #9123D7 !important;
+}
+
+.skin-blue .sidebar-menu > li > .treeview-menu {
+    background: #16161F !important;
+}
+
+.skin-blue .treeview-menu > li > a {
+    color: #8888A8 !important;
+}
+
+.skin-blue .treeview-menu > li > a:hover {
+    color: #9123D7 !important;
+}
+
+/* Content area */
+.content-wrapper {
+    background: #0D0D12 !important;
+}
+
+/* Boxes */
+.box {
+    background: #1A1A25 !important;
+    border-color: #2A2A3A !important;
+    border-radius: 8px !important;
+}
+
+.box-header {
+    border-bottom-color: #2A2A3A !important;
+}
+
+.box-title {
+    color: #E2E2F0 !important;
+}
+
+/* Tables */
+.table {
+    background: #1A1A25 !important;
+}
+
+.table > thead > tr > th {
+    background: #16161F !important;
+    color: #E2E2F0 !important;
+    border-color: #2A2A3A !important;
+}
+
+.table > tbody > tr > td {
+    color: #E2E2F0 !important;
+    border-color: #2A2A3A !important;
+}
+
+.table > tbody > tr:hover {
+    background: #16161F !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, #9123D7 0%, #7C3AED 100%) !important;
+    border-color: #9123D7 !important;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #A855F7 0%, #9123D7 100%) !important;
+    border-color: #A855F7 !important;
+    box-shadow: 0 0 15px rgba(145, 35, 215, 0.3) !important;
+}
+
+.btn-default {
+    background: #16161F !important;
+    border-color: #2A2A3A !important;
+    color: #E2E2F0 !important;
+}
+
+.btn-default:hover {
+    background: #1A1A25 !important;
+    border-color: #9123D7 !important;
+    color: #9123D7 !important;
+}
+
+/* Form controls */
+.form-control {
+    background: #16161F !important;
+    border-color: #2A2A3A !important;
+    color: #E2E2F0 !important;
+}
+
+.form-control:focus {
+    border-color: #9123D7 !important;
+    box-shadow: 0 0 0 3px rgba(145, 35, 215, 0.15) !important;
+}
+
+/* Select2 */
+.select2-container--default .select2-selection--single {
+    background: #16161F !important;
+    border-color: #2A2A3A !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #E2E2F0 !important;
+}
+
+.select2-dropdown {
+    background: #16161F !important;
+    border-color: #2A2A3A !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background: #9123D7 !important;
+}
+
+/* Modal */
+.modal-content {
+    background: #1A1A25 !important;
+    border-color: #2A2A3A !important;
+}
+
+.modal-header {
+    background: #16161F !important;
+    border-bottom-color: #2A2A3A !important;
+}
+
+.modal-title {
+    color: #E2E2F0 !important;
+}
+
+.modal-body {
+    color: #E2E2F0 !important;
+}
+
+/* Alert */
+.alert-success {
+    background: rgba(34, 197, 94, 0.1) !important;
+    border-color: #22C55E !important;
+    color: #22C55E !important;
+}
+
+.alert-danger {
+    background: rgba(239, 68, 68, 0.1) !important;
+    border-color: #EF4444 !important;
+    color: #EF4444 !important;
+}
+
+.alert-warning {
+    background: rgba(245, 158, 11, 0.1) !important;
+    border-color: #F59E0B !important;
+    color: #F59E0B !important;
+}
+
+.alert-info {
+    background: rgba(145, 35, 215, 0.1) !important;
+    border-color: #9123D7 !important;
+    color: #9123D7 !important;
+}
+
+/* Nav tabs */
+.nav-tabs {
+    border-bottom-color: #2A2A3A !important;
+}
+
+.nav-tabs > li > a {
+    color: #8888A8 !important;
+}
+
+.nav-tabs > li > a:hover,
+.nav-tabs > li.active > a {
+    color: #9123D7 !important;
+    background: #1A1A25 !important;
+    border-color: #2A2A3A !important;
+    border-bottom-color: transparent !important;
+}
+
+/* Pagination */
+.pagination > li > a,
+.pagination > li > span {
+    background: #16161F !important;
+    border-color: #2A2A3A !important;
+    color: #8888A8 !important;
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover {
+    background: #9123D7 !important;
+    border-color: #9123D7 !important;
+    color: white !important;
+}
+
+.pagination > .active > a,
+.pagination > .active > span {
+    background: #9123D7 !important;
+    border-color: #9123D7 !important;
+    color: white !important;
+}
+
+/* Dropdown */
+.dropdown-menu {
+    background: #1A1A25 !important;
+    border-color: #2A2A3A !important;
+}
+
+.dropdown-menu > li > a {
+    color: #E2E2F0 !important;
+}
+
+.dropdown-menu > li > a:hover {
+    background: #9123D7 !important;
+    color: white !important;
+}
+
+/* User panel */
+.user-panel > .info {
+    color: #E2E2F0 !important;
+}
+
+.user-panel > .info > a {
+    color: #9123D7 !important;
+}
+
+/* Sidebar form */
+.sidebar-form input[type="text"] {
+    background: #16161F !important;
+    border-color: #2A2A3A !important;
+    color: #E2E2F0 !important;
+}
+
+/* Custom scrollbar for admin */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0D0D12;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2A2A3A;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9123D7;
+}
