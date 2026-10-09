@@ -39,15 +39,18 @@ const MarketingPanel = () => (
                 <span css={tw`text-[#9123D7]`}>Cloud</span>
             </div>
         </div>
-        <h1 css={tw`text-4xl xl:text-5xl font-extrabold italic leading-[1.18] tracking-normal mb-5 overflow-visible pb-2 pr-3`}>
+        <h1 css={tw`text-4xl xl:text-5xl font-extrabold italic leading-[1.18] tracking-normal mb-5 overflow-visible`}>
             <span css={tw`text-neutral-100`}>WELCOME TO</span>
             <br />
-            <span
-                css={tw`bg-clip-text text-transparent bg-gradient-to-r from-[#C084FC] via-[#A855F7] to-[#7C3AED]`}
-            >
-                STRENOXCLOUD
-            </span>
+            <span className={'strenox-shimmer-text'}>STRENOXCLOUD</span>
         </h1>
+        <div
+            css={tw`h-1 w-40 rounded-full mb-5`}
+            style={{
+                background: 'linear-gradient(90deg, #9123D7, #A855F7, transparent)',
+                boxShadow: '0 0 16px rgba(168,85,247,0.6)',
+            }}
+        />
         <p css={tw`text-neutral-400 mb-8 max-w-md leading-relaxed`}>
             Log in to access your command center, deploy game servers, and manage your worlds.
         </p>

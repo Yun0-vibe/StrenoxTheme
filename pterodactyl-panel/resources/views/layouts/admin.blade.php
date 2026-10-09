@@ -3,7 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>@hasSection('title')@yield('title') · StrenoxCloud@elseStrenoxCloud@endif</title>
+        @hasSection('title')
+        <title>@yield('title') · StrenoxCloud</title>
+        @else
+        <title>StrenoxCloud</title>
+        @endif
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <meta name="_token" content="{{ csrf_token() }}">
 
@@ -76,10 +80,10 @@
                             <span class="sx-ico"><i class="fa fa-sitemap"></i></span><span class="sx-txt">Nodes</span>
                         </a>
                         <a href="{{ route('admin.servers') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.servers')) }}">
-                            <span class="sx-ico"><i class="fa fa-server"></i></span><span class="sx-txt">Servers{{ $serverCount ? ' · ' . $serverCount : '' }}</span>
+                            <span class="sx-ico"><i class="fa fa-server"></i></span><span class="sx-txt">Servers{{ ($serverCount ?? 0) ? ' · ' . $serverCount : '' }}</span>
                         </a>
                         <a href="{{ route('admin.users') }}" class="{{ $sxActive(starts_with(Route::currentRouteName(), 'admin.users')) }}">
-                            <span class="sx-ico"><i class="fa fa-users"></i></span><span class="sx-txt">Users{{ $userCount ? ' · ' . $userCount : '' }}</span>
+                            <span class="sx-ico"><i class="fa fa-users"></i></span><span class="sx-txt">Users{{ ($userCount ?? 0) ? ' · ' . $userCount : '' }}</span>
                         </a>
                     </nav>
                     <div class="sx-nav-label">Services</div>
