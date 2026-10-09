@@ -57,11 +57,11 @@ export default ({ activity, children }: Props) => {
             </div>
             <div className={'col-span-10 sm:col-span-9 flex'}>
                 <div className={'flex-1 px-4 sm:px-0'}>
-                    <div className={'flex items-center text-gray-50'}>
+                    <div className={'flex items-center text-neutral-100'}>
                         <Tooltip placement={'top'} content={actor?.email || 'System User'}>
                             <span>{actor?.username || 'System'}</span>
                         </Tooltip>
-                        <span className={'text-gray-400'}>&nbsp;&mdash;&nbsp;</span>
+                        <span className={'text-neutral-400'}>&nbsp;&mdash;&nbsp;</span>
                         <Link
                             to={`#${pathTo({ event: activity.event })}`}
                             className={'transition-colors duration-75 active:text-purple-400 hover:text-purple-400'}
@@ -85,11 +85,11 @@ export default ({ activity, children }: Props) => {
                     <p className={style.description}>
                         <Translate ns={'activity'} values={properties} i18nKey={activity.event.replace(':', '.')} />
                     </p>
-                    <div className={'mt-1 flex items-center text-sm'}>
+                    <div className={'mt-1 flex items-center text-sm text-neutral-400'}>
                         {activity.ip && (
                             <span>
                                 {activity.ip}
-                                <span className={'text-gray-400'}>&nbsp;|&nbsp;</span>
+                                <span className={'text-neutral-500'}>&nbsp;|&nbsp;</span>
                             </span>
                         )}
                         <Tooltip placement={'right'} content={format(activity.timestamp, 'MMM do, yyyy H:mm:ss')}>

@@ -89,13 +89,44 @@ export default createGlobalStyle`
         text-rendering: optimizeLegibility !important;
         font-synthesis: none !important;
         background-image:
-            radial-gradient(ellipse 55% 35% at 10% -5%, rgba(145, 35, 215, 0.17), transparent),
-            radial-gradient(ellipse 45% 35% at 90% 5%, rgba(124, 58, 237, 0.14), transparent),
-            radial-gradient(ellipse 35% 30% at 75% 45%, rgba(59, 130, 246, 0.06), transparent),
-            radial-gradient(ellipse 70% 50% at 50% 105%, rgba(145, 35, 215, 0.1), transparent),
-            radial-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px) !important;
-        background-size: auto, auto, auto, auto, 28px 28px !important;
+            radial-gradient(ellipse 55% 38% at 8% -5%, rgba(145, 35, 215, 0.22), transparent),
+            radial-gradient(ellipse 45% 35% at 92% 6%, rgba(124, 58, 237, 0.18), transparent),
+            radial-gradient(ellipse 40% 32% at 78% 48%, rgba(59, 130, 246, 0.08), transparent),
+            radial-gradient(ellipse 65% 45% at 50% 108%, rgba(145, 35, 215, 0.13), transparent),
+            radial-gradient(ellipse 30% 25% at 15% 75%, rgba(168, 85, 247, 0.07), transparent),
+            radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px) !important;
+        background-size: auto, auto, auto, auto, auto, 28px 28px !important;
         background-attachment: fixed !important;
+    }
+
+    /* Slow breathing ambient light over the whole app */
+    body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background:
+            radial-gradient(ellipse 42% 30% at 85% 15%, rgba(145, 35, 215, 0.1), transparent),
+            radial-gradient(ellipse 38% 28% at 10% 85%, rgba(124, 58, 237, 0.08), transparent);
+        animation: strenox-ambient-breathe 9s ease-in-out infinite;
+    }
+
+    @keyframes strenox-ambient-breathe {
+        0%, 100% {
+            opacity: 0.55;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.06);
+        }
+    }
+
+    /* Keep app content above the ambient layer */
+    #app {
+        position: relative;
+        z-index: 1;
     }
 
     /* Ambient aurora background for auth pages */
@@ -253,7 +284,20 @@ export default createGlobalStyle`
     }
 
     @media (prefers-reduced-motion: reduce) {
-        .strenox-page, .strenox-glow, .strenox-skeleton {
+        .strenox-page, .strenox-glow, .strenox-skeleton, .strenox-float {
+            animation: none;
+        }
+
+        body::after {
+            animation: none;
+            opacity: 0.7;
+        }
+
+        .strenox-orb {
+            animation: none;
+        }
+
+        .strenox-shimmer-text {
             animation: none;
         }
     }
