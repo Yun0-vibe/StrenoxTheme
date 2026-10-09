@@ -57,7 +57,8 @@ export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => 
                     <img
                         src={'/favicons/strenoxcloud-logo.png'}
                         alt={'StrenoxCloud'}
-                        css={tw`block w-32 md:w-48 mx-auto strenox-float`}
+                        className={'strenox-float'}
+                        css={tw`block w-32 md:w-48 mx-auto`}
                         style={{ filter: 'drop-shadow(0 0 24px rgba(145,35,215,0.55))' }}
                     />
                 </div>
