@@ -145,6 +145,38 @@ export default createGlobalStyle`
         transition: all 0.2s ease;
     }
 
+    /* Modern pill inputs across the panel */
+    input[type='text'],
+    input[type='password'],
+    input[type='email'],
+    input[type='number'],
+    input[type='search'],
+    select,
+    textarea {
+        border-radius: 12px !important;
+    }
+
+    input[type='text']:focus,
+    input[type='password']:focus,
+    input[type='email']:focus,
+    input[type='number']:focus,
+    input[type='search']:focus,
+    select:focus,
+    textarea:focus {
+        border-color: #9123D7 !important;
+        box-shadow: 0 0 0 3px rgba(145, 35, 215, 0.18), 0 0 18px rgba(145, 35, 215, 0.25) !important;
+    }
+
+    /* Floating logo */
+    @keyframes strenox-float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+    }
+
+    .strenox-float {
+        animation: strenox-float 4s ease-in-out infinite;
+    }
+
     ::selection {
         background: rgba(145, 35, 215, 0.35);
         color: #fff;

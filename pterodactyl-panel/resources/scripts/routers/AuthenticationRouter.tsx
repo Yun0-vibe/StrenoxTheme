@@ -52,7 +52,7 @@ export default () => {
                 <img
                     src={'/favicons/strenoxcloud-logo.png'}
                     alt={'StrenoxCloud'}
-                    css={tw`w-16 h-16 mb-3`}
+                    css={tw`w-16 h-16 mb-3 strenox-float`}
                     style={{ filter: 'drop-shadow(0 0 18px rgba(145,35,215,0.6))' }}
                 />
                 <h1 css={tw`text-2xl font-bold text-neutral-100 tracking-wide`}>
