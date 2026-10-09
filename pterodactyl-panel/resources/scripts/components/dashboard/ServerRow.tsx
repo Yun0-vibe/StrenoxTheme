@@ -62,12 +62,12 @@ const StatusPill = styled.span<{ $tone: 'green' | 'red' | 'yellow' | 'neutral' }
     ${tw`inline-block px-2 py-0.5 rounded-full text-xs font-semibold ml-2 align-middle whitespace-nowrap`};
     ${(props) =>
         props.$tone === 'green'
-            ? tw`bg-green-500/15 text-green-400`
+            ? tw`bg-green-500/20 text-green-400`
             : props.$tone === 'red'
-            ? tw`bg-red-500/15 text-red-400`
+            ? tw`bg-red-500/20 text-red-400`
             : props.$tone === 'yellow'
-            ? tw`bg-yellow-500/15 text-yellow-400`
-            : tw`bg-neutral-500/15 text-neutral-400`};
+            ? tw`bg-yellow-500/20 text-yellow-400`
+            : tw`bg-neutral-500/20 text-neutral-400`};
 `;
 
 const UsageBar = ({ label, pct, text }: { label: string; pct: number; text: string }) => (
