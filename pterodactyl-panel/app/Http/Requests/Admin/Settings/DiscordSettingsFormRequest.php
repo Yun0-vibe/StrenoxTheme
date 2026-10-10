@@ -14,6 +14,7 @@ class DiscordSettingsFormRequest extends AdminFormRequest
             'strenox:discord:client_id' => 'nullable|string|max:191',
             'strenox:discord:client_secret' => 'nullable|string|max:191',
             'strenox:discord:guild_id' => 'nullable|string|max:191',
+            'strenox:discord:role_sync_enabled' => 'nullable|in:0,1',
         ];
     }
 
@@ -25,6 +26,7 @@ class DiscordSettingsFormRequest extends AdminFormRequest
             'strenox:discord:client_id' => 'Discord Client ID',
             'strenox:discord:client_secret' => 'Discord Client Secret',
             'strenox:discord:guild_id' => 'Discord Guild ID',
+            'strenox:discord:role_sync_enabled' => 'Role Synchronization',
         ];
     }
 }

@@ -87,14 +87,11 @@ export default function DiscordWidget() {
         });
     };
 
-    const toggle = (key: 'notifications' | 'role_sync') => {
+    const toggleNotifications = () => {
         if (!status || saving) return;
-        const next = {
-            notifications: key === 'notifications' ? !status.notifications : status.notifications,
-            role_sync: key === 'role_sync' ? !status.role_sync : status.role_sync,
-        };
+        const next = !status.notifications;
         setSaving(true);
-        updateDiscordPrefs(next.notifications, next.role_sync)
+        updateDiscordPrefs({ notifications: next })
             .then((prefs) => setStatus((prev) => (prev ? { ...prev, ...prefs } : prev)))
             .catch(() => undefined)
             .finally(() => setSaving(false));
@@ -217,19 +214,6 @@ export default function DiscordWidget() {
                         <div css={tw`space-y-4`}>
                             <SyncRow>
                                 <div css={tw`flex items-center gap-3`}>
-                                    <FontAwesomeIcon icon={faUsers} css={tw`text-neutral-300`} />
-                                    <div>
-                                        <div css={tw`text-sm font-medium text-neutral-100`}>Role Synchronization</div>
-                                        <div css={tw`text-xs text-neutral-400`}>
-                                            Sync Discord roles with panel permissions
-                                        </div>
-                                    </div>
-                                </div>
-                                <ToggleSwitch active={status.role_sync} onClick={() => toggle('role_sync')} />
-                            </SyncRow>
-
-                            <SyncRow>
-                                <div css={tw`flex items-center gap-3`}>
                                     <FontAwesomeIcon icon={faServer} css={tw`text-neutral-300`} />
                                     <div>
                                         <div css={tw`text-sm font-medium text-neutral-100`}>Server Notifications</div>
@@ -238,7 +222,7 @@ export default function DiscordWidget() {
                                         </div>
                                     </div>
                                 </div>
-                                <ToggleSwitch active={status.notifications} onClick={() => toggle('notifications')} />
+                                <ToggleSwitch active={status.notifications} onClick={toggleNotifications} />
                             </SyncRow>
 
                             <SyncRow>

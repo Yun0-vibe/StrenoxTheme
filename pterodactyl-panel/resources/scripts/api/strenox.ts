@@ -130,12 +130,12 @@ export function getDiscordStatus(): Promise<StrenoxDiscordStatus> {
         .then(({ data }) => unwrap<StrenoxDiscordStatus>(data));
 }
 
-export function updateDiscordPrefs(
-    notifications: boolean,
-    roleSync: boolean
-): Promise<{ notifications: boolean; role_sync: boolean }> {
+export function updateDiscordPrefs(prefs: { notifications?: boolean; role_sync?: boolean }): Promise<{
+    notifications: boolean;
+    role_sync: boolean;
+}> {
     return http
-        .patch('/api/client/account/strenox/discord', { notifications, role_sync: roleSync })
+        .patch('/api/client/account/strenox/discord', prefs)
         .then(({ data }) => unwrap<{ notifications: boolean; role_sync: boolean }>(data));
 }
 

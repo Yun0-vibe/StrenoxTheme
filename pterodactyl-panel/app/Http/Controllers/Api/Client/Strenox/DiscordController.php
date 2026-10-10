@@ -38,25 +38,23 @@ class DiscordController extends ClientApiController
 
     /**
      * Updates the user's Discord notification preferences.
+     * Role synchronization itself is a global integration switch and lives
+     * in the admin Discord settings, not here.
      */
     public function update(ClientApiRequest $request): array
     {
         $request->validate([
-            'notifications' => ['required', 'boolean'],
-            'role_sync' => ['required', 'boolean'],
+            'notifications' => ['sometimes', 'boolean'],
         ]);
 
-        $request->user()->update([
-            'discord_notifications' => $request->boolean('notifications'),
-            'discord_role_sync' => $request->boolean('role_sync'),
-        ]);
+        $data = [];
+        if ($request->has('notifications')) {
+            $request->user()->update(['discord_notifications' => $request->boolean('notifications')]);
+        }
+        $data['notifications'] = (bool) $request->user()->discord_notifications;
+        $data['role_sync'] = (bool) $request->user()->discord_role_sync;
 
-        return [
-            'data' => [
-                'notifications' => (bool) $request->user()->discord_notifications,
-                'role_sync' => (bool) $request->user()->discord_role_sync,
-            ],
-        ];
+        return ['data' => $data];
     }
 
     /**

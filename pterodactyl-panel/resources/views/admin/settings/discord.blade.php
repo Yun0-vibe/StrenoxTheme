@@ -63,6 +63,19 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label class="control-label">Role Synchronization</label>
+                                <div>
+                                    @php($syncEnabled = old('strenox:discord:role_sync_enabled', config('strenox.discord.role_sync_enabled', '0')))
+                                    <select name="strenox:discord:role_sync_enabled" class="form-control">
+                                        <option value="0" @if($syncEnabled == '0') selected @endif>Disabled</option>
+                                        <option value="1" @if($syncEnabled == '1') selected @endif>Enabled</option>
+                                    </select>
+                                    <p class="text-muted"><small>Global switch. When enabled, Discord roles sync with panel permissions for linked accounts.</small></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="box-footer">
                         {!! csrf_field() !!}
