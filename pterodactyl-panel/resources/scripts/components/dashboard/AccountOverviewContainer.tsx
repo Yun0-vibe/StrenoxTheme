@@ -109,6 +109,7 @@ export default () => {
     const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
     const [uploading, setUploading] = useState(false);
     const [avatarError, setAvatarError] = useState('');
+    const [activeTab, setActiveTab] = useState<'security' | 'discord'>('security');
     const [myServers, setMyServers] = useState(0);
     const [myTickets, setMyTickets] = useState(0);
     const fileRef = React.useRef<HTMLInputElement>(null);
@@ -252,7 +253,7 @@ export default () => {
                 </div>
             </ProfileCard>
 
-            <div css={tw`grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10`}>
+            <div css={tw`grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8`}>
                 {tiles.map((t) => (
                     <QuickTile key={t.label} to={t.to}>
                         <FontAwesomeIcon icon={t.icon} css={tw`text-lg text-[#A855F7] mb-1`} />
@@ -260,18 +261,48 @@ export default () => {
                     </QuickTile>
                 ))}
             </div>
-            <DiscordWidget />
-            <Container css={[tw`lg:grid lg:grid-cols-3 mb-10 mt-10`, state?.twoFactorRedirect ? tw`mt-4` : tw`mt-10`]}>
-                <ContentBox title={'Update Password'} showFlashes={'account:password'}>
-                    <UpdatePasswordForm />
-                </ContentBox>
-                <ContentBox css={tw`mt-8 sm:mt-0 sm:ml-8`} title={'Update Email Address'} showFlashes={'account:email'}>
-                    <UpdateEmailAddressForm />
-                </ContentBox>
-                <ContentBox css={tw`md:ml-8 mt-8 md:mt-0`} title={'Two-Step Verification'}>
-                    <ConfigureTwoFactorForm />
-                </ContentBox>
-            </Container>
+
+            <div css={tw`flex gap-2 mb-6 p-1 rounded-2xl`} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
+                {(
+                    [
+                        { key: 'security', label: 'Password & Security' },
+                        { key: 'discord', label: 'Discord' },
+                    ] as const
+                ).map((tab) => (
+                    <button
+                        key={tab.key}
+                        onClick={() => setActiveTab(tab.key)}
+                        css={tw`flex-1 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-200`}
+                        style={
+                            activeTab === tab.key
+                                ? {
+                                      background: 'linear-gradient(135deg, #9123D7 0%, #7C3AED 100%)',
+                                      color: '#fff',
+                                      boxShadow: '0 4px 16px rgba(145,35,215,0.4)',
+                                  }
+                                : { color: '#8888A8', background: 'transparent', border: 'none' }
+                        }
+                    >
+                        {tab.label}
+                    </button>
+                ))}
+            </div>
+
+            {activeTab === 'discord' ? (
+                <DiscordWidget />
+            ) : (
+                <Container css={[tw`lg:grid lg:grid-cols-3 mb-10`, state?.twoFactorRedirect ? tw`mt-4` : tw`mt-2`]}>
+                    <ContentBox title={'Update Password'} showFlashes={'account:password'}>
+                        <UpdatePasswordForm />
+                    </ContentBox>
+                    <ContentBox css={tw`mt-8 sm:mt-0 sm:ml-8`} title={'Update Email Address'} showFlashes={'account:email'}>
+                        <UpdateEmailAddressForm />
+                    </ContentBox>
+                    <ContentBox css={tw`md:ml-8 mt-8 md:mt-0`} title={'Two-Step Verification'}>
+                        <ConfigureTwoFactorForm />
+                    </ContentBox>
+                </Container>
+            )}
         </PageContentBlock>
     );
 };
