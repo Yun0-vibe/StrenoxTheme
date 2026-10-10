@@ -34,7 +34,7 @@ const StatGrid = styled.div`
 `;
 
 const StatCard = styled(Link)`
-    ${tw`rounded-2xl p-4 flex items-center gap-4 no-underline transition-all duration-200`};
+    ${tw`rounded-2xl p-4 no-underline transition-all duration-200 cursor-pointer`};
     background: linear-gradient(135deg, rgba(30, 21, 53, 0.75) 0%, rgba(22, 22, 31, 0.9) 100%);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(145, 35, 215, 0.28);
@@ -176,12 +176,21 @@ export default function HomePage() {
                     {stats.map((s) => (
                         <motion.div key={s.label} variants={item}>
                             <StatCard to={s.to}>
-                                <StatIcon>
-                                    <FontAwesomeIcon icon={s.icon} />
-                                </StatIcon>
-                                <div>
-                                    <div css={tw`text-3xl font-bold text-neutral-100 leading-tight`}>{s.value}</div>
-                                    <div css={tw`text-xs text-neutral-400 mt-1`}>{s.label}</div>
+                                <div css={tw`flex items-center gap-4`}>
+                                    <StatIcon>
+                                        <FontAwesomeIcon icon={s.icon} />
+                                    </StatIcon>
+                                    <div css={tw`flex-1`}>
+                                        <div css={tw`text-3xl font-bold text-neutral-100 leading-tight`}>{s.value}</div>
+                                        <div css={tw`text-xs text-neutral-400 mt-1`}>{s.label}</div>
+                                    </div>
+                                    <FontAwesomeIcon icon={faArrowRight} css={tw`text-[#A855F7] text-sm flex-shrink-0`} />
+                                </div>
+                                <div css={tw`mt-3 pt-3 flex items-center justify-between border-t border-white/5`}>
+                                    <span css={tw`text-xs font-semibold text-[#A855F7]`}>
+                                        {s.label === 'Servers' ? 'Manage servers' : s.label === 'Open Tickets' ? 'View tickets' : 'Read news'}
+                                    </span>
+                                    <span css={tw`text-xs font-semibold text-neutral-500`}>Open &rarr;</span>
                                 </div>
                             </StatCard>
                         </motion.div>
