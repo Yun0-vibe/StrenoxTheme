@@ -44,7 +44,7 @@ class AvatarController extends ClientApiController
     public function store(ClientApiRequest $request): array
     {
         $request->validate([
-            'avatar' => ['required', 'image', 'mimes:jpeg,png,webp,gif', 'max:2048', 'dimensions:min_width=64,min_height=64,max_width=2048,max_height=2048'],
+            'avatar' => ['required', 'image', 'mimes:jpeg,png,webp,gif', 'max:2048'],
         ]);
 
         /** @var \Pterodactyl\Models\User $user */

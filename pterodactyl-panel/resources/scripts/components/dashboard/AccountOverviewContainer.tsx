@@ -108,6 +108,7 @@ export default () => {
     const user = useStoreState((state: ApplicationStore) => state.user.data!);
     const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
     const [uploading, setUploading] = useState(false);
+    const [avatarError, setAvatarError] = useState('');
     const [myServers, setMyServers] = useState(0);
     const [myTickets, setMyTickets] = useState(0);
     const fileRef = React.useRef<HTMLInputElement>(null);
@@ -127,10 +128,16 @@ export default () => {
     const onFilePicked = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
+        if (file.size > 2 * 1024 * 1024) {
+            setAvatarError('Image must be under 2 MB.');
+            if (fileRef.current) fileRef.current.value = '';
+            return;
+        }
+        setAvatarError('');
         setUploading(true);
         uploadAvatar(file)
             .then(setAvatarUrl)
-            .catch(() => undefined)
+            .catch(() => setAvatarError('Upload failed. Use a JPEG, PNG, WebP or GIF under 2 MB.'))
             .finally(() => {
                 setUploading(false);
                 if (fileRef.current) fileRef.current.value = '';
@@ -138,10 +145,11 @@ export default () => {
     };
 
     const removeAvatar = () => {
+        setAvatarError('');
         setUploading(true);
         deleteAvatar()
             .then(() => setAvatarUrl(null))
-            .catch(() => undefined)
+            .catch(() => setAvatarError('Could not remove the picture. Try again.'))
             .finally(() => setUploading(false));
     };
 
@@ -208,6 +216,9 @@ export default () => {
                                 </button>
                             )}
                         </div>
+                        {avatarError && (
+                            <div css={tw`text-xs text-red-400 text-center max-w-[12rem]`}>{avatarError}</div>
+                        )}
                     </div>
                     <div css={tw`flex-1 text-center sm:text-left min-w-0 pt-1`}>
                         <div css={tw`text-2xl font-bold text-neutral-100 flex items-center justify-center sm:justify-start gap-2`}>
