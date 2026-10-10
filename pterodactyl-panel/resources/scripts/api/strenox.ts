@@ -22,6 +22,7 @@ export interface StrenoxTicketMessage {
     message: string;
     // eslint-disable-next-line camelcase
     is_staff: boolean;
+    mine: boolean;
     date: string;
 }
 

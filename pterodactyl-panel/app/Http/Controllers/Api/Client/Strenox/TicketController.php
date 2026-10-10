@@ -101,6 +101,7 @@ class TicketController extends ClientApiController
     public function view(ClientApiRequest $request, StrenoxTicket $ticket): array
     {
         $this->authorizeTicket($request, $ticket);
+        $userId = $request->user()->id;
 
         return [
             'data' => [
@@ -112,6 +113,7 @@ class TicketController extends ClientApiController
                     'id' => $m->id,
                     'message' => $m->message,
                     'is_staff' => (bool) $m->is_staff,
+                    'mine' => $m->user_id === $userId,
                     'date' => $m->created_at->toDateTimeString(),
                 ])->all(),
             ],
@@ -146,6 +148,8 @@ class TicketController extends ClientApiController
                 'id' => $message->id,
                 'message' => $message->message,
                 'is_staff' => (bool) $message->is_staff,
+                'mine' => true,
+                'date' => $message->created_at->toDateTimeString(),
             ],
         ];
     }

@@ -1047,6 +1047,21 @@ a:hover, a:focus {
     font-size: 13px;
 }
 
+.strenox-msg-mine {
+    align-self: flex-end;
+    margin-left: auto;
+    text-align: left;
+    background: linear-gradient(135deg, #9123D7 0%, #7C3AED 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 18px rgba(145, 35, 215, 0.35);
+    color: #fff;
+}
+
+.strenox-msg-mine .strenox-msg-body,
+.strenox-msg-mine .strenox-msg-date {
+    color: #fff;
+}
+
 .strenox-msg-staff {
     align-self: flex-start;
     margin-right: auto;
@@ -1057,8 +1072,8 @@ a:hover, a:focus {
 }
 
 .strenox-msg-user {
-    align-self: flex-end;
-    margin-left: auto;
+    align-self: flex-start;
+    margin-right: auto;
     text-align: left;
     background: #16161F;
     border: 1px solid #2A2A3A;

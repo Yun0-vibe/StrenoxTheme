@@ -112,12 +112,19 @@ const SubmitButton = styled.button`
     }
 `;
 
-const MessageBubble = styled.div<{ staff: boolean }>`
+const MessageBubble = styled.div<{ staff: boolean; mine: boolean }>`
     ${tw`rounded-lg p-3 text-sm max-w-[85%]`};
-    background: ${(props) => (props.staff ? 'rgba(145,35,215,0.12)' : '#16161F')};
-    border: 1px solid ${(props) => (props.staff ? '#9123D7' : '#2A2A3A')};
-    color: #E2E2F0;
-    align-self: ${(props) => (props.staff ? 'flex-start' : 'flex-end')};
+    background: ${(props) =>
+        props.mine
+            ? 'linear-gradient(135deg, #9123D7 0%, #7C3AED 100%)'
+            : props.staff
+              ? 'rgba(145,35,215,0.12)'
+              : '#16161F'};
+    border: 1px solid
+        ${(props) => (props.mine ? 'rgba(255,255,255,0.15)' : props.staff ? '#9123D7' : '#2A2A3A')};
+    color: ${(props) => (props.mine ? '#fff' : '#E2E2F0')};
+    align-self: ${(props) => (props.mine ? 'flex-end' : 'flex-start')};
+    box-shadow: ${(props) => (props.mine ? '0 4px 18px rgba(145,35,215,0.35)' : 'none')};
 `;
 
 export default function SupportTickets() {
@@ -286,14 +293,16 @@ export default function SupportTickets() {
                                 <PriorityBadge priority={selected.priority}>{selected.priority}</PriorityBadge>
                             </div>
                             {selected.messages.map((msg) => (
-                                <MessageBubble key={msg.id} staff={msg.is_staff}>
-                                    {msg.is_staff && (
-                                        <div css={tw`text-xs font-semibold text-[#9123D7] mb-1`}>
+                                <MessageBubble key={msg.id} staff={msg.is_staff} mine={msg.mine}>
+                                    {msg.is_staff && !msg.mine && (
+                                        <div css={tw`text-xs font-semibold text-[#A855F7] mb-1`}>
                                             StrenoxCloud Staff
                                         </div>
                                     )}
                                     <div>{msg.message}</div>
-                                    <div css={tw`text-xs text-neutral-500 mt-1`}>{msg.date}</div>
+                                    <div css={[tw`text-xs mt-1`, msg.mine ? tw`text-white/70` : tw`text-neutral-500`]}>
+                                        {msg.date}
+                                    </div>
                                 </MessageBubble>
                             ))}
                             {selected.status !== 'closed' && (

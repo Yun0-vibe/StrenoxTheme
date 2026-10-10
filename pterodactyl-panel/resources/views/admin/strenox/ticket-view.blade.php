@@ -26,10 +26,11 @@
             <div class="box-body">
                 <div class="strenox-thread">
                     @forelse ($ticket->messages as $message)
-                        <div class="strenox-msg {{ $message->is_staff ? 'strenox-msg-staff' : 'strenox-msg-user' }}">
-                            @if ($message->is_staff)
+                        @php($isMine = $message->user_id === Auth::id())
+                        <div class="strenox-msg {{ $isMine ? 'strenox-msg-mine' : ($message->is_staff ? 'strenox-msg-staff' : 'strenox-msg-user') }}">
+                            @if ($message->is_staff && !$isMine)
                                 <div class="strenox-msg-tag">StrenoxCloud Staff</div>
-                            @else
+                            @elseif (!$isMine)
                                 <div class="strenox-msg-tag strenox-msg-tag-user">{{ $message->user?->username ?? 'User' }}</div>
                             @endif
                             <div class="strenox-msg-body">{{ $message->message }}</div>
