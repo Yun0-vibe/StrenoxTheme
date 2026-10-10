@@ -90,7 +90,7 @@ const Badge = styled.span<{ $tone: 'purple' | 'green' | 'neutral' }>`
 `;
 
 const QuickTile = styled(Link)`
-    ${tw`rounded-2xl p-4 text-center no-underline transition-all duration-200 border border-white/10`};
+    ${tw`block rounded-2xl p-4 text-center no-underline transition-all duration-200 border border-white/10`};
     background: rgba(22, 22, 31, 0.8);
     color: #e2e2f0 !important;
 

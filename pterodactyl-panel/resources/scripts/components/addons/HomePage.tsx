@@ -34,11 +34,12 @@ const StatGrid = styled.div`
 `;
 
 const StatCard = styled(Link)`
-    ${tw`rounded-2xl p-4 no-underline transition-all duration-200 cursor-pointer`};
+    ${tw`block rounded-2xl p-4 no-underline transition-all duration-200 cursor-pointer overflow-hidden`};
     background: linear-gradient(135deg, rgba(30, 21, 53, 0.75) 0%, rgba(22, 22, 31, 0.9) 100%);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(145, 35, 215, 0.28);
     box-shadow: 0 0 20px rgba(145, 35, 215, 0.1);
+    min-width: 0;
 
     &:hover {
         border-color: rgba(145, 35, 215, 0.65);
@@ -176,13 +177,13 @@ export default function HomePage() {
                     {stats.map((s) => (
                         <motion.div key={s.label} variants={item}>
                             <StatCard to={s.to}>
-                                <div css={tw`flex items-center gap-4`}>
+                                <div css={tw`flex items-center gap-4 min-w-0`}>
                                     <StatIcon>
                                         <FontAwesomeIcon icon={s.icon} />
                                     </StatIcon>
-                                    <div css={tw`flex-1`}>
+                                    <div css={tw`flex-1 min-w-0`}>
                                         <div css={tw`text-3xl font-bold text-neutral-100 leading-tight`}>{s.value}</div>
-                                        <div css={tw`text-xs text-neutral-400 mt-1`}>{s.label}</div>
+                                        <div css={tw`text-xs text-neutral-400 mt-1 truncate`}>{s.label}</div>
                                     </div>
                                     <FontAwesomeIcon icon={faArrowRight} css={tw`text-[#A855F7] text-sm flex-shrink-0`} />
                                 </div>
