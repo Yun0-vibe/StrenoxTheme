@@ -52,16 +52,16 @@ class StrenoxTicketController extends Controller
     /**
      * Post a staff reply. Owner's own messages never count as staff.
      */
-    public function reply(Request $request, StrenoxTicket $ticket): RedirectResponse
+    public function reply(Request $request, StrenoxTicket $ticket): RedirectResponse|\Illuminate\Http\JsonResponse
     {
         $request->validate([
             'message' => ['required', 'string', 'max:65535'],
         ]);
 
         $user = $request->user();
-        $isStaff = (bool) $user->root_admin && $ticket->user_id !== $user->id;
+        $isStaff = (bool) $user->root_admin && (int) $ticket->user_id !== (int) $user->id;
 
-        $ticket->messages()->create([
+        $message = $ticket->messages()->create([
             'user_id' => $user->id,
             'message' => $request->input('message'),
             'is_staff' => $isStaff,
@@ -71,6 +71,17 @@ class StrenoxTicketController extends Controller
             $ticket->update(['status' => 'answered']);
         } elseif (!$isStaff && $ticket->status !== 'open') {
             $ticket->update(['status' => 'open']);
+        }
+
+        if ($request->ajax() || $request->wantsJson()) {
+            return response()->json([
+                'id' => $message->id,
+                'message' => $message->message,
+                'is_staff' => (bool) $message->is_staff,
+                'mine' => true,
+                'date' => $message->created_at->toDateTimeString(),
+                'status' => $ticket->status,
+            ]);
         }
 
         return redirect()->route('admin.strenox.ticket.view', $ticket->id);
