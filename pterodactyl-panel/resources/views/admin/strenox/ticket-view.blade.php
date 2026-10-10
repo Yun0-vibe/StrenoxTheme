@@ -19,6 +19,9 @@
         <div class="box">
             <div class="box-header with-border">
                 <h3 class="box-title">Conversation</h3>
+                <div class="box-tools pull-right">
+                    <a href="{{ route('admin.strenox.tickets') }}" class="btn btn-xs btn-default"><i class="fa fa-fw fa-arrow-left"></i> All Tickets</a>
+                </div>
             </div>
             <div class="box-body">
                 <div class="strenox-thread">
@@ -38,10 +41,15 @@
                 </div>
             </div>
             <div class="box-footer">
-                <form action="{{ route('admin.strenox.ticket.reply', $ticket->id) }}" method="POST" style="display:flex;gap:10px;">
+                <form action="{{ route('admin.strenox.ticket.reply', $ticket->id) }}" method="POST">
                     {!! csrf_field() !!}
-                    <input type="text" name="message" class="form-control" placeholder="Write a staff reply..." required maxlength="65535" style="flex:1;" />
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-paper-plane"></i> Reply</button>
+                    <div class="input-group">
+                        <input type="text" name="message" class="form-control" placeholder="Write a staff reply and press Enter…" required maxlength="65535" autocomplete="off" />
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-paper-plane"></i> Reply</button>
+                        </span>
+                    </div>
+                    <p class="text-muted" style="margin:8px 0 0;"><small>Enter sends the reply. Your message posts as <strong>StrenoxCloud Staff</strong>.</small></p>
                 </form>
             </div>
         </div>
