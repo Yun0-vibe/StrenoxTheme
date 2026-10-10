@@ -11,17 +11,32 @@ use Pterodactyl\Http\Controllers\Controller;
 class StrenoxTicketController extends Controller
 {
     /**
-     * Show every support ticket for staff triage.
+     * Show every support ticket for staff triage, with optional
+     * status filter and text search.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
+        $status = $request->query('status', 'all');
+        $search = trim((string) $request->query('q', ''));
+
         $tickets = StrenoxTicket::query()
             ->with('user:id,username,email')
+            ->when(in_array($status, ['open', 'answered', 'closed'], true), fn ($q) => $q->where('status', $status))
+            ->when($search !== '', fn ($q) => $q->where(function ($q) use ($search) {
+                $q->where('subject', 'like', "%{$search}%")
+                    ->orWhereHas('user', fn ($q) => $q
+                        ->where('username', 'like', "%{$search}%")
+                        ->orWhere('email', 'like', "%{$search}%"));
+            }))
             ->orderByDesc('created_at')
             ->limit(100)
             ->get();
 
-        return view('admin.strenox.tickets', ['tickets' => $tickets]);
+        return view('admin.strenox.tickets', [
+            'tickets' => $tickets,
+            'status' => $status,
+            'search' => $search,
+        ]);
     }
 
     /**

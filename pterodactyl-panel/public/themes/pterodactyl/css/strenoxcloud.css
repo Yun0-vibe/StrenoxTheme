@@ -1087,6 +1087,15 @@ a:hover, a:focus {
     margin-top: 6px;
 }
 
+/* Clickable admin table rows */
+tr.strenox-click-row {
+    cursor: pointer;
+}
+
+tr.strenox-click-row:hover td:first-child {
+    box-shadow: inset 3px 0 0 #9123D7;
+}
+
 /* Sidebar footer mini-links */
 .strenox-admin .sidebar-menu {
     padding-bottom: 12px !important;

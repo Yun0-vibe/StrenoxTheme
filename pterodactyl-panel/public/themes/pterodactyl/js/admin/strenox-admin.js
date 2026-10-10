@@ -27,6 +27,18 @@
         }
     });
 
+    // Clickable rows: navigate to the thread, unless the click started
+    // on a link, button, input or select inside the row.
+    $(document).on('click.strenoxRows', 'tr.strenox-click-row', function (e) {
+        if ($(e.target).closest('a, button, input, select, textarea').length) {
+            return;
+        }
+        var href = $(this).data('href');
+        if (href) {
+            window.location.href = href;
+        }
+    });
+
     // Deterministic stacking: whenever any modal is triggered, force the
     // backdrop below the dialog with inline styles. Inline styles beat any
     // stylesheet ordering issue, so no invisible layer can ever sit between
