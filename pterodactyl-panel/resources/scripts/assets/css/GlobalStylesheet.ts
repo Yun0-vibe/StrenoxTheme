@@ -75,7 +75,7 @@ export default createGlobalStyle`
         background: transparent;
     }
 
-    /* ==================== STRENOXCLOUD LIQUID AMBIENT THEME ==================== */
+    /* ==================== YETIMC PANEL LIQUID AMBIENT THEME ==================== */
     html {
         color-scheme: dark;
     }
@@ -109,10 +109,10 @@ export default createGlobalStyle`
         background:
             radial-gradient(ellipse 42% 30% at 85% 15%, rgba(145, 35, 215, 0.1), transparent),
             radial-gradient(ellipse 38% 28% at 10% 85%, rgba(124, 58, 237, 0.08), transparent);
-        animation: strenox-ambient-breathe 9s ease-in-out infinite;
+        animation: YETIMC-ambient-breathe 9s ease-in-out infinite;
     }
 
-    @keyframes strenox-ambient-breathe {
+    @keyframes YETIMC-ambient-breathe {
         0%, 100% {
             opacity: 0.55;
             transform: scale(1);
@@ -163,20 +163,20 @@ export default createGlobalStyle`
 
     a[style*='inset 2px'] .sx-side-ico,
     .sx-side-link[aria-current='page'] .sx-side-ico {
-        background: linear-gradient(135deg, #a855f7, #7c3aed);
+        background: linear-gradient(135deg, #55B8F0, #1E86D6);
         color: #fff;
         border-color: transparent;
         box-shadow: 0 4px 12px rgba(145, 35, 215, 0.5), 0 0 14px rgba(168, 85, 247, 0.35);
     }
 
     /* Activity timeline */
-    .strenox-activity-list {
+    .YETIMC-activity-list {
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
 
-    .strenox-timeline-row {
+    .YETIMC-timeline-row {
         display: grid;
         grid-template-columns: 3.25rem 1fr;
         gap: 0.25rem;
@@ -186,24 +186,24 @@ export default createGlobalStyle`
         background: linear-gradient(135deg, rgba(30, 21, 53, 0.5) 0%, rgba(22, 22, 31, 0.85) 100%);
         box-shadow: 0 0 14px rgba(145, 35, 215, 0.06);
         transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
-        animation: strenox-row-in 0.4s ease backwards;
+        animation: YETIMC-row-in 0.4s ease backwards;
     }
 
-    .strenox-timeline-row:hover {
+    .YETIMC-timeline-row:hover {
         border-color: rgba(145, 35, 215, 0.45);
         box-shadow: 0 0 22px rgba(145, 35, 215, 0.16);
         transform: translateY(-1px);
     }
 
-    .strenox-activity-list > *:nth-child(2) { animation-delay: 0.05s; }
-    .strenox-activity-list > *:nth-child(3) { animation-delay: 0.1s; }
-    .strenox-activity-list > *:nth-child(4) { animation-delay: 0.15s; }
-    .strenox-activity-list > *:nth-child(5) { animation-delay: 0.2s; }
-    .strenox-activity-list > *:nth-child(6) { animation-delay: 0.25s; }
-    .strenox-activity-list > *:nth-child(7) { animation-delay: 0.3s; }
-    .strenox-activity-list > *:nth-child(n + 8) { animation-delay: 0.32s; }
+    .YETIMC-activity-list > *:nth-child(2) { animation-delay: 0.05s; }
+    .YETIMC-activity-list > *:nth-child(3) { animation-delay: 0.1s; }
+    .YETIMC-activity-list > *:nth-child(4) { animation-delay: 0.15s; }
+    .YETIMC-activity-list > *:nth-child(5) { animation-delay: 0.2s; }
+    .YETIMC-activity-list > *:nth-child(6) { animation-delay: 0.25s; }
+    .YETIMC-activity-list > *:nth-child(7) { animation-delay: 0.3s; }
+    .YETIMC-activity-list > *:nth-child(n + 8) { animation-delay: 0.32s; }
 
-    @keyframes strenox-row-in {
+    @keyframes YETIMC-row-in {
         from {
             opacity: 0;
             transform: translateY(10px);
@@ -214,13 +214,13 @@ export default createGlobalStyle`
         }
     }
 
-    .strenox-timeline-rail {
+    .YETIMC-timeline-rail {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .strenox-timeline-rail::after {
+    .YETIMC-timeline-rail::after {
         content: '';
         flex: 1;
         width: 2px;
@@ -229,11 +229,11 @@ export default createGlobalStyle`
         background: linear-gradient(180deg, rgba(145, 35, 215, 0.5), rgba(145, 35, 215, 0.05));
     }
 
-    .strenox-activity-list > *:last-child .strenox-timeline-rail::after {
+    .YETIMC-activity-list > *:last-child .YETIMC-timeline-rail::after {
         display: none;
     }
 
-    .strenox-timeline-avatar {
+    .YETIMC-timeline-avatar {
         width: 2.5rem;
         height: 2.5rem;
         border-radius: 9999px;
@@ -243,23 +243,23 @@ export default createGlobalStyle`
         box-shadow: 0 0 14px rgba(145, 35, 215, 0.3);
     }
 
-    .strenox-timeline-body {
+    .YETIMC-timeline-body {
         min-width: 0;
     }
 
-    .strenox-timeline-head {
+    .YETIMC-timeline-head {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
         gap: 0.15rem;
     }
 
-    .strenox-timeline-actor {
+    .YETIMC-timeline-actor {
         font-weight: 600;
         color: #e2e2f0;
     }
 
-    .strenox-timeline-event {
+    .YETIMC-timeline-event {
         margin-left: 0.4rem;
         font-size: 0.72rem;
         font-weight: 700;
@@ -274,13 +274,13 @@ export default createGlobalStyle`
         white-space: nowrap;
     }
 
-    .strenox-timeline-event:hover {
+    .YETIMC-timeline-event:hover {
         background: rgba(145, 35, 215, 0.28);
         color: #fff;
         box-shadow: 0 0 12px rgba(145, 35, 215, 0.35);
     }
 
-    .strenox-timeline-meta {
+    .YETIMC-timeline-meta {
         margin-top: 0.35rem;
         display: flex;
         align-items: center;
@@ -289,35 +289,35 @@ export default createGlobalStyle`
         color: #8888a8;
     }
 
-    .strenox-timeline-sep {
+    .YETIMC-timeline-sep {
         margin: 0 0.35rem;
         color: #4a4a5e;
     }
 
     /* Ambient aurora background for auth pages */
-    .strenox-auth-bg {
+    .YETIMC-auth-bg {
         position: relative;
         isolation: isolate;
         overflow: hidden;
         background: #07070d;
     }
 
-    .strenox-orb {
+    .YETIMC-orb {
         position: absolute;
         z-index: 0;
         border-radius: 9999px;
         filter: blur(70px);
         opacity: 0.7;
         pointer-events: none;
-        animation: strenox-drift 14s ease-in-out infinite alternate;
+        animation: YETIMC-drift 14s ease-in-out infinite alternate;
     }
 
-    .strenox-auth-content {
+    .YETIMC-auth-content {
         position: relative;
         z-index: 1;
     }
 
-    @keyframes strenox-drift {
+    @keyframes YETIMC-drift {
         from {
             transform: translate(0, 0) scale(1);
         }
@@ -327,7 +327,7 @@ export default createGlobalStyle`
     }
 
     /* Liquid glass utility */
-    .strenox-glass {
+    .YETIMC-glass {
         background: linear-gradient(135deg, rgba(30, 21, 53, 0.72) 0%, rgba(22, 22, 31, 0.82) 100%);
         backdrop-filter: blur(18px);
         -webkit-backdrop-filter: blur(18px);
@@ -367,35 +367,35 @@ export default createGlobalStyle`
     input[type='search']:focus,
     select:focus,
     textarea:focus {
-        border-color: #9123D7 !important;
+        border-color: #2B9DE8 !important;
         box-shadow: 0 0 0 3px rgba(145, 35, 215, 0.18), 0 0 18px rgba(145, 35, 215, 0.25) !important;
     }
 
     /* Floating logo */
-    @keyframes strenox-float {
+    @keyframes YETIMC-float {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-8px); }
     }
 
-    .strenox-float {
-        animation: strenox-float 4s ease-in-out infinite;
+    .YETIMC-float {
+        animation: YETIMC-float 4s ease-in-out infinite;
     }
 
     /* Shimmering gradient headline text */
-    @keyframes strenox-shimmer {
+    @keyframes YETIMC-shimmer {
         to {
             background-position: 200% center;
         }
     }
 
-    .strenox-shimmer-text {
-        background: linear-gradient(110deg, #C084FC 15%, #F5F3FF 38%, #A855F7 55%, #7C3AED 80%);
+    .YETIMC-shimmer-text {
+        background: linear-gradient(110deg, #C084FC 15%, #F5F3FF 38%, #55B8F0 55%, #1E86D6 80%);
         background-size: 220% auto;
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         -webkit-text-fill-color: transparent;
-        animation: strenox-shimmer 5s linear infinite;
+        animation: YETIMC-shimmer 5s linear infinite;
         padding-right: 0.14em;
         margin-right: -0.14em;
         padding-bottom: 0.1em;
@@ -409,51 +409,51 @@ export default createGlobalStyle`
     }
 
     a {
-        color: #A855F7;
+        color: #55B8F0;
     }
 
     a:hover {
         color: #C084FC;
     }
 
-    @keyframes strenox-glow {
+    @keyframes YETIMC-glow {
         0%, 100% { box-shadow: 0 0 5px rgba(145, 35, 215, 0.2); }
         50% { box-shadow: 0 0 20px rgba(145, 35, 215, 0.45); }
     }
 
-    .strenox-glow {
-        animation: strenox-glow 2s ease-in-out infinite;
+    .YETIMC-glow {
+        animation: YETIMC-glow 2s ease-in-out infinite;
     }
 
-    /* Page enter transition for StrenoxCloud addon pages */
-    @keyframes strenox-fade-in {
+    /* Page enter transition for YETIMC PANEL addon pages */
+    @keyframes YETIMC-fade-in {
         from { opacity: 0; transform: translateY(8px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
-    .strenox-page {
-        animation: strenox-fade-in 0.3s ease;
+    .YETIMC-page {
+        animation: YETIMC-fade-in 0.3s ease;
     }
 
     /* Skeleton shimmer for loading states */
-    @keyframes strenox-shimmer {
+    @keyframes YETIMC-shimmer {
         0% { background-position: -400px 0; }
         100% { background-position: 400px 0; }
     }
 
-    .strenox-skeleton {
+    .YETIMC-skeleton {
         background: linear-gradient(90deg, #16161F 25%, #1A1A25 50%, #16161F 75%);
         background-size: 800px 100%;
-        animation: strenox-shimmer 1.4s ease infinite;
+        animation: YETIMC-shimmer 1.4s ease infinite;
         border-radius: 8px;
     }
 
     @media (prefers-reduced-motion: reduce) {
-        .strenox-page, .strenox-glow, .strenox-skeleton, .strenox-float {
+        .YETIMC-page, .YETIMC-glow, .YETIMC-skeleton, .YETIMC-float {
             animation: none;
         }
 
-        .strenox-timeline-row {
+        .YETIMC-timeline-row {
             animation: none;
         }
 
@@ -462,11 +462,11 @@ export default createGlobalStyle`
             opacity: 0.7;
         }
 
-        .strenox-orb {
+        .YETIMC-orb {
             animation: none;
         }
 
-        .strenox-shimmer-text {
+        .YETIMC-shimmer-text {
             animation: none;
         }
     }

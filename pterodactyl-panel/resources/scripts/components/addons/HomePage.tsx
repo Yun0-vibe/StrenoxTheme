@@ -18,7 +18,7 @@ import Spinner from '@/components/elements/Spinner';
 import ServerRow from '@/components/dashboard/ServerRow';
 import getServers from '@/api/getServers';
 import { Server } from '@/api/server/getServer';
-import { getOverview, getStrenoxAnnouncements, StrenoxAnnouncement } from '@/api/strenox';
+import { getOverview, getYETIMCAnnouncements, YETIMCAnnouncement } from '@/api/YETIMC';
 
 const Header = styled.div`
     ${tw`rounded-2xl px-6 py-5 mb-6 flex items-center gap-4 relative overflow-hidden`};
@@ -50,7 +50,7 @@ const StatCard = styled(Link)`
 
 const StatIcon = styled.div`
     ${tw`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-white`};
-    background: linear-gradient(135deg, #9123d7 0%, #7c3aed 100%);
+    background: linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%);
     box-shadow: 0 4px 16px rgba(145, 35, 215, 0.4);
 `;
 
@@ -66,8 +66,8 @@ const ActionTile = styled(Link)`
     color: #e2e2f0 !important;
 
     &:hover {
-        background: linear-gradient(135deg, #9123d7 0%, #7c3aed 100%);
-        border-color: #9123d7;
+        background: linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%);
+        border-color: #2B9DE8;
         color: white !important;
         box-shadow: 0 0 28px rgba(145, 35, 215, 0.45);
         transform: translateY(-2px);
@@ -81,7 +81,7 @@ const ActionIconBox = styled.div`
     background: rgba(145, 35, 215, 0.15);
     border: 1px solid rgba(145, 35, 215, 0.3);
     font-size: 1.05rem;
-    color: #a855f7;
+    color: #55B8F0;
 `;
 
 const container = {
@@ -101,7 +101,7 @@ export default function HomePage() {
     const [openTickets, setOpenTickets] = useState(0);
     const [newsCount, setNewsCount] = useState(0);
     const [newsLoading, setNewsLoading] = useState(false);
-    const [latestNews, setLatestNews] = useState<StrenoxAnnouncement[]>([]);
+    const [latestNews, setLatestNews] = useState<YETIMCAnnouncement[]>([]);
 
     useEffect(() => {
         getServers({ page: 1 })
@@ -121,7 +121,7 @@ export default function HomePage() {
             .catch(() => undefined)
             .finally(() => setNewsLoading(false));
 
-        getStrenoxAnnouncements()
+        getYETIMCAnnouncements()
             .then((items) => setLatestNews(items.slice(0, 3)))
             .catch(() => undefined);
     }, []);
@@ -146,12 +146,12 @@ export default function HomePage() {
     const today = new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
 
     return (
-        <div className={'strenox-page'} css={tw`max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-10`}>
+        <div className={'YETIMC-page'} css={tw`max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-10`}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
                 <Header>
                     <img
-                        src={'/favicons/strenoxcloud-logo.png'}
-                        alt={'StrenoxCloud'}
+                        src={'/favicons/YETIMC PANEL-logo.png'}
+                        alt={'YETIMC PANEL'}
                         css={tw`w-14 h-14 flex-shrink-0`}
                         style={{ filter: 'drop-shadow(0 0 16px rgba(145,35,215,0.6))' }}
                     />
@@ -164,7 +164,7 @@ export default function HomePage() {
                     <Link
                         to={'/tickets'}
                         css={tw`hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white no-underline transition-all duration-200 flex-shrink-0`}
-                        style={{ background: 'linear-gradient(135deg, #9123D7 0%, #7C3AED 100%)' }}
+                        style={{ background: 'linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%)' }}
                     >
                         <FontAwesomeIcon icon={faLifeRing} />
                         Get Support
@@ -185,10 +185,10 @@ export default function HomePage() {
                                         <div css={tw`text-3xl font-bold text-neutral-100 leading-tight`}>{s.value}</div>
                                         <div css={tw`text-xs text-neutral-400 mt-1 truncate`}>{s.label}</div>
                                     </div>
-                                    <FontAwesomeIcon icon={faArrowRight} css={tw`text-[#A855F7] text-sm flex-shrink-0`} />
+                                    <FontAwesomeIcon icon={faArrowRight} css={tw`text-[#55B8F0] text-sm flex-shrink-0`} />
                                 </div>
                                 <div css={tw`mt-3 pt-3 flex items-center justify-between border-t border-white/5`}>
-                                    <span css={tw`text-xs font-semibold text-[#A855F7]`}>
+                                    <span css={tw`text-xs font-semibold text-[#55B8F0]`}>
                                         {s.label === 'Servers' ? 'Manage servers' : s.label === 'Open Tickets' ? 'View tickets' : 'Read news'}
                                     </span>
                                     <span css={tw`text-xs font-semibold text-neutral-500`}>Open &rarr;</span>
@@ -221,7 +221,7 @@ export default function HomePage() {
                         <Link
                             to={'/knowledge-base'}
                             css={tw`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white no-underline`}
-                            style={{ background: 'linear-gradient(135deg, #9123D7 0%, #7C3AED 100%)' }}
+                            style={{ background: 'linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%)' }}
                         >
                             <FontAwesomeIcon icon={faBook} />
                             Read the Guides
@@ -235,7 +235,7 @@ export default function HomePage() {
                         {total > servers.length && (
                             <Link
                                 to={'/servers'}
-                                css={tw`flex items-center justify-center gap-2 text-sm text-[#A855F7] hover:text-neutral-100 no-underline py-3 transition-colors duration-150`}
+                                css={tw`flex items-center justify-center gap-2 text-sm text-[#55B8F0] hover:text-neutral-100 no-underline py-3 transition-colors duration-150`}
                             >
                                 View all {total} servers <FontAwesomeIcon icon={faArrowRight} />
                             </Link>
@@ -248,17 +248,17 @@ export default function HomePage() {
                 <ContentBox
                     title={'Latest News'}
                     css={tw`mt-6`}
-                    className={'strenox-news-box'}
+                    className={'YETIMC-news-box'}
                 >
                     <div css={tw`space-y-3`}>
                         {latestNews.map((item) => (
                             <Link
                                 key={item.id}
                                 to={'/announcements'}
-                                css={tw`flex items-center gap-3 p-3 rounded-xl no-underline transition-all duration-150 hover:border-[#9123D7]`}
+                                css={tw`flex items-center gap-3 p-3 rounded-xl no-underline transition-all duration-150 hover:border-[#2B9DE8]`}
                                 style={{ background: '#16161F', border: '1px solid #2A2A3A' }}
                             >
-                                <FontAwesomeIcon icon={faBullhorn} css={tw`text-[#A855F7] flex-shrink-0`} />
+                                <FontAwesomeIcon icon={faBullhorn} css={tw`text-[#55B8F0] flex-shrink-0`} />
                                 <div css={tw`flex-1 min-w-0`}>
                                     <div css={tw`text-sm font-semibold text-neutral-100 truncate`}>{item.title}</div>
                                     <div css={tw`text-xs text-neutral-500`}>{item.date}</div>

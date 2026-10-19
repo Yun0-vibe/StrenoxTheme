@@ -44,20 +44,20 @@ export default ({ activity, children }: Props) => {
     const properties = wrapProperties(activity.properties);
 
     return (
-        <div className={'strenox-timeline-row group'}>
-            <div className={'strenox-timeline-rail'}>
-                <div className={'strenox-timeline-avatar'}>
+        <div className={'YETIMC-timeline-row group'}>
+            <div className={'YETIMC-timeline-rail'}>
+                <div className={'YETIMC-timeline-avatar'}>
                     <Avatar name={actor?.uuid || 'system'} />
                 </div>
             </div>
-            <div className={'strenox-timeline-body'}>
-                <div className={'strenox-timeline-head'}>
+            <div className={'YETIMC-timeline-body'}>
+                <div className={'YETIMC-timeline-head'}>
                     <Tooltip placement={'top'} content={actor?.email || 'System User'}>
-                        <span className={'strenox-timeline-actor'}>{actor?.username || 'System'}</span>
+                        <span className={'YETIMC-timeline-actor'}>{actor?.username || 'System'}</span>
                     </Tooltip>
                     <Link
                         to={`#${pathTo({ event: activity.event })}`}
-                        className={'strenox-timeline-event'}
+                        className={'YETIMC-timeline-event'}
                     >
                         {activity.event}
                     </Link>
@@ -78,11 +78,11 @@ export default ({ activity, children }: Props) => {
                 <p className={style.description}>
                     <Translate ns={'activity'} values={properties} i18nKey={activity.event.replace(':', '.')} />
                 </p>
-                <div className={'strenox-timeline-meta'}>
+                <div className={'YETIMC-timeline-meta'}>
                     {activity.ip && (
                         <span>
                             {activity.ip}
-                            <span className={'strenox-timeline-sep'}>·</span>
+                            <span className={'YETIMC-timeline-sep'}>·</span>
                         </span>
                     )}
                     <Tooltip placement={'right'} content={format(activity.timestamp, 'MMM do, yyyy H:mm:ss')}>

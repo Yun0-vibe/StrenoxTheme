@@ -1,6 +1,6 @@
 import http from '@/api/http';
 
-export interface StrenoxAnnouncement {
+export interface YETIMCAnnouncement {
     id: number;
     title: string;
     content: string;
@@ -9,7 +9,7 @@ export interface StrenoxAnnouncement {
     date: string;
 }
 
-export interface StrenoxTicket {
+export interface YETIMCTicket {
     id: number;
     subject: string;
     status: 'open' | 'answered' | 'closed';
@@ -17,7 +17,7 @@ export interface StrenoxTicket {
     date: string;
 }
 
-export interface StrenoxTicketMessage {
+export interface YETIMCTicketMessage {
     id: number;
     message: string;
     // eslint-disable-next-line camelcase
@@ -26,8 +26,8 @@ export interface StrenoxTicketMessage {
     date: string;
 }
 
-export interface StrenoxTicketDetail extends StrenoxTicket {
-    messages: StrenoxTicketMessage[];
+export interface YETIMCTicketDetail extends YETIMCTicket {
+    messages: YETIMCTicketMessage[];
 }
 
 function unwrap<T>(data: unknown): T {
@@ -37,30 +37,30 @@ function unwrap<T>(data: unknown): T {
     return data as T;
 }
 
-export function getStrenoxAnnouncements(): Promise<StrenoxAnnouncement[]> {
+export function getYETIMCAnnouncements(): Promise<YETIMCAnnouncement[]> {
     return http
-        .get('/api/client/account/strenox/announcements')
-        .then(({ data }) => unwrap<StrenoxAnnouncement[]>(data));
+        .get('/api/client/account/YETIMC/announcements')
+        .then(({ data }) => unwrap<YETIMCAnnouncement[]>(data));
 }
 
-export interface StrenoxOverview {
+export interface YETIMCOverview {
     open_tickets: number;
     announcements: number;
 }
 
-export function getOverview(): Promise<StrenoxOverview> {
+export function getOverview(): Promise<YETIMCOverview> {
     return http
-        .get('/api/client/account/strenox/overview')
-        .then(({ data }) => unwrap<StrenoxOverview>(data));
+        .get('/api/client/account/YETIMC/overview')
+        .then(({ data }) => unwrap<YETIMCOverview>(data));
 }
 
-export function createStrenoxOrder(plan: string): Promise<{ id: number; plan: string }> {
+export function createYETIMCOrder(plan: string): Promise<{ id: number; plan: string }> {
     return http
-        .post('/api/client/account/strenox/store/orders', { plan })
+        .post('/api/client/account/YETIMC/store/orders', { plan })
         .then(({ data }) => unwrap<{ id: number; plan: string }>(data));
 }
 
-export interface StrenoxOrder {
+export interface YETIMCOrder {
     id: number;
     plan: string;
     amount: string;
@@ -68,48 +68,48 @@ export interface StrenoxOrder {
     date: string;
 }
 
-export function getStrenoxOrders(): Promise<StrenoxOrder[]> {
+export function getYETIMCOrders(): Promise<YETIMCOrder[]> {
     return http
-        .get('/api/client/account/strenox/store/orders')
-        .then(({ data }) => unwrap<StrenoxOrder[]>(data));
+        .get('/api/client/account/YETIMC/store/orders')
+        .then(({ data }) => unwrap<YETIMCOrder[]>(data));
 }
 
-export function getStrenoxTickets(): Promise<StrenoxTicket[]> {
-    return http.get('/api/client/account/strenox/tickets').then(({ data }) => unwrap<StrenoxTicket[]>(data));
+export function getYETIMCTickets(): Promise<YETIMCTicket[]> {
+    return http.get('/api/client/account/YETIMC/tickets').then(({ data }) => unwrap<YETIMCTicket[]>(data));
 }
 
-export interface StrenoxTicketAdmin extends StrenoxTicket {
+export interface YETIMCTicketAdmin extends YETIMCTicket {
     // eslint-disable-next-line camelcase
     user_name: string | null;
     // eslint-disable-next-line camelcase
     user_email: string | null;
 }
 
-export function getAllStrenoxTickets(): Promise<StrenoxTicketAdmin[]> {
+export function getAllYETIMCTickets(): Promise<YETIMCTicketAdmin[]> {
     return http
-        .get('/api/client/account/strenox/tickets/all')
-        .then(({ data }) => unwrap<StrenoxTicketAdmin[]>(data));
+        .get('/api/client/account/YETIMC/tickets/all')
+        .then(({ data }) => unwrap<YETIMCTicketAdmin[]>(data));
 }
 
-export function createStrenoxTicket(subject: string, priority: string, message: string): Promise<StrenoxTicket> {
+export function createYETIMCTicket(subject: string, priority: string, message: string): Promise<YETIMCTicket> {
     return http
-        .post('/api/client/account/strenox/tickets', { subject, priority, message })
-        .then(({ data }) => unwrap<StrenoxTicket>(data));
+        .post('/api/client/account/YETIMC/tickets', { subject, priority, message })
+        .then(({ data }) => unwrap<YETIMCTicket>(data));
 }
 
-export function getStrenoxTicket(id: number): Promise<StrenoxTicketDetail> {
+export function getYETIMCTicket(id: number): Promise<YETIMCTicketDetail> {
     return http
-        .get(`/api/client/account/strenox/tickets/${id}`)
-        .then(({ data }) => unwrap<StrenoxTicketDetail>(data));
+        .get(`/api/client/account/YETIMC/tickets/${id}`)
+        .then(({ data }) => unwrap<YETIMCTicketDetail>(data));
 }
 
-export function replyStrenoxTicket(id: number, message: string): Promise<StrenoxTicketMessage> {
+export function replyYETIMCTicket(id: number, message: string): Promise<YETIMCTicketMessage> {
     return http
-        .post(`/api/client/account/strenox/tickets/${id}/reply`, { message })
-        .then(({ data }) => unwrap<StrenoxTicketMessage>(data));
+        .post(`/api/client/account/YETIMC/tickets/${id}/reply`, { message })
+        .then(({ data }) => unwrap<YETIMCTicketMessage>(data));
 }
 
-export interface StrenoxDiscordStatus {
+export interface YETIMCDiscordStatus {
     linked: boolean;
     username: string | null;
     // eslint-disable-next-line camelcase
@@ -125,10 +125,10 @@ export interface StrenoxDiscordStatus {
     oauth_configured: boolean;
 }
 
-export function getDiscordStatus(): Promise<StrenoxDiscordStatus> {
+export function getDiscordStatus(): Promise<YETIMCDiscordStatus> {
     return http
-        .get('/api/client/account/strenox/discord')
-        .then(({ data }) => unwrap<StrenoxDiscordStatus>(data));
+        .get('/api/client/account/YETIMC/discord')
+        .then(({ data }) => unwrap<YETIMCDiscordStatus>(data));
 }
 
 export function updateDiscordPrefs(prefs: { notifications?: boolean; role_sync?: boolean }): Promise<{
@@ -136,17 +136,17 @@ export function updateDiscordPrefs(prefs: { notifications?: boolean; role_sync?:
     role_sync: boolean;
 }> {
     return http
-        .patch('/api/client/account/strenox/discord', prefs)
+        .patch('/api/client/account/YETIMC/discord', prefs)
         .then(({ data }) => unwrap<{ notifications: boolean; role_sync: boolean }>(data));
 }
 
 export function unlinkDiscord(): Promise<void> {
-    return http.delete('/api/client/account/strenox/discord').then(() => undefined);
+    return http.delete('/api/client/account/YETIMC/discord').then(() => undefined);
 }
 
 export function getAvatarUrl(): Promise<string | null> {
     return http
-        .get('/api/client/account/strenox/avatar')
+        .get('/api/client/account/YETIMC/avatar')
         .then(({ data }) => unwrap<{ avatar_url: string | null }>(data).avatar_url);
 }
 
@@ -154,12 +154,12 @@ export function uploadAvatar(file: File): Promise<string | null> {
     const form = new FormData();
     form.append('avatar', file);
     return http
-        .post('/api/client/account/strenox/avatar', form, {
+        .post('/api/client/account/YETIMC/avatar', form, {
             headers: { 'Content-Type': 'multipart/form-data' },
         })
         .then(({ data }) => unwrap<{ avatar_url: string | null }>(data).avatar_url);
 }
 
 export function deleteAvatar(): Promise<void> {
-    return http.delete('/api/client/account/strenox/avatar').then(() => undefined);
+    return http.delete('/api/client/account/YETIMC/avatar').then(() => undefined);
 }

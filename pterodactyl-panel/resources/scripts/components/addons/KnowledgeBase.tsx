@@ -25,11 +25,11 @@ const CategoryCard = styled.button<{ active: boolean }>`
         props.active
             ? 'rgba(145,35,215,0.14)'
             : 'linear-gradient(135deg, rgba(30,21,53,0.6) 0%, rgba(22,22,31,0.9) 100%)'};
-    border-color: ${(props) => (props.active ? '#9123D7' : 'rgba(145,35,215,0.22)')};
+    border-color: ${(props) => (props.active ? '#2B9DE8' : 'rgba(145,35,215,0.22)')};
     box-shadow: ${(props) => (props.active ? '0 0 24px rgba(145,35,215,0.2)' : '0 0 16px rgba(145,35,215,0.08)')};
 
     &:hover {
-        border-color: #9123d7;
+        border-color: #2B9DE8;
         box-shadow: 0 0 26px rgba(145, 35, 215, 0.22);
         transform: translateY(-2px);
     }
@@ -43,7 +43,7 @@ const SearchInput = styled.input`
 
     &:focus {
         outline: none;
-        border-color: #9123d7;
+        border-color: #2B9DE8;
         box-shadow: 0 0 0 3px rgba(145, 35, 215, 0.15);
     }
 
@@ -58,7 +58,7 @@ const ArticleRow = styled.div`
     border: 1px solid #2a2a3a;
 
     &:hover {
-        border-color: #9123d7;
+        border-color: #2B9DE8;
     }
 `;
 
@@ -153,11 +153,11 @@ export default function KnowledgeBase() {
     });
 
     return (
-        <div className={'strenox-page'} css={tw`max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-10`}>
+        <div className={'YETIMC-page'} css={tw`max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-10`}>
             <div css={tw`mb-8`}>
                 <h1 css={tw`text-3xl font-bold text-neutral-100 mb-2`}>Knowledge Base</h1>
                 <p css={tw`text-neutral-400`}>
-                    Find answers to common questions and learn how to use StrenoxCloud
+                    Find answers to common questions and learn how to use YETIMC PANEL
                 </p>
             </div>
 
@@ -187,7 +187,7 @@ export default function KnowledgeBase() {
                         >
                             <div
                                 css={tw`w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-white`}
-                                style={{ background: 'linear-gradient(135deg, #9123D7 0%, #7C3AED 100%)' }}
+                                style={{ background: 'linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%)' }}
                             >
                                 <FontAwesomeIcon icon={cat.icon} />
                             </div>
@@ -216,7 +216,7 @@ export default function KnowledgeBase() {
                                 setOpenArticle(null);
                             }}
                             css={tw`mb-4 flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg transition-all duration-150`}
-                            style={{ background: '#9123D720', color: '#A855F7', border: '1px solid #9123D7' }}
+                            style={{ background: '#2B9DE820', color: '#55B8F0', border: '1px solid #2B9DE8' }}
                         >
                             <FontAwesomeIcon icon={faTimes} />
                             Clear filters

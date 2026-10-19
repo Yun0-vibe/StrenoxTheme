@@ -23,7 +23,7 @@
     }
 
     &:focus, &:active {
-        border-color: #9123d7;
+        border-color: #2B9DE8;
         box-shadow: 0 0 0 3px rgba(145, 35, 215, 0.18), 0 0 18px rgba(145, 35, 215, 0.25);
     }
 

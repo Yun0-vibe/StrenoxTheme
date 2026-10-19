@@ -13,7 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import ContentBox from '@/components/elements/ContentBox';
 import Spinner from '@/components/elements/Spinner';
-import { getDiscordStatus, updateDiscordPrefs, unlinkDiscord, StrenoxDiscordStatus } from '@/api/strenox';
+import { getDiscordStatus, updateDiscordPrefs, unlinkDiscord, YETIMCDiscordStatus } from '@/api/YETIMC';
 
 const DiscordCard = styled.div`
     ${tw`rounded-2xl p-6 border`};
@@ -49,7 +49,7 @@ const SyncRow = styled.div`
 
 const ToggleSwitch = styled.button<{ active: boolean }>`
     ${tw`w-10 h-5 rounded-full relative transition-all duration-200 flex-shrink-0`};
-    background: ${(props) => (props.active ? '#9123D7' : '#2A2A3A')};
+    background: ${(props) => (props.active ? '#2B9DE8' : '#2A2A3A')};
     border: none;
 
     &::after {
@@ -64,7 +64,7 @@ const Notice = styled.div`
 `;
 
 export default function DiscordWidget() {
-    const [status, setStatus] = useState<StrenoxDiscordStatus | null>(null);
+    const [status, setStatus] = useState<YETIMCDiscordStatus | null>(null);
     const [failed, setFailed] = useState(false);
     const [copied, setCopied] = useState(false);
     const [saving, setSaving] = useState(false);
@@ -107,11 +107,11 @@ export default function DiscordWidget() {
     };
 
     return (
-        <div className={'strenox-page'} css={tw`max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-10`}>
+        <div className={'YETIMC-page'} css={tw`max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-10`}>
             <div css={tw`mb-8`}>
                 <h1 css={tw`text-3xl font-bold text-neutral-100 mb-2 font-header`}>Discord Integration</h1>
                 <p css={tw`text-neutral-400`}>
-                    Link your StrenoxCloud account with Discord for notifications and role sync
+                    Link your YETIMC PANEL account with Discord for notifications and role sync
                 </p>
             </div>
 
@@ -151,7 +151,7 @@ export default function DiscordWidget() {
                                 )}
                             </div>
                             <div>
-                                <h3 css={tw`text-lg font-semibold text-neutral-100`}>StrenoxCloud Discord</h3>
+                                <h3 css={tw`text-lg font-semibold text-neutral-100`}>YETIMC PANEL Discord</h3>
                                 <p css={tw`text-sm text-neutral-400`}>
                                     {status.linked ? `Connected as @${status.username ?? 'user'}` : 'Not connected'}
                                 </p>
@@ -200,7 +200,7 @@ export default function DiscordWidget() {
                             </div>
                         </StatItem>
                         <StatItem>
-                            <FontAwesomeIcon icon={faServer} css={tw`text-[#9123D7]`} />
+                            <FontAwesomeIcon icon={faServer} css={tw`text-[#2B9DE8]`} />
                             <div>
                                 <div css={tw`text-xs text-neutral-400`}>Link Status</div>
                                 <div css={tw`text-lg font-bold text-neutral-100`}>
@@ -240,9 +240,9 @@ export default function DiscordWidget() {
                                         onClick={copyInvite}
                                         css={tw`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-150 flex-shrink-0`}
                                         style={{
-                                            background: copied ? '#22C55E20' : '#9123D720',
-                                            color: copied ? '#22C55E' : '#9123D7',
-                                            border: `1px solid ${copied ? '#22C55E' : '#9123D7'}`,
+                                            background: copied ? '#22C55E20' : '#2B9DE820',
+                                            color: copied ? '#22C55E' : '#2B9DE8',
+                                            border: `1px solid ${copied ? '#22C55E' : '#2B9DE8'}`,
                                         }}
                                     >
                                         <FontAwesomeIcon icon={copied ? faCheck : faCopy} css={tw`mr-1`} />

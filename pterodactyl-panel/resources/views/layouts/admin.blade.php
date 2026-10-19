@@ -4,20 +4,20 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         @hasSection('title')
-        <title>@yield('title') · StrenoxCloud</title>
+        <title>@yield('title') · YETIMC PANEL</title>
         @else
-        <title>StrenoxCloud</title>
+        <title>YETIMC PANEL</title>
         @endif
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <meta name="_token" content="{{ csrf_token() }}">
 
-        <link rel="apple-touch-icon" href="/favicons/strenoxcloud-logo.png">
-        <link rel="icon" type="image/png" href="/favicons/strenoxcloud-logo.png" sizes="32x32">
-        <link rel="icon" type="image/png" href="/favicons/strenoxcloud-logo.png" sizes="16x16">
-        <link rel="mask-icon" href="/favicons/strenoxcloud-logo.png" color="#9123D7">
-        <link rel="shortcut icon" href="/favicons/strenoxcloud-logo.png">
+        <link rel="apple-touch-icon" href="/favicons/YETIMC PANEL-logo.png">
+        <link rel="icon" type="image/png" href="/favicons/YETIMC PANEL-logo.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicons/YETIMC PANEL-logo.png" sizes="16x16">
+        <link rel="mask-icon" href="/favicons/YETIMC PANEL-logo.png" color="#2B9DE8">
+        <link rel="shortcut icon" href="/favicons/YETIMC PANEL-logo.png">
         <meta name="msapplication-config" content="/favicons/browserconfig.xml">
-        <meta name="theme-color" content="#9123D7">
+        <meta name="theme-color" content="#2B9DE8">
         <meta name="color-scheme" content="dark">
         <meta name="color-scheme" content="dark">
 
@@ -31,7 +31,7 @@
             {!! Theme::css('vendor/sweetalert/sweetalert.min.css?t={cache-version}') !!}
             {!! Theme::css('vendor/animate/animate.min.css?t={cache-version}') !!}
             {!! Theme::css('css/pterodactyl.css?t={cache-version}') !!}
-            {!! Theme::css('css/strenoxcloud.css?t=v' . filemtime(public_path('themes/pterodactyl/css/strenoxcloud.css'))) !!}
+            {!! Theme::css('css/yetimccloud.css?t=v' . filemtime(public_path('themes/pterodactyl/css/yetimccloud.css'))) !!}
 
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,8 +48,8 @@
             <aside class="main-sidebar sx-sidebar">
                 <section class="sidebar">
                     <a href="{{ route('admin.index') }}" class="sx-brand">
-                        <img src="/favicons/strenoxcloud-logo.png" alt="StrenoxCloud">
-                        <span><strong>StrenoxCloud</strong><small>Control Center</small></span>
+                        <img src="/favicons/YETIMC PANEL-logo.png" alt="YETIMC PANEL">
+                        <span><strong>YETIMC PANEL</strong><small>Control Center</small></span>
                     </a>
                     <a href="{{ route('index') }}" class="sx-back">
                         <span class="sx-ico"><i class="fa fa-arrow-left"></i></span><span class="sx-txt">Back to Panel</span>
@@ -148,7 +148,7 @@
                     <strong><i class="fa fa-fw {{ $appIsGit ? 'fa-git-square' : 'fa-code-fork' }}"></i></strong> {{ $appVersion }}<br />
                     <strong><i class="fa fa-fw fa-clock-o"></i></strong> {{ round(microtime(true) - LARAVEL_START, 3) }}s
                 </div>
-                Copyright &copy; {{ date('Y') }} StrenoxCloud. All rights reserved.
+                Copyright &copy; {{ date('Y') }} YETIMC PANEL. All rights reserved.
             </footer>
         </div>
         @section('footer-scripts')
@@ -163,7 +163,7 @@
             {!! Theme::js('vendor/bootstrap-notify/bootstrap-notify.min.js?t={cache-version}') !!}
             {!! Theme::js('vendor/select2/select2.full.min.js?t={cache-version}') !!}
             {!! Theme::js('js/admin/functions.js?t={cache-version}') !!}
-            {!! Theme::js('js/admin/strenox-admin.js?t=4') !!}
+            {!! Theme::js('js/admin/yetimc-admin.js?t=4') !!}
             <script src="/js/autocomplete.js" type="application/javascript"></script>
 
             @if(Auth::user()->root_admin)

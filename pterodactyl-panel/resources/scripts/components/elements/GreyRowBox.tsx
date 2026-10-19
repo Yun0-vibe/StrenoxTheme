@@ -17,7 +17,7 @@ export default styled.div<{ $hoverable?: boolean }>`
 
     & .icon {
         ${tw`rounded-xl w-16 flex items-center justify-center text-white p-3`};
-        background: linear-gradient(135deg, #9123d7 0%, #7c3aed 100%);
+        background: linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%);
         box-shadow: 0 4px 14px rgba(145, 35, 215, 0.4);
     }
 `;

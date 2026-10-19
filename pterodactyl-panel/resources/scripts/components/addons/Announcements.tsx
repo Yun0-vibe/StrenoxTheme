@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import ContentBox from '@/components/elements/ContentBox';
 import Spinner from '@/components/elements/Spinner';
-import { getStrenoxAnnouncements, StrenoxAnnouncement } from '@/api/strenox';
+import { getYETIMCAnnouncements, YETIMCAnnouncement } from '@/api/YETIMC';
 
 const AnnouncementCard = styled.div<{ priority: 'info' | 'warning' | 'critical' }>`
     ${tw`rounded-2xl p-5 transition-all duration-200`};
@@ -23,13 +23,13 @@ const AnnouncementCard = styled.div<{ priority: 'info' | 'warning' | 'critical' 
             case 'warning':
                 return '#F59E0B';
             default:
-                return '#9123D7';
+                return '#2B9DE8';
         }
     }};
     box-shadow: 0 0 20px rgba(145, 35, 215, 0.1);
 
     &:hover {
-        border-color: #9123d7;
+        border-color: #2B9DE8;
         box-shadow: 0 0 28px rgba(145, 35, 215, 0.22);
         transform: translateY(-2px);
     }
@@ -44,7 +44,7 @@ const PriorityBadge = styled.span<{ priority: 'info' | 'warning' | 'critical' }>
             case 'warning':
                 return '#F59E0B20';
             default:
-                return '#9123D720';
+                return '#2B9DE820';
         }
     }};
     color: ${(props) => {
@@ -54,19 +54,19 @@ const PriorityBadge = styled.span<{ priority: 'info' | 'warning' | 'critical' }>
             case 'warning':
                 return '#F59E0B';
             default:
-                return '#9123D7';
+                return '#2B9DE8';
         }
     }};
 `;
 
 const FilterButton = styled.button<{ active: boolean }>`
     ${tw`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150`};
-    background: ${(props) => (props.active ? '#9123D7' : '#16161F')};
+    background: ${(props) => (props.active ? '#2B9DE8' : '#16161F')};
     color: ${(props) => (props.active ? 'white' : '#8888A8')};
-    border: 1px solid ${(props) => (props.active ? '#9123D7' : '#2A2A3A')};
+    border: 1px solid ${(props) => (props.active ? '#2B9DE8' : '#2A2A3A')};
 `;
 
-const FALLBACK_ANNOUNCEMENTS: StrenoxAnnouncement[] = [    {
+const FALLBACK_ANNOUNCEMENTS: YETIMCAnnouncement[] = [    {
         id: 1,
         title: 'New VPS Location: Frankfurt',
         content:
@@ -121,10 +121,10 @@ const priorityIcon = {
 
 export default function Announcements() {
     const [filter, setFilter] = useState<'all' | 'info' | 'warning' | 'critical'>('all');
-    const [items, setItems] = useState<StrenoxAnnouncement[] | null>(null);
+    const [items, setItems] = useState<YETIMCAnnouncement[] | null>(null);
 
     useEffect(() => {
-        getStrenoxAnnouncements()
+        getYETIMCAnnouncements()
             .then((data) => setItems(data.length > 0 ? data : FALLBACK_ANNOUNCEMENTS))
             .catch(() => setItems(FALLBACK_ANNOUNCEMENTS));
     }, []);
@@ -135,11 +135,11 @@ export default function Announcements() {
             : items.filter((a) => a.priority === filter);
 
     return (
-        <div className={'strenox-page'} css={tw`max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-10`}>
+        <div className={'YETIMC-page'} css={tw`max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-10`}>
             <div css={tw`mb-8`}>
                 <h1 css={tw`text-3xl font-bold text-neutral-100 mb-2`}>Announcements</h1>
                 <p css={tw`text-neutral-400`}>
-                    Stay up to date with the latest news and updates from StrenoxCloud
+                    Stay up to date with the latest news and updates from YETIMC PANEL
                 </p>
             </div>
 
@@ -168,7 +168,7 @@ export default function Announcements() {
                                     css={[
                                         announcement.priority === 'critical' && tw`text-red-400`,
                                         announcement.priority === 'warning' && tw`text-yellow-400`,
-                                        announcement.priority === 'info' && tw`text-[#9123D7]`,
+                                        announcement.priority === 'info' && tw`text-[#2B9DE8]`,
                                     ]}
                                 />
                                 <h3 css={tw`text-lg font-semibold text-neutral-100`}>

@@ -25,7 +25,7 @@ import { useStoreState } from 'easy-peasy';
 import { ApplicationStore } from '@/state';
 import Avatar from '@/components/Avatar';
 import DiscordWidget from '@/components/addons/DiscordWidget';
-import { getAvatarUrl, uploadAvatar, deleteAvatar, getStrenoxTickets } from '@/api/strenox';
+import { getAvatarUrl, uploadAvatar, deleteAvatar, getYETIMCTickets } from '@/api/YETIMC';
 import getServers from '@/api/getServers';
 
 const Container = styled.div`
@@ -95,8 +95,8 @@ const QuickTile = styled(Link)`
     color: #e2e2f0 !important;
 
     &:hover {
-        background: linear-gradient(135deg, #9123d7 0%, #7c3aed 100%);
-        border-color: #9123d7;
+        background: linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%);
+        border-color: #2B9DE8;
         color: white !important;
         box-shadow: 0 0 22px rgba(145, 35, 215, 0.4);
         transform: translateY(-2px);
@@ -121,7 +121,7 @@ export default () => {
         getServers({ page: 1 })
             .then((res) => setMyServers(res.pagination.total))
             .catch(() => undefined);
-        getStrenoxTickets()
+        getYETIMCTickets()
             .then((tickets) => setMyTickets(tickets.length))
             .catch(() => undefined);
     }, []);
@@ -171,7 +171,7 @@ export default () => {
 
             <ProfileBanner css={tw`mt-10`}>
                 <img
-                    src={'/favicons/strenoxcloud-logo.png'}
+                    src={'/favicons/YETIMC PANEL-logo.png'}
                     alt={''}
                     css={tw`absolute -right-6 -bottom-10 w-48 h-48 opacity-20 pointer-events-none`}
                 />
@@ -201,7 +201,7 @@ export default () => {
                                 onClick={() => fileRef.current?.click()}
                                 disabled={uploading}
                                 css={tw`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium transition-all duration-150`}
-                                style={{ background: '#9123D720', color: '#A855F7', border: '1px solid #9123D7' }}
+                                style={{ background: '#2B9DE820', color: '#55B8F0', border: '1px solid #2B9DE8' }}
                             >
                                 <FontAwesomeIcon icon={faCamera} />
                                 {uploading ? '…' : avatarUrl ? 'Change' : 'Upload'}
@@ -223,7 +223,7 @@ export default () => {
                     </div>
                     <div css={tw`flex-1 text-center sm:text-left min-w-0 pt-1`}>
                         <div css={tw`text-2xl font-bold text-neutral-100 flex items-center justify-center sm:justify-start gap-2`}>
-                            <FontAwesomeIcon icon={faUser} css={tw`text-[#A855F7] text-lg`} />
+                            <FontAwesomeIcon icon={faUser} css={tw`text-[#55B8F0] text-lg`} />
                             {user.username}
                         </div>
                         <div css={tw`text-sm text-neutral-400 mt-1 truncate`}>{user.email}</div>
@@ -256,7 +256,7 @@ export default () => {
             <div css={tw`grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8`}>
                 {tiles.map((t) => (
                     <QuickTile key={t.label} to={t.to}>
-                        <FontAwesomeIcon icon={t.icon} css={tw`text-lg text-[#A855F7] mb-1`} />
+                        <FontAwesomeIcon icon={t.icon} css={tw`text-lg text-[#55B8F0] mb-1`} />
                         <div css={tw`text-xs font-medium`}>{t.label}</div>
                     </QuickTile>
                 ))}
@@ -276,7 +276,7 @@ export default () => {
                         style={
                             activeTab === tab.key
                                 ? {
-                                      background: 'linear-gradient(135deg, #9123D7 0%, #7C3AED 100%)',
+                                      background: 'linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%)',
                                       color: '#fff',
                                       boxShadow: '0 4px 16px rgba(145,35,215,0.4)',
                                   }

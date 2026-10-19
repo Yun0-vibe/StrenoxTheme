@@ -18,11 +18,11 @@ interface Values {
 }
 
 const inputClass =
-    'w-full bg-[#101016] border border-white/10 rounded-2xl pl-11 pr-4 py-3.5 text-[15px] text-neutral-100 placeholder-neutral-500 outline-none transition-all duration-200 focus:border-[#9123D7]';
+    'w-full bg-[#101016] border border-white/10 rounded-2xl pl-11 pr-4 py-3.5 text-[15px] text-neutral-100 placeholder-neutral-500 outline-none transition-all duration-200 focus:border-[#2B9DE8]';
 
 const LoginButton = styled.button`
     ${tw`relative w-full overflow-hidden rounded-2xl py-4 text-base font-bold tracking-[0.2em] text-white transition-all duration-200 flex items-center justify-center gap-3`};
-    background: linear-gradient(135deg, #a855f7 0%, #9123d7 45%, #7c3aed 100%);
+    background: linear-gradient(135deg, #55B8F0 0%, #2B9DE8 45%, #1E86D6 100%);
     box-shadow: 0 8px 32px rgba(145, 35, 215, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
     border: 1px solid rgba(255, 255, 255, 0.15);
 
@@ -148,7 +148,7 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
                             </label>
                             <Link
                                 to={'/auth/password'}
-                                css={tw`text-xs font-semibold text-[#A855F7] hover:text-neutral-100 no-underline transition-colors duration-150`}
+                                css={tw`text-xs font-semibold text-[#55B8F0] hover:text-neutral-100 no-underline transition-colors duration-150`}
                             >
                                 FORGOT PASSWORD?
                             </Link>

@@ -29,7 +29,7 @@
                         @php($isMine = (int) $message->user_id === (int) Auth::id())
                         <div class="strenox-msg {{ $isMine ? 'strenox-msg-mine' : ($message->is_staff ? 'strenox-msg-staff' : 'strenox-msg-user') }}">
                             @if ($message->is_staff && !$isMine)
-                                <div class="strenox-msg-tag">StrenoxCloud Staff</div>
+                                <div class="strenox-msg-tag">YETIMC PANEL Staff</div>
                             @elseif (!$isMine)
                                 <div class="strenox-msg-tag strenox-msg-tag-user">{{ $message->user?->username ?? 'User' }}</div>
                             @endif
@@ -50,7 +50,7 @@
                             <button type="submit" class="btn btn-primary" id="sxReplyBtn"><i class="fa fa-fw fa-paper-plane"></i> Reply</button>
                         </span>
                     </div>
-                    <p class="text-muted" style="margin:8px 0 0;"><small>Enter sends instantly — no page reload. Your message posts as <strong>StrenoxCloud Staff</strong>.</small></p>
+                    <p class="text-muted" style="margin:8px 0 0;"><small>Enter sends instantly — no page reload. Your message posts as <strong>YETIMC PANEL Staff</strong>.</small></p>
                 </form>
                 <script>
                 (function () {

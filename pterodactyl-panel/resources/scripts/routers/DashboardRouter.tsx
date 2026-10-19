@@ -30,7 +30,7 @@ export default () => {
                                 <Component />
                             </Route>
                         ))}
-                        {routes.strenox.map(({ path, component: Component }) => (
+                        {routes.YETIMC.map(({ path, component: Component }) => (
                             <Route key={path} path={path} exact>
                                 <Component />
                             </Route>

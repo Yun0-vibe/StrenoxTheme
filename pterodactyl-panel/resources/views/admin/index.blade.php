@@ -14,9 +14,9 @@
 
 @section('content')
 <div class="strenox-hero">
-    <img src="/favicons/strenoxcloud-logo.png" alt="StrenoxCloud">
+    <img src="/favicons/YETIMC PANEL-logo.png" alt="YETIMC PANEL">
     <div class="strenox-hero-text">
-        <h2>StrenoxCloud Control</h2>
+        <h2>YETIMC PANEL Control</h2>
         <p>Panel <code>{{ config('app.version') }}</code> · {{ $serverCount }} servers · {{ $userCount }} users · {{ $nodeCount }} nodes</p>
     </div>
     <div class="strenox-hero-actions">
@@ -139,7 +139,7 @@
                 labels: {!! json_encode($serverStatus['labels']) !!},
                 datasets: [{
                     data: {!! json_encode($serverStatus['data']) !!},
-                    backgroundColor: ['#9123D7', '#22C55E', '#F59E0B', '#EF4444', '#3B82F6'],
+                    backgroundColor: ['#2B9DE8', '#22C55E', '#F59E0B', '#EF4444', '#3B82F6'],
                     borderColor: '#1A1A25',
                     borderWidth: 3
                 }]

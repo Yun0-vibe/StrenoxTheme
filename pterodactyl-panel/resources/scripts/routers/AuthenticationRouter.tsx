@@ -28,26 +28,26 @@ const MarketingPanel = () => (
         </div>
         <div css={tw`flex items-center gap-3 mb-6`}>
             <img
-                src={'/favicons/strenoxcloud-logo.png'}
-                alt={'StrenoxCloud'}
-                className={'strenox-float'}
+                src={'/favicons/YETIMC PANEL-logo.png'}
+                alt={'YETIMC PANEL'}
+                className={'YETIMC-float'}
                 css={tw`w-14 h-14`}
                 style={{ filter: 'drop-shadow(0 0 20px rgba(145,35,215,0.6))' }}
             />
             <div css={tw`text-2xl font-bold tracking-wide`}>
-                <span css={tw`text-neutral-100`}>Strenox</span>
-                <span css={tw`text-[#9123D7]`}>Cloud</span>
+                <span css={tw`text-neutral-100`}>YETIMC</span>
+                <span css={tw`text-[#2B9DE8]`}>Cloud</span>
             </div>
         </div>
         <h1 css={tw`text-4xl xl:text-5xl font-extrabold italic leading-[1.18] tracking-normal mb-5 overflow-visible`}>
             <span css={tw`text-neutral-100`}>WELCOME TO</span>
             <br />
-            <span className={'strenox-shimmer-text'}>STRENOXCLOUD</span>
+            <span className={'YETIMC-shimmer-text'}>YETIMC PANEL</span>
         </h1>
         <div
             css={tw`h-1 w-40 rounded-full mb-5`}
             style={{
-                background: 'linear-gradient(90deg, #9123D7, #A855F7, transparent)',
+                background: 'linear-gradient(90deg, #2B9DE8, #55B8F0, transparent)',
                 boxShadow: '0 0 16px rgba(168,85,247,0.6)',
             }}
         />
@@ -64,7 +64,7 @@ const MarketingPanel = () => (
                     css={tw`rounded-2xl p-4 border border-white/10`}
                     style={{ background: 'rgba(22,22,31,0.7)' }}
                 >
-                    <FontAwesomeIcon icon={f.icon} css={tw`text-[#A855F7] mb-2`} />
+                    <FontAwesomeIcon icon={f.icon} css={tw`text-[#55B8F0] mb-2`} />
                     <div css={tw`text-[0.65rem] font-bold tracking-[0.15em] text-neutral-500 mb-1`}>
                         {f.label}
                     </div>
@@ -81,9 +81,9 @@ export default () => {
     const { path } = useRouteMatch();
 
     return (
-        <div className={'min-h-screen flex items-center justify-center px-4 py-10 strenox-auth-bg'}>
+        <div className={'min-h-screen flex items-center justify-center px-4 py-10 YETIMC-auth-bg'}>
             <div
-                className={'strenox-orb'}
+                className={'YETIMC-orb'}
                 style={{
                     width: '480px',
                     height: '480px',
@@ -93,7 +93,7 @@ export default () => {
                 }}
             />
             <div
-                className={'strenox-orb'}
+                className={'YETIMC-orb'}
                 style={{
                     width: '520px',
                     height: '520px',
@@ -104,7 +104,7 @@ export default () => {
                 }}
             />
             <div
-                className={'strenox-orb'}
+                className={'YETIMC-orb'}
                 style={{
                     width: '600px',
                     height: '600px',
@@ -114,18 +114,18 @@ export default () => {
                     animationDelay: '-9s',
                 }}
             />
-            <div className={'strenox-auth-content w-full max-w-7xl'}>
+            <div className={'YETIMC-auth-content w-full max-w-7xl'}>
                 <div css={tw`lg:hidden flex flex-col items-center mb-6`}>
                     <img
-                        src={'/favicons/strenoxcloud-logo.png'}
-                        alt={'StrenoxCloud'}
-                        className={'strenox-float'}
+                        src={'/favicons/YETIMC PANEL-logo.png'}
+                        alt={'YETIMC PANEL'}
+                        className={'YETIMC-float'}
                         css={tw`w-14 h-14 mb-2`}
                         style={{ filter: 'drop-shadow(0 0 18px rgba(145,35,215,0.6))' }}
                     />
                     <div css={tw`text-xl font-bold tracking-wide`}>
-                        <span css={tw`text-neutral-100`}>Strenox</span>
-                        <span css={tw`text-[#9123D7]`}>Cloud</span>
+                        <span css={tw`text-neutral-100`}>YETIMC</span>
+                        <span css={tw`text-[#2B9DE8]`}>Cloud</span>
                     </div>
                 </div>
                 <div css={tw`grid lg:grid-cols-2 gap-12 xl:gap-20 items-center`}>

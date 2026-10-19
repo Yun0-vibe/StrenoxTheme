@@ -21,7 +21,7 @@ export default forwardRef<HTMLFormElement, Props>(({ title, eyebrow, ...props },
             <div css={tw`text-center mb-7`}>
                 {eyebrow && (
                     <div
-                        css={tw`text-xs font-bold tracking-[0.3em] text-[#A855F7] mb-3`}
+                        css={tw`text-xs font-bold tracking-[0.3em] text-[#55B8F0] mb-3`}
                     >
                         {eyebrow}
                     </div>
@@ -37,7 +37,7 @@ export default forwardRef<HTMLFormElement, Props>(({ title, eyebrow, ...props },
                 css={tw`absolute top-0 left-8 right-8 h-[3px] rounded-full`}
                 style={{
                     background:
-                        'linear-gradient(90deg, transparent, #9123D7 20%, #A855F7 50%, #7C3AED 80%, transparent)',
+                        'linear-gradient(90deg, transparent, #2B9DE8 20%, #55B8F0 50%, #1E86D6 80%, transparent)',
                 }}
             />
             <Form {...props} ref={ref}>

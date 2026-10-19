@@ -43,8 +43,8 @@ interface Routes {
     account: RouteDefinition[];
     // All of the routes available under "/server/:id"
     server: ServerRouteDefinition[];
-    // StrenoxCloud top-level pages ("/tickets", "/status", ...)
-    strenox: RouteDefinition[];
+    // YETIMC PANEL top-level pages ("/tickets", "/status", ...)
+    YETIMC: RouteDefinition[];
 }
 
 export default {
@@ -71,7 +71,7 @@ export default {
             component: ActivityLogContainer,
         },
     ],
-    strenox: [
+    YETIMC: [
         {
             path: '/tickets',
             name: 'Support',

@@ -32,13 +32,13 @@ const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | unde
     transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 
     &:hover {
-        border-color: #9123D7 !important;
+        border-color: #2B9DE8 !important;
         box-shadow: 0 0 20px rgba(145, 35, 215, 0.15);
         transform: translateY(-1px);
     }
 
     & .icon {
-        color: #9123D7;
+        color: #2B9DE8;
     }
 
     & .status-bar {
@@ -84,7 +84,7 @@ const UsageBar = ({ label, pct, text }: { label: string; pct: number; text: stri
                     background:
                         pct >= 90
                             ? 'linear-gradient(90deg, #EF4444, #F59E0B)'
-                            : 'linear-gradient(90deg, #9123D7, #22C55E)',
+                            : 'linear-gradient(90deg, #2B9DE8, #22C55E)',
                 }}
             />
         </div>

@@ -12,7 +12,7 @@
         @apply hidden flex-shrink-0 items-center justify-center rounded-xl shadow-md w-12 h-12 text-white;
         @apply transition-colors duration-500;
         @apply sm:flex sm:mr-4;
-        background: linear-gradient(135deg, #9123d7 0%, #7c3aed 100%);
+        background: linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%);
         box-shadow: 0 4px 14px rgba(145, 35, 215, 0.4);
 
         & > svg {
@@ -51,7 +51,7 @@
     }
 
     & .command_icon {
-        @apply flex items-center top-0 left-0 absolute z-10 select-none h-full px-3 transition-colors duration-100 text-[#A855F7];
+        @apply flex items-center top-0 left-0 absolute z-10 select-none h-full px-3 transition-colors duration-100 text-[#55B8F0];
     }
 
     & .command_input {
@@ -59,7 +59,7 @@
         background: #101016;
         @apply focus:ring-0 outline-none focus-visible:outline-none;
         @apply border-0 border-b-2 border-transparent transition-colors duration-100;
-        @apply active:border-[#9123D7] focus:border-[#9123D7];
+        @apply active:border-[#2B9DE8] focus:border-[#2B9DE8];
     }
 }
 

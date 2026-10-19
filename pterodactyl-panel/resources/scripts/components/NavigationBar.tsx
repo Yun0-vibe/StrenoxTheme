@@ -31,7 +31,7 @@ const LINK_CLASS =
 const ACTIVE_STYLE = {
     color: '#fff',
     background: 'linear-gradient(90deg, rgba(145,35,215,0.30) 0%, rgba(145,35,215,0.08) 100%)',
-    boxShadow: 'inset 2px 0 0 #A855F7, 0 0 20px rgba(145,35,215,0.22)',
+    boxShadow: 'inset 2px 0 0 #55B8F0, 0 0 20px rgba(145,35,215,0.22)',
     border: '1px solid rgba(145,35,215,0.30)',
 };
 
@@ -92,8 +92,8 @@ export default () => {
                 onClick={() => setMobileOpen(false)}
             >
                 <img
-                    src={'/favicons/strenoxcloud-logo.png'}
-                    alt={'StrenoxCloud'}
+                    src={'/favicons/YETIMC PANEL-logo.png'}
+                    alt={'YETIMC PANEL'}
                     style={{ width: '2.1rem', height: '2.1rem', filter: 'drop-shadow(0 0 12px rgba(145,35,215,0.7))' }}
                 />
                 <span
@@ -101,7 +101,7 @@ export default () => {
                         fontSize: '1.3rem',
                         fontWeight: 800,
                         letterSpacing: '0.01em',
-                        background: 'linear-gradient(135deg, #FFFFFF 0%, #C084FC 55%, #9123D7 100%)',
+                        background: 'linear-gradient(135deg, #FFFFFF 0%, #C084FC 55%, #2B9DE8 100%)',
                         WebkitBackgroundClip: 'text',
                         backgroundClip: 'text',
                         color: 'transparent',
@@ -214,20 +214,20 @@ export default () => {
                 </button>
                 <Link to={'/'} className={'flex items-center gap-2 mr-2 no-underline flex-shrink-0'}>
                     <img
-                        src={'/favicons/strenoxcloud-logo.png'}
-                        alt={'StrenoxCloud'}
+                        src={'/favicons/YETIMC PANEL-logo.png'}
+                        alt={'YETIMC PANEL'}
                         style={{ width: '1.6rem', height: '1.6rem' }}
                     />
-                    <span style={{ color: '#9123D7', fontWeight: 700 }}>{name}</span>
+                    <span style={{ color: '#2B9DE8', fontWeight: 700 }}>{name}</span>
                 </Link>
                 <div className={'flex-1'} />
-                <NavLink to={'/'} exact className={'p-3 text-neutral-300'} activeStyle={{ color: '#9123D7' }}>
+                <NavLink to={'/'} exact className={'p-3 text-neutral-300'} activeStyle={{ color: '#2B9DE8' }}>
                     <FontAwesomeIcon icon={faHome} />
                 </NavLink>
-                <NavLink to={'/servers'} exact className={'p-3 text-neutral-300'} activeStyle={{ color: '#9123D7' }}>
+                <NavLink to={'/servers'} exact className={'p-3 text-neutral-300'} activeStyle={{ color: '#2B9DE8' }}>
                     <FontAwesomeIcon icon={faLayerGroup} />
                 </NavLink>
-                <NavLink to={'/account'} className={'p-3 text-neutral-300'} activeStyle={{ color: '#9123D7' }}>
+                <NavLink to={'/account'} className={'p-3 text-neutral-300'} activeStyle={{ color: '#2B9DE8' }}>
                     <span className={'flex items-center w-5 h-5'}>
                         <Avatar.User />
                     </span>

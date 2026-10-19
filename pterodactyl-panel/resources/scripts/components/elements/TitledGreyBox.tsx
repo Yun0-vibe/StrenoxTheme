@@ -28,7 +28,7 @@ const TitledGreyBox = ({ icon, title, children, className }: Props) => (
         >
             {typeof title === 'string' ? (
                 <p css={tw`text-sm uppercase text-neutral-100 font-semibold`}>
-                    {icon && <FontAwesomeIcon icon={icon} css={tw`mr-2 text-[#A855F7]`} />}
+                    {icon && <FontAwesomeIcon icon={icon} css={tw`mr-2 text-[#55B8F0]`} />}
                     {title}
                 </p>
             ) : (

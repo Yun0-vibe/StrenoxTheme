@@ -50,7 +50,7 @@ export default () => {
             ) : !data?.items.length ? (
                 <p className={'text-sm text-center text-neutral-400'}>No activity logs available for this server.</p>
             ) : (
-                <div className={'strenox-activity-list'}>
+                <div className={'YETIMC-activity-list'}>
                     {data?.items.map((activity) => (
                         <ActivityLogEntry key={activity.id} activity={activity}>
                             <span />

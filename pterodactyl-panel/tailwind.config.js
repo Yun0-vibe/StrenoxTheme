@@ -13,15 +13,15 @@ const gray = {
     900: 'hsl(210, 24%, 16%)',
 };
 
-// StrenoxCloud Brand Colors
-const strenox = {
+// YETIMC PANEL Brand Colors
+const YETIMC = {
     50: 'hsl(263, 100%, 97%)',
     100: 'hsl(263, 85%, 92%)',
     200: 'hsl(263, 75%, 84%)',
     300: 'hsl(263, 68%, 73%)',
     400: 'hsl(263, 62%, 62%)',
     500: 'hsl(263, 55%, 52%)',
-    600: '#9123D7',
+    600: '#2B9DE8',
     700: 'hsl(263, 60%, 38%)',
     800: 'hsl(263, 55%, 28%)',
     900: 'hsl(263, 50%, 18%)',
@@ -42,11 +42,11 @@ module.exports = {
                 black: '#0D0D12',
                 // "primary" and "neutral" are deprecated, prefer the use of "blue" and "gray"
                 // in new code.
-                primary: strenox,
+                primary: YETIMC,
                 gray: gray,
                 neutral: gray,
-                cyan: strenox,
-                strenox: strenox,
+                cyan: YETIMC,
+                YETIMC: YETIMC,
             },
             fontSize: {
                 '2xs': '0.625rem',
@@ -58,9 +58,9 @@ module.exports = {
                 default: theme('colors.neutral.400', 'currentColor'),
             }),
             boxShadow: {
-                'strenox': '0 0 20px rgba(145, 35, 215, 0.15)',
-                'strenox-lg': '0 0 40px rgba(145, 35, 215, 0.25)',
-                'strenox-glow': '0 0 15px rgba(145, 35, 215, 0.3)',
+                'YETIMC': '0 0 20px rgba(145, 35, 215, 0.15)',
+                'YETIMC-lg': '0 0 40px rgba(145, 35, 215, 0.25)',
+                'YETIMC-glow': '0 0 15px rgba(145, 35, 215, 0.3)',
             },
         },
     },

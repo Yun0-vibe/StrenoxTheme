@@ -18,15 +18,15 @@ import { useLocation } from 'react-router-dom';
 import { useStoreState } from 'easy-peasy';
 import { ApplicationStore } from '@/state';
 import {
-    getStrenoxTickets,
-    getAllStrenoxTickets,
-    createStrenoxTicket,
-    getStrenoxTicket,
-    replyStrenoxTicket,
-    StrenoxTicket,
-    StrenoxTicketAdmin,
-    StrenoxTicketDetail,
-} from '@/api/strenox';
+    getYETIMCTickets,
+    getAllYETIMCTickets,
+    createYETIMCTicket,
+    getYETIMCTicket,
+    replyYETIMCTicket,
+    YETIMCTicket,
+    YETIMCTicketAdmin,
+    YETIMCTicketDetail,
+} from '@/api/YETIMC';
 
 const TicketRow = styled.div`
     ${tw`flex items-center gap-3 p-4 rounded-2xl cursor-pointer transition-all duration-150`};
@@ -35,7 +35,7 @@ const TicketRow = styled.div`
     box-shadow: 0 0 16px rgba(145, 35, 215, 0.08);
 
     &:hover {
-        border-color: #9123d7;
+        border-color: #2B9DE8;
         box-shadow: 0 0 22px rgba(145, 35, 215, 0.2);
     }
 `;
@@ -43,9 +43,9 @@ const TicketRow = styled.div`
 const StatusBadge = styled.span<{ status: string }>`
     ${tw`px-2 py-0.5 rounded text-xs font-semibold`};
     background: ${(props) =>
-        props.status === 'open' ? '#22C55E20' : props.status === 'answered' ? '#9123D720' : '#8888A820'};
+        props.status === 'open' ? '#22C55E20' : props.status === 'answered' ? '#2B9DE820' : '#8888A820'};
     color: ${(props) =>
-        props.status === 'open' ? '#22C55E' : props.status === 'answered' ? '#9123D7' : '#8888A8'};
+        props.status === 'open' ? '#22C55E' : props.status === 'answered' ? '#2B9DE8' : '#8888A8'};
 `;
 
 const PriorityBadge = styled.span<{ priority: string }>`
@@ -64,7 +64,7 @@ const Input = styled.input`
 
     &:focus {
         outline: none;
-        border-color: #9123D7;
+        border-color: #2B9DE8;
         box-shadow: 0 0 0 3px rgba(145, 35, 215, 0.15);
     }
 `;
@@ -79,7 +79,7 @@ const TextArea = styled.textarea`
 
     &:focus {
         outline: none;
-        border-color: #9123D7;
+        border-color: #2B9DE8;
         box-shadow: 0 0 0 3px rgba(145, 35, 215, 0.15);
     }
 `;
@@ -92,13 +92,13 @@ const Select = styled.select`
 
     &:focus {
         outline: none;
-        border-color: #9123D7;
+        border-color: #2B9DE8;
     }
 `;
 
 const SubmitButton = styled.button`
     ${tw`rounded-lg px-6 py-2.5 text-sm font-semibold transition-all duration-200 flex items-center gap-2`};
-    background: linear-gradient(135deg, #9123D7 0%, #7C3AED 100%);
+    background: linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%);
     color: white;
     border: none;
 
@@ -116,12 +116,12 @@ const MessageBubble = styled.div<{ staff: boolean; mine: boolean }>`
     ${tw`rounded-lg p-3 text-sm max-w-[85%]`};
     background: ${(props) =>
         props.mine
-            ? 'linear-gradient(135deg, #9123D7 0%, #7C3AED 100%)'
+            ? 'linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%)'
             : props.staff
               ? 'rgba(145,35,215,0.12)'
               : '#16161F'};
     border: 1px solid
-        ${(props) => (props.mine ? 'rgba(255,255,255,0.15)' : props.staff ? '#9123D7' : '#2A2A3A')};
+        ${(props) => (props.mine ? 'rgba(255,255,255,0.15)' : props.staff ? '#2B9DE8' : '#2A2A3A')};
     color: ${(props) => (props.mine ? '#fff' : '#E2E2F0')};
     align-self: ${(props) => (props.mine ? 'flex-end' : 'flex-start')};
     box-shadow: ${(props) => (props.mine ? '0 4px 18px rgba(145,35,215,0.35)' : 'none')};
@@ -131,8 +131,8 @@ export default function SupportTickets() {
     const isAdmin = useStoreState((state: ApplicationStore) => state.user.data!.rootAdmin);
     const { search } = useLocation();
     const { clearFlashes, clearAndAddHttpError } = useFlash();
-    const [tickets, setTickets] = useState<(StrenoxTicket | StrenoxTicketAdmin)[] | null>(null);
-    const [selected, setSelected] = useState<StrenoxTicketDetail | null>(null);
+    const [tickets, setTickets] = useState<(YETIMCTicket | YETIMCTicketAdmin)[] | null>(null);
+    const [selected, setSelected] = useState<YETIMCTicketDetail | null>(null);
     const [showNew, setShowNew] = useState(false);
     const [subject, setSubject] = useState('');
     const [priority, setPriority] = useState('medium');
@@ -143,7 +143,7 @@ export default function SupportTickets() {
     useEffect(() => {
         // Admins load every ticket in the system; regular users only
         // ever receive their own (enforced server-side too).
-        const loader = isAdmin ? getAllStrenoxTickets() : getStrenoxTickets();
+        const loader = isAdmin ? getAllYETIMCTickets() : getYETIMCTickets();
         loader.then(setTickets).catch(() => setTickets([]));
     }, [isAdmin]);
 
@@ -157,7 +157,7 @@ export default function SupportTickets() {
     }, []);
 
     const openTicket = (id: number) => {
-        getStrenoxTicket(id)
+        getYETIMCTicket(id)
             .then(setSelected)
             .catch(() => setSelected(null));
     };
@@ -166,7 +166,7 @@ export default function SupportTickets() {
         if (!subject.trim() || !message.trim()) return;
         setSaving(true);
         clearFlashes('tickets');
-        createStrenoxTicket(subject.trim(), priority, message.trim())
+        createYETIMCTicket(subject.trim(), priority, message.trim())
             .then((ticket) => {
                 setTickets((prev) => (prev ? [ticket, ...prev] : [ticket]));
                 setSubject('');
@@ -182,7 +182,7 @@ export default function SupportTickets() {
         if (!selected || !reply.trim()) return;
         setSaving(true);
         clearFlashes('tickets');
-        replyStrenoxTicket(selected.id, reply.trim())
+        replyYETIMCTicket(selected.id, reply.trim())
             .then((msg) => {
                 setSelected((prev) =>
                     prev ? { ...prev, messages: [...prev.messages, msg] } : prev
@@ -194,7 +194,7 @@ export default function SupportTickets() {
     };
 
     return (
-        <div className={'strenox-page'} css={tw`max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-10`}>
+        <div className={'YETIMC-page'} css={tw`max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-10`}>
             <FlashMessageRender byKey={'tickets'} css={tw`mb-4`} />
             <div css={tw`mb-8 flex items-center justify-between`}>
                 <div>
@@ -204,7 +204,7 @@ export default function SupportTickets() {
                     <p css={tw`text-neutral-400`}>
                         {isAdmin
                             ? 'Every ticket in the system — click one to read and reply as staff.'
-                            : 'Get help from the StrenoxCloud team'}
+                            : 'Get help from the YETIMC PANEL team'}
                     </p>
                 </div>
                 <SubmitButton onClick={() => setShowNew(!showNew)}>
@@ -254,13 +254,13 @@ export default function SupportTickets() {
                         <div css={tw`space-y-3`}>
                             {tickets.map((ticket) => (
                                 <TicketRow key={ticket.id} onClick={() => openTicket(ticket.id)}>
-                                    <FontAwesomeIcon icon={faLifeRing} css={tw`text-[#9123D7]`} />
+                                    <FontAwesomeIcon icon={faLifeRing} css={tw`text-[#2B9DE8]`} />
                                     <div css={tw`flex-1 min-w-0`}>
                                         <div css={tw`text-sm font-medium text-neutral-100 truncate`}>
                                             #{ticket.id} — {ticket.subject}
                                         </div>
                                         {'user_name' in ticket && ticket.user_name ? (
-                                            <div css={tw`text-xs text-[#A855F7] font-medium mt-0.5 truncate`}>
+                                            <div css={tw`text-xs text-[#55B8F0] font-medium mt-0.5 truncate`}>
                                                 {ticket.user_name}
                                                 {ticket.user_email ? ` · ${ticket.user_email}` : ''}
                                             </div>
@@ -295,8 +295,8 @@ export default function SupportTickets() {
                             {selected.messages.map((msg) => (
                                 <MessageBubble key={msg.id} staff={msg.is_staff} mine={msg.mine}>
                                     {msg.is_staff && !msg.mine && (
-                                        <div css={tw`text-xs font-semibold text-[#A855F7] mb-1`}>
-                                            StrenoxCloud Staff
+                                        <div css={tw`text-xs font-semibold text-[#55B8F0] mb-1`}>
+                                            YETIMC PANEL Staff
                                         </div>
                                     )}
                                     <div>{msg.message}</div>

@@ -43,7 +43,7 @@
 
 .primary {
     @apply text-white;
-    background: linear-gradient(135deg, #9123d7 0%, #7c3aed 100%);
+    background: linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%);
     border: 1px solid rgba(145, 35, 215, 0.8);
     box-shadow: 0 4px 16px rgba(145, 35, 215, 0.35);
 
