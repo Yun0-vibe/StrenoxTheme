@@ -111,7 +111,7 @@ export default function DiscordWidget() {
             <div css={tw`mb-8`}>
                 <h1 css={tw`text-3xl font-bold text-neutral-100 mb-2 font-header`}>Discord Integration</h1>
                 <p css={tw`text-neutral-400`}>
-                    Link your YETIMC PANEL account with Discord for notifications and role sync
+                    Link your YETI MC account with Discord for notifications and role sync
                 </p>
             </div>
 
@@ -151,7 +151,7 @@ export default function DiscordWidget() {
                                 )}
                             </div>
                             <div>
-                                <h3 css={tw`text-lg font-semibold text-neutral-100`}>YETIMC PANEL Discord</h3>
+                                <h3 css={tw`text-lg font-semibold text-neutral-100`}>YETI MC Discord</h3>
                                 <p css={tw`text-sm text-neutral-400`}>
                                     {status.linked ? `Connected as @${status.username ?? 'user'}` : 'Not connected'}
                                 </p>

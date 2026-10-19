@@ -4,7 +4,10 @@ return [
     /*
      * Enable or disable captchas
      */
-    'enabled' => env('RECAPTCHA_ENABLED', true),
+    // Disabled by default: the shipped Pterodactyl keys only validate on their
+    // own domain, so logins fail everywhere else. Enable this and provide your
+    // own keys (or set RECAPTCHA_ENABLED=true) to turn the captcha back on.
+    'enabled' => env('RECAPTCHA_ENABLED', false),
 
     /*
      * API endpoint for recaptcha checks. You should not edit this.

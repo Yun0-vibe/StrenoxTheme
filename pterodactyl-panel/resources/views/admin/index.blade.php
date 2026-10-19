@@ -14,9 +14,9 @@
 
 @section('content')
 <div class="strenox-hero">
-    <img src="/favicons/yetimc-logo.png" alt="YETIMC PANEL">
+    <img src="/favicons/yetimc-logo.png" alt="YETI MC">
     <div class="strenox-hero-text">
-        <h2>YETIMC PANEL Control</h2>
+        <h2>YETI MC Control</h2>
         <p>Panel <code>{{ config('app.version') }}</code> · {{ $serverCount }} servers · {{ $userCount }} users · {{ $nodeCount }} nodes</p>
     </div>
     <div class="strenox-hero-actions">

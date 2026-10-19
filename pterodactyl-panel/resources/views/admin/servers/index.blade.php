@@ -83,7 +83,7 @@
     <script>
         $('.console-popout').on('click', function (event) {
             event.preventDefault();
-            window.open($(this).attr('href'), 'YETIMC PANEL Console', 'width=800,height=400');
+            window.open($(this).attr('href'), 'YETI MC Console', 'width=800,height=400');
         });
     </script>
 @endsection

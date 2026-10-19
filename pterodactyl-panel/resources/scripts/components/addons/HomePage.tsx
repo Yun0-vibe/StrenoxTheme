@@ -151,7 +151,7 @@ export default function HomePage() {
                 <Header>
                     <img
                         src={'/favicons/yetimc-logo.png'}
-                        alt={'YETIMC PANEL'}
+                        alt={'YETI MC'}
                         css={tw`w-14 h-14 flex-shrink-0`}
                         style={{ filter: 'drop-shadow(0 0 16px rgba(43,157,232,0.6))' }}
                     />

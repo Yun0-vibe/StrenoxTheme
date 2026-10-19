@@ -139,7 +139,7 @@ export default function Announcements() {
             <div css={tw`mb-8`}>
                 <h1 css={tw`text-3xl font-bold text-neutral-100 mb-2`}>Announcements</h1>
                 <p css={tw`text-neutral-400`}>
-                    Stay up to date with the latest news and updates from YETIMC PANEL
+                    Stay up to date with the latest news and updates from YETI MC
                 </p>
             </div>
 

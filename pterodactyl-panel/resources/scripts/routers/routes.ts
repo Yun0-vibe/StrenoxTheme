@@ -43,7 +43,7 @@ interface Routes {
     account: RouteDefinition[];
     // All of the routes available under "/server/:id"
     server: ServerRouteDefinition[];
-    // YETIMC PANEL top-level pages ("/tickets", "/status", ...)
+    // YETI MC top-level pages ("/tickets", "/status", ...)
     YETIMC: RouteDefinition[];
 }
 

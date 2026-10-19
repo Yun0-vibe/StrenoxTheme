@@ -157,7 +157,7 @@ export default function KnowledgeBase() {
             <div css={tw`mb-8`}>
                 <h1 css={tw`text-3xl font-bold text-neutral-100 mb-2`}>Knowledge Base</h1>
                 <p css={tw`text-neutral-400`}>
-                    Find answers to common questions and learn how to use YETIMC PANEL
+                    Find answers to common questions and learn how to use YETI MC
                 </p>
             </div>
 

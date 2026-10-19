@@ -204,7 +204,7 @@ export default function SupportTickets() {
                     <p css={tw`text-neutral-400`}>
                         {isAdmin
                             ? 'Every ticket in the system — click one to read and reply as staff.'
-                            : 'Get help from the YETIMC PANEL team'}
+                            : 'Get help from the YETI MC team'}
                     </p>
                 </div>
                 <SubmitButton onClick={() => setShowNew(!showNew)}>
@@ -296,7 +296,7 @@ export default function SupportTickets() {
                                 <MessageBubble key={msg.id} staff={msg.is_staff} mine={msg.mine}>
                                     {msg.is_staff && !msg.mine && (
                                         <div css={tw`text-xs font-semibold text-[#55B8F0] mb-1`}>
-                                            YETIMC PANEL Staff
+                                            YETI MC Staff
                                         </div>
                                     )}
                                     <div>{msg.message}</div>

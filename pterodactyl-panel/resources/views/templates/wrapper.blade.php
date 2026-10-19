@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ config('app.name', 'YETIMC PANEL') }}</title>
+        <title>{{ config('app.name', 'YETI MC') }}</title>
 
         @section('meta')
             <meta charset="utf-8">
@@ -11,7 +11,7 @@
             <meta name="robots" content="noindex, nofollow">
             <meta
                 name="description"
-                content="YETIMC PANEL — liquid-fast game server hosting. Deploy, manage, and scale your worlds from one sleek panel."
+                content="YETI MC — a custom panel for our Minecraft server. Spin up worlds, manage servers, and play."
             >
             <meta name="theme-color" content="#2B9DE8">
             <meta name="color-scheme" content="dark">
@@ -25,20 +25,20 @@
 
             {{-- Open Graph --}}
             <meta property="og:type" content="website">
-            <meta property="og:site_name" content="{{ config('app.name', 'YETIMC PANEL') }}">
-            <meta property="og:title" content="{{ config('app.name', 'YETIMC PANEL') }} — Game Server Panel">
+            <meta property="og:site_name" content="{{ config('app.name', 'YETI MC') }}">
+            <meta property="og:title" content="{{ config('app.name', 'YETI MC') }} — Game Server Panel">
             <meta
                 property="og:description"
-                content="YETIMC PANEL — liquid-fast game server hosting. Deploy, manage, and scale your worlds from one sleek panel."
+                content="YETI MC — a custom panel for our Minecraft server. Spin up worlds, manage servers, and play."
             >
             <meta property="og:image" content="{{ url('/favicons/yetimc-logo.png') }}">
 
             {{-- Twitter --}}
             <meta name="twitter:card" content="summary">
-            <meta name="twitter:title" content="{{ config('app.name', 'YETIMC PANEL') }} — Game Server Panel">
+            <meta name="twitter:title" content="{{ config('app.name', 'YETI MC') }} — Game Server Panel">
             <meta
                 name="twitter:description"
-                content="YETIMC PANEL — liquid-fast game server hosting. Deploy, manage, and scale your worlds from one sleek panel."
+                content="YETI MC — a custom panel for our Minecraft server. Spin up worlds, manage servers, and play."
             >
             <meta name="twitter:image" content="{{ url('/favicons/yetimc-logo.png') }}">
 

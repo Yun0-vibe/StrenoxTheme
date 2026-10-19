@@ -6,7 +6,7 @@
 @endsection
 
 @section('content-header')
-    <h1>Discord Settings<small>Connect YETIMC PANEL to your Discord server.</small></h1>
+    <h1>Discord Settings<small>Connect YETI MC to your Discord server.</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Admin</a></li>
         <li><a href="{{ route('admin.settings') }}">Settings</a></li>

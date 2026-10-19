@@ -93,7 +93,7 @@ export default () => {
             >
                 <img
                     src={'/favicons/yetimc-logo.png'}
-                    alt={'YETIMC PANEL'}
+                    alt={'YETI MC'}
                     style={{ width: '2.1rem', height: '2.1rem', filter: 'drop-shadow(0 0 12px rgba(43,157,232,0.7))' }}
                 />
                 <span
@@ -215,7 +215,7 @@ export default () => {
                 <Link to={'/'} className={'flex items-center gap-2 mr-2 no-underline flex-shrink-0'}>
                     <img
                         src={'/favicons/yetimc-logo.png'}
-                        alt={'YETIMC PANEL'}
+                        alt={'YETI MC'}
                         style={{ width: '1.6rem', height: '1.6rem' }}
                     />
                     <span style={{ color: '#2B9DE8', fontWeight: 700 }}>{name}</span>

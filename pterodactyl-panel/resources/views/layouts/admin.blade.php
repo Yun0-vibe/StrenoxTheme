@@ -4,9 +4,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         @hasSection('title')
-        <title>@yield('title') · YETIMC PANEL</title>
+        <title>@yield('title') · YETI MC</title>
         @else
-        <title>YETIMC PANEL</title>
+        <title>YETI MC</title>
         @endif
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <meta name="_token" content="{{ csrf_token() }}">
@@ -48,8 +48,8 @@
             <aside class="main-sidebar sx-sidebar">
                 <section class="sidebar">
                     <a href="{{ route('admin.index') }}" class="sx-brand">
-                        <img src="/favicons/yetimc-logo.png" alt="YETIMC PANEL">
-                        <span><strong>YETIMC PANEL</strong><small>Control Center</small></span>
+                        <img src="/favicons/yetimc-logo.png" alt="YETI MC">
+                        <span><strong>YETI MC</strong><small>Control Center</small></span>
                     </a>
                     <a href="{{ route('index') }}" class="sx-back">
                         <span class="sx-ico"><i class="fa fa-arrow-left"></i></span><span class="sx-txt">Back to Panel</span>
@@ -148,7 +148,7 @@
                     <strong><i class="fa fa-fw {{ $appIsGit ? 'fa-git-square' : 'fa-code-fork' }}"></i></strong> {{ $appVersion }}<br />
                     <strong><i class="fa fa-fw fa-clock-o"></i></strong> {{ round(microtime(true) - LARAVEL_START, 3) }}s
                 </div>
-                Copyright &copy; {{ date('Y') }} YETIMC PANEL. All rights reserved.
+                Copyright &copy; {{ date('Y') }} YETI MC. All rights reserved.
             </footer>
         </div>
         @section('footer-scripts')

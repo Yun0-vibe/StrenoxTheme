@@ -6,7 +6,7 @@
 @endsection
 
 @section('content-header')
-    <h1>Mail Settings<small>Configure how YETIMC PANEL should handle sending emails.</small></h1>
+    <h1>Mail Settings<small>Configure how YETI MC should handle sending emails.</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Admin</a></li>
         <li class="active">Settings</li>

@@ -29,20 +29,20 @@ const MarketingPanel = () => (
         <div css={tw`flex items-center gap-3 mb-6`}>
             <img
                 src={'/favicons/yetimc-logo.png'}
-                alt={'YETIMC PANEL'}
+                alt={'YETI MC'}
                 className={'YETIMC-float'}
                 css={tw`w-14 h-14`}
                 style={{ filter: 'drop-shadow(0 0 20px rgba(43,157,232,0.6))' }}
             />
             <div css={tw`text-2xl font-bold tracking-wide`}>
-                <span css={tw`text-neutral-100`}>YETIMC</span>
-                <span css={tw`text-[#2B9DE8]`}>Cloud</span>
+                <span css={tw`text-neutral-100`}>YETI </span>
+                <span css={tw`text-[#2B9DE8]`}>MC</span>
             </div>
         </div>
         <h1 css={tw`text-4xl xl:text-5xl font-extrabold italic leading-[1.18] tracking-normal mb-5 overflow-visible`}>
             <span css={tw`text-neutral-100`}>WELCOME TO</span>
             <br />
-            <span className={'YETIMC-shimmer-text'}>YETIMC PANEL</span>
+            <span className={'YETIMC-shimmer-text'}>YETI MC</span>
         </h1>
         <div
             css={tw`h-1 w-40 rounded-full mb-5`}
@@ -118,14 +118,14 @@ export default () => {
                 <div css={tw`lg:hidden flex flex-col items-center mb-6`}>
                     <img
                         src={'/favicons/yetimc-logo.png'}
-                        alt={'YETIMC PANEL'}
+                        alt={'YETI MC'}
                         className={'YETIMC-float'}
                         css={tw`w-14 h-14 mb-2`}
                         style={{ filter: 'drop-shadow(0 0 18px rgba(43,157,232,0.6))' }}
                     />
                     <div css={tw`text-xl font-bold tracking-wide`}>
-                        <span css={tw`text-neutral-100`}>YETIMC</span>
-                        <span css={tw`text-[#2B9DE8]`}>Cloud</span>
+                        <span css={tw`text-neutral-100`}>YETI </span>
+                        <span css={tw`text-[#2B9DE8]`}>MC</span>
                     </div>
                 </div>
                 <div css={tw`grid lg:grid-cols-2 gap-12 xl:gap-20 items-center`}>

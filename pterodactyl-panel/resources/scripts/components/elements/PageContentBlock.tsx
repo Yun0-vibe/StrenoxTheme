@@ -26,7 +26,7 @@ const PageContentBlock: React.FC<PageContentBlockProps> = ({ title, showFlashKey
                 </ContentContainer>
                 <ContentContainer css={tw`mb-4`}>
                     <p css={tw`text-center text-neutral-600 text-xs`}>
-                        Powered by <span css={tw`text-[#2B9DE8] font-semibold`}>YETIMC PANEL</span>
+                        Powered by <span css={tw`text-[#2B9DE8] font-semibold`}>YETI MC</span>
                     </p>
                 </ContentContainer>
             </>

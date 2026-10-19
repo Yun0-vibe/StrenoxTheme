@@ -75,7 +75,7 @@ export default createGlobalStyle`
         background: transparent;
     }
 
-    /* ==================== YETIMC PANEL LIQUID AMBIENT THEME ==================== */
+    /* ==================== YETI MC LIQUID AMBIENT THEME ==================== */
     html {
         color-scheme: dark;
     }
@@ -425,7 +425,7 @@ export default createGlobalStyle`
         animation: YETIMC-glow 2s ease-in-out infinite;
     }
 
-    /* Page enter transition for YETIMC PANEL addon pages */
+    /* Page enter transition for YETI MC addon pages */
     @keyframes YETIMC-fade-in {
         from { opacity: 0; transform: translateY(8px); }
         to { opacity: 1; transform: translateY(0); }
