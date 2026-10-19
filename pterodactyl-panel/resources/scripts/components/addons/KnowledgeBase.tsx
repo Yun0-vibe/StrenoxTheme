@@ -164,7 +164,7 @@ export default function KnowledgeBase() {
             <div css={tw`mb-8 relative`}>
                 <FontAwesomeIcon
                     icon={faSearch}
-                    css={tw`absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400`}
+                    css={tw`absolute left-4 top-1/2 -translate-y-[calc(50%-1.5px)] text-neutral-400`}
                 />
                 <SearchInput
                     type="text"

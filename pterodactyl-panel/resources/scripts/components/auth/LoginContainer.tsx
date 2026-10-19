@@ -125,7 +125,7 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
                         <div css={tw`relative`}>
                             <FontAwesomeIcon
                                 icon={faEnvelope}
-                                css={tw`absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 text-sm pointer-events-none`}
+                                css={tw`absolute left-4 top-1/2 -translate-y-[calc(50%-1.5px)] text-neutral-500 text-sm pointer-events-none`}
                             />
                             <FormikField
                                 name={'username'}
@@ -156,7 +156,7 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
                         <div css={tw`relative`}>
                             <FontAwesomeIcon
                                 icon={faLock}
-                                css={tw`absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 text-sm pointer-events-none`}
+                                css={tw`absolute left-4 top-1/2 -translate-y-[calc(50%-1.5px)] text-neutral-500 text-sm pointer-events-none`}
                             />
                             <FormikField
                                 name={'password'}
@@ -168,7 +168,7 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
                             <button
                                 type={'button'}
                                 onClick={() => setShowPassword((s) => !s)}
-                                css={tw`absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-neutral-200 transition-colors duration-150`}
+                                css={tw`absolute right-4 top-1/2 -translate-y-[calc(50%-1.5px)] p-0 border-0 bg-transparent text-neutral-500 hover:text-neutral-200 transition-colors duration-150`}
                                 aria-label={showPassword ? 'Hide password' : 'Show password'}
                             >
                                 <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} css={tw`text-sm`} />
