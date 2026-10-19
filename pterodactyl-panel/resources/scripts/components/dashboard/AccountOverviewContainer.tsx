@@ -48,7 +48,7 @@ const ProfileBanner = styled.div`
     ${tw`relative overflow-hidden rounded-2xl border border-white/10 mb-[-2.5rem]`};
     height: 9rem;
     background:
-        radial-gradient(ellipse 60% 120% at 85% 0%, rgba(145, 35, 215, 0.45), transparent),
+        radial-gradient(ellipse 60% 120% at 85% 0%, rgba(43,157,232, 0.45), transparent),
         radial-gradient(ellipse 50% 100% at 10% 100%, rgba(59, 130, 246, 0.2), transparent),
         linear-gradient(135deg, #1e1535 0%, #0d0d12 100%);
 `;
@@ -56,7 +56,7 @@ const ProfileBanner = styled.div`
 const ProfileCard = styled.div`
     ${tw`rounded-2xl p-6 pt-0 mb-8 border border-white/10 relative`};
     background: linear-gradient(135deg, rgba(30, 21, 53, 0.85) 0%, rgba(22, 22, 31, 0.94) 100%);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 0 26px rgba(145, 35, 215, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 0 26px rgba(43,157,232, 0.12);
 `;
 
 const StatChip = styled.div`
@@ -70,20 +70,20 @@ const Badge = styled.span<{ $tone: 'purple' | 'green' | 'neutral' }>`
     ${tw`inline-block px-2.5 py-1 rounded-full text-xs font-semibold`};
     ${(props) =>
         props.$tone === 'purple'
-            ? tw`text-[#C084FC]`
+            ? tw`text-[#7DD3FC]`
             : props.$tone === 'green'
             ? tw`text-green-400`
             : tw`text-neutral-400`};
     background: ${(props) =>
         props.$tone === 'purple'
-            ? 'rgba(145,35,215,0.15)'
+            ? 'rgba(43,157,232,0.15)'
             : props.$tone === 'green'
             ? 'rgba(34,197,94,0.12)'
             : 'rgba(255,255,255,0.06)'};
     border: 1px solid
         ${(props) =>
             props.$tone === 'purple'
-                ? 'rgba(145,35,215,0.4)'
+                ? 'rgba(43,157,232,0.4)'
                 : props.$tone === 'green'
                 ? 'rgba(34,197,94,0.3)'
                 : 'rgba(255,255,255,0.1)'};
@@ -98,7 +98,7 @@ const QuickTile = styled(Link)`
         background: linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%);
         border-color: #2B9DE8;
         color: white !important;
-        box-shadow: 0 0 22px rgba(145, 35, 215, 0.4);
+        box-shadow: 0 0 22px rgba(43,157,232, 0.4);
         transform: translateY(-2px);
     }
 `;
@@ -171,7 +171,7 @@ export default () => {
 
             <ProfileBanner css={tw`mt-10`}>
                 <img
-                    src={'/favicons/YETIMC PANEL-logo.png'}
+                    src={'/favicons/yetimc-logo.png'}
                     alt={''}
                     css={tw`absolute -right-6 -bottom-10 w-48 h-48 opacity-20 pointer-events-none`}
                 />
@@ -181,7 +181,7 @@ export default () => {
                     <div css={tw`flex-shrink-0 -mt-10 flex flex-col items-center gap-2`}>
                         <div
                             css={tw`w-24 h-24 rounded-3xl overflow-hidden`}
-                            style={{ border: '3px solid rgba(145,35,215,0.6)', boxShadow: '0 0 28px rgba(145,35,215,0.45)', background: '#16161F' }}
+                            style={{ border: '3px solid rgba(43,157,232,0.6)', boxShadow: '0 0 28px rgba(43,157,232,0.45)', background: '#16161F' }}
                         >
                             {avatarUrl ? (
                                 <img src={avatarUrl} alt={'Profile'} css={tw`w-full h-full object-cover`} />
@@ -278,7 +278,7 @@ export default () => {
                                 ? {
                                       background: 'linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%)',
                                       color: '#fff',
-                                      boxShadow: '0 4px 16px rgba(145,35,215,0.4)',
+                                      boxShadow: '0 4px 16px rgba(43,157,232,0.4)',
                                   }
                                 : { color: '#8888A8', background: 'transparent', border: 'none' }
                         }

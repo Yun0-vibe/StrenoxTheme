@@ -21,9 +21,9 @@
     border-color: rgba(255, 255, 255, 0.05);
 
     &:hover {
-        border-color: rgba(145, 35, 215, 0.55);
+        border-color: rgba(43,157,232, 0.55);
         background: rgba(30, 21, 53, 0.7);
-        box-shadow: 0 0 16px rgba(145, 35, 215, 0.12);
+        box-shadow: 0 0 16px rgba(43,157,232, 0.12);
     }
 
     & > .details {

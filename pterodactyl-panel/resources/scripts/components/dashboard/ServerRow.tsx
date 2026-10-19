@@ -33,7 +33,7 @@ const StatusIndicatorBox = styled(GreyRowBox)<{ $status: ServerPowerState | unde
 
     &:hover {
         border-color: #2B9DE8 !important;
-        box-shadow: 0 0 20px rgba(145, 35, 215, 0.15);
+        box-shadow: 0 0 20px rgba(43,157,232, 0.15);
         transform: translateY(-1px);
     }
 

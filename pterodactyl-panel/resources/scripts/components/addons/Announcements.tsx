@@ -15,7 +15,7 @@ import { getYETIMCAnnouncements, YETIMCAnnouncement } from '@/api/YETIMC';
 const AnnouncementCard = styled.div<{ priority: 'info' | 'warning' | 'critical' }>`
     ${tw`rounded-2xl p-5 transition-all duration-200`};
     background: linear-gradient(135deg, rgba(30, 21, 53, 0.7) 0%, rgba(22, 22, 31, 0.9) 100%);
-    border: 1px solid rgba(145, 35, 215, 0.25);
+    border: 1px solid rgba(43,157,232, 0.25);
     border-left: 3px solid ${(props) => {
         switch (props.priority) {
             case 'critical':
@@ -26,11 +26,11 @@ const AnnouncementCard = styled.div<{ priority: 'info' | 'warning' | 'critical' 
                 return '#2B9DE8';
         }
     }};
-    box-shadow: 0 0 20px rgba(145, 35, 215, 0.1);
+    box-shadow: 0 0 20px rgba(43,157,232, 0.1);
 
     &:hover {
         border-color: #2B9DE8;
-        box-shadow: 0 0 28px rgba(145, 35, 215, 0.22);
+        box-shadow: 0 0 28px rgba(43,157,232, 0.22);
         transform: translateY(-2px);
     }
 `;

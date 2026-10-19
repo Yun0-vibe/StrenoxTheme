@@ -15,9 +15,9 @@ const MarketingPanel = () => (
         <div
             css={tw`inline-flex items-center gap-2 self-start px-4 py-1.5 rounded-full text-xs font-bold tracking-[0.2em] mb-6`}
             style={{
-                background: 'rgba(145,35,215,0.12)',
-                border: '1px solid rgba(145,35,215,0.4)',
-                color: '#C084FC',
+                background: 'rgba(43,157,232,0.12)',
+                border: '1px solid rgba(43,157,232,0.4)',
+                color: '#7DD3FC',
             }}
         >
             <span
@@ -28,11 +28,11 @@ const MarketingPanel = () => (
         </div>
         <div css={tw`flex items-center gap-3 mb-6`}>
             <img
-                src={'/favicons/YETIMC PANEL-logo.png'}
+                src={'/favicons/yetimc-logo.png'}
                 alt={'YETIMC PANEL'}
                 className={'YETIMC-float'}
                 css={tw`w-14 h-14`}
-                style={{ filter: 'drop-shadow(0 0 20px rgba(145,35,215,0.6))' }}
+                style={{ filter: 'drop-shadow(0 0 20px rgba(43,157,232,0.6))' }}
             />
             <div css={tw`text-2xl font-bold tracking-wide`}>
                 <span css={tw`text-neutral-100`}>YETIMC</span>
@@ -48,7 +48,7 @@ const MarketingPanel = () => (
             css={tw`h-1 w-40 rounded-full mb-5`}
             style={{
                 background: 'linear-gradient(90deg, #2B9DE8, #55B8F0, transparent)',
-                boxShadow: '0 0 16px rgba(168,85,247,0.6)',
+                boxShadow: '0 0 16px rgba(85,184,240,0.6)',
             }}
         />
         <p css={tw`text-neutral-400 mb-8 max-w-md leading-relaxed`}>
@@ -89,7 +89,7 @@ export default () => {
                     height: '480px',
                     top: '-160px',
                     left: '-120px',
-                    background: 'radial-gradient(circle, rgba(145,35,215,0.5) 0%, transparent 70%)',
+                    background: 'radial-gradient(circle, rgba(43,157,232,0.5) 0%, transparent 70%)',
                 }}
             />
             <div
@@ -99,7 +99,7 @@ export default () => {
                     height: '520px',
                     top: '10%',
                     right: '-180px',
-                    background: 'radial-gradient(circle, rgba(124,58,237,0.4) 0%, transparent 70%)',
+                    background: 'radial-gradient(circle, rgba(30,134,214,0.4) 0%, transparent 70%)',
                     animationDelay: '-5s',
                 }}
             />
@@ -117,11 +117,11 @@ export default () => {
             <div className={'YETIMC-auth-content w-full max-w-7xl'}>
                 <div css={tw`lg:hidden flex flex-col items-center mb-6`}>
                     <img
-                        src={'/favicons/YETIMC PANEL-logo.png'}
+                        src={'/favicons/yetimc-logo.png'}
                         alt={'YETIMC PANEL'}
                         className={'YETIMC-float'}
                         css={tw`w-14 h-14 mb-2`}
-                        style={{ filter: 'drop-shadow(0 0 18px rgba(145,35,215,0.6))' }}
+                        style={{ filter: 'drop-shadow(0 0 18px rgba(43,157,232,0.6))' }}
                     />
                     <div css={tw`text-xl font-bold tracking-wide`}>
                         <span css={tw`text-neutral-100`}>YETIMC</span>

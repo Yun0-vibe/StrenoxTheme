@@ -27,8 +27,8 @@ const ContentBox = ({ title, borderColor, showFlashes, showLoadingOverlay, child
                 background:
                     'linear-gradient(135deg, rgba(30,21,53,0.85) 0%, rgba(22,22,31,0.94) 100%)',
                 backdropFilter: 'blur(12px)',
-                borderColor: 'rgba(145,35,215,0.3)',
-                boxShadow: '0 0 26px rgba(145,35,215,0.14), 0 8px 32px rgba(0,0,0,0.45)',
+                borderColor: 'rgba(43,157,232,0.3)',
+                boxShadow: '0 0 26px rgba(43,157,232,0.14), 0 8px 32px rgba(0,0,0,0.45)',
             }}
         >
             <SpinnerOverlay visible={showLoadingOverlay || false} />

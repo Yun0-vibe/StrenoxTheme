@@ -12,7 +12,7 @@ type Props = React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, 
 const Card = styled.div`
     ${tw`relative overflow-hidden rounded-3xl p-8 border border-white/10 backdrop-blur-xl`};
     background: linear-gradient(135deg, rgba(30, 21, 53, 0.88) 0%, rgba(13, 13, 18, 0.94) 100%);
-    box-shadow: 0 12px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(145, 35, 215, 0.16);
+    box-shadow: 0 12px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(43,157,232, 0.16);
 `;
 
 export default forwardRef<HTMLFormElement, Props>(({ title, eyebrow, ...props }, ref) => (

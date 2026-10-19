@@ -31,12 +31,12 @@ import {
 const TicketRow = styled.div`
     ${tw`flex items-center gap-3 p-4 rounded-2xl cursor-pointer transition-all duration-150`};
     background: linear-gradient(135deg, rgba(30, 21, 53, 0.6) 0%, rgba(22, 22, 31, 0.9) 100%);
-    border: 1px solid rgba(145, 35, 215, 0.22);
-    box-shadow: 0 0 16px rgba(145, 35, 215, 0.08);
+    border: 1px solid rgba(43,157,232, 0.22);
+    box-shadow: 0 0 16px rgba(43,157,232, 0.08);
 
     &:hover {
         border-color: #2B9DE8;
-        box-shadow: 0 0 22px rgba(145, 35, 215, 0.2);
+        box-shadow: 0 0 22px rgba(43,157,232, 0.2);
     }
 `;
 
@@ -65,7 +65,7 @@ const Input = styled.input`
     &:focus {
         outline: none;
         border-color: #2B9DE8;
-        box-shadow: 0 0 0 3px rgba(145, 35, 215, 0.15);
+        box-shadow: 0 0 0 3px rgba(43,157,232, 0.15);
     }
 `;
 
@@ -80,7 +80,7 @@ const TextArea = styled.textarea`
     &:focus {
         outline: none;
         border-color: #2B9DE8;
-        box-shadow: 0 0 0 3px rgba(145, 35, 215, 0.15);
+        box-shadow: 0 0 0 3px rgba(43,157,232, 0.15);
     }
 `;
 
@@ -103,7 +103,7 @@ const SubmitButton = styled.button`
     border: none;
 
     &:hover:not(:disabled) {
-        box-shadow: 0 0 20px rgba(145, 35, 215, 0.35);
+        box-shadow: 0 0 20px rgba(43,157,232, 0.35);
         transform: translateY(-1px);
     }
 
@@ -118,13 +118,13 @@ const MessageBubble = styled.div<{ staff: boolean; mine: boolean }>`
         props.mine
             ? 'linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%)'
             : props.staff
-              ? 'rgba(145,35,215,0.12)'
+              ? 'rgba(43,157,232,0.12)'
               : '#16161F'};
     border: 1px solid
         ${(props) => (props.mine ? 'rgba(255,255,255,0.15)' : props.staff ? '#2B9DE8' : '#2A2A3A')};
     color: ${(props) => (props.mine ? '#fff' : '#E2E2F0')};
     align-self: ${(props) => (props.mine ? 'flex-end' : 'flex-start')};
-    box-shadow: ${(props) => (props.mine ? '0 4px 18px rgba(145,35,215,0.35)' : 'none')};
+    box-shadow: ${(props) => (props.mine ? '0 4px 18px rgba(43,157,232,0.35)' : 'none')};
 `;
 
 export default function SupportTickets() {

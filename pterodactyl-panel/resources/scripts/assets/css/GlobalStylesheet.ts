@@ -89,11 +89,11 @@ export default createGlobalStyle`
         text-rendering: optimizeLegibility !important;
         font-synthesis: none !important;
         background-image:
-            radial-gradient(ellipse 55% 38% at 8% -5%, rgba(145, 35, 215, 0.22), transparent),
-            radial-gradient(ellipse 45% 35% at 92% 6%, rgba(124, 58, 237, 0.18), transparent),
+            radial-gradient(ellipse 55% 38% at 8% -5%, rgba(43,157,232, 0.22), transparent),
+            radial-gradient(ellipse 45% 35% at 92% 6%, rgba(30,134,214, 0.18), transparent),
             radial-gradient(ellipse 40% 32% at 78% 48%, rgba(59, 130, 246, 0.08), transparent),
-            radial-gradient(ellipse 65% 45% at 50% 108%, rgba(145, 35, 215, 0.13), transparent),
-            radial-gradient(ellipse 30% 25% at 15% 75%, rgba(168, 85, 247, 0.07), transparent),
+            radial-gradient(ellipse 65% 45% at 50% 108%, rgba(43,157,232, 0.13), transparent),
+            radial-gradient(ellipse 30% 25% at 15% 75%, rgba(85,184,240, 0.07), transparent),
             radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px) !important;
         background-size: auto, auto, auto, auto, auto, 28px 28px !important;
         background-attachment: fixed !important;
@@ -107,8 +107,8 @@ export default createGlobalStyle`
         z-index: 0;
         pointer-events: none;
         background:
-            radial-gradient(ellipse 42% 30% at 85% 15%, rgba(145, 35, 215, 0.1), transparent),
-            radial-gradient(ellipse 38% 28% at 10% 85%, rgba(124, 58, 237, 0.08), transparent);
+            radial-gradient(ellipse 42% 30% at 85% 15%, rgba(43,157,232, 0.1), transparent),
+            radial-gradient(ellipse 38% 28% at 10% 85%, rgba(30,134,214, 0.08), transparent);
         animation: YETIMC-ambient-breathe 9s ease-in-out infinite;
     }
 
@@ -136,14 +136,14 @@ export default createGlobalStyle`
     }
 
     .sx-side-link:hover {
-        background: rgba(145, 35, 215, 0.1);
+        background: rgba(43,157,232, 0.1);
         transform: translateX(3px);
     }
 
     .sx-side-link:hover .sx-side-ico {
-        border-color: rgba(145, 35, 215, 0.5);
-        box-shadow: 0 0 12px rgba(145, 35, 215, 0.3);
-        color: #c084fc;
+        border-color: rgba(43,157,232, 0.5);
+        box-shadow: 0 0 12px rgba(43,157,232, 0.3);
+        color: #7dd3fc;
     }
 
     .sx-side-ico {
@@ -166,7 +166,7 @@ export default createGlobalStyle`
         background: linear-gradient(135deg, #55B8F0, #1E86D6);
         color: #fff;
         border-color: transparent;
-        box-shadow: 0 4px 12px rgba(145, 35, 215, 0.5), 0 0 14px rgba(168, 85, 247, 0.35);
+        box-shadow: 0 4px 12px rgba(43,157,232, 0.5), 0 0 14px rgba(85,184,240, 0.35);
     }
 
     /* Activity timeline */
@@ -182,16 +182,16 @@ export default createGlobalStyle`
         gap: 0.25rem;
         padding: 0.9rem 1rem;
         border-radius: 1rem;
-        border: 1px solid rgba(145, 35, 215, 0.16);
+        border: 1px solid rgba(43,157,232, 0.16);
         background: linear-gradient(135deg, rgba(30, 21, 53, 0.5) 0%, rgba(22, 22, 31, 0.85) 100%);
-        box-shadow: 0 0 14px rgba(145, 35, 215, 0.06);
+        box-shadow: 0 0 14px rgba(43,157,232, 0.06);
         transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
         animation: YETIMC-row-in 0.4s ease backwards;
     }
 
     .YETIMC-timeline-row:hover {
-        border-color: rgba(145, 35, 215, 0.45);
-        box-shadow: 0 0 22px rgba(145, 35, 215, 0.16);
+        border-color: rgba(43,157,232, 0.45);
+        box-shadow: 0 0 22px rgba(43,157,232, 0.16);
         transform: translateY(-1px);
     }
 
@@ -226,7 +226,7 @@ export default createGlobalStyle`
         width: 2px;
         margin-top: 0.5rem;
         border-radius: 2px;
-        background: linear-gradient(180deg, rgba(145, 35, 215, 0.5), rgba(145, 35, 215, 0.05));
+        background: linear-gradient(180deg, rgba(43,157,232, 0.5), rgba(43,157,232, 0.05));
     }
 
     .YETIMC-activity-list > *:last-child .YETIMC-timeline-rail::after {
@@ -239,8 +239,8 @@ export default createGlobalStyle`
         border-radius: 9999px;
         overflow: hidden;
         flex-shrink: 0;
-        border: 2px solid rgba(145, 35, 215, 0.55);
-        box-shadow: 0 0 14px rgba(145, 35, 215, 0.3);
+        border: 2px solid rgba(43,157,232, 0.55);
+        box-shadow: 0 0 14px rgba(43,157,232, 0.3);
     }
 
     .YETIMC-timeline-body {
@@ -266,18 +266,18 @@ export default createGlobalStyle`
         letter-spacing: 0.04em;
         padding: 0.15rem 0.55rem;
         border-radius: 9999px;
-        color: #c084fc;
-        background: rgba(145, 35, 215, 0.14);
-        border: 1px solid rgba(145, 35, 215, 0.35);
+        color: #7dd3fc;
+        background: rgba(43,157,232, 0.14);
+        border: 1px solid rgba(43,157,232, 0.35);
         text-decoration: none;
         transition: all 0.15s ease;
         white-space: nowrap;
     }
 
     .YETIMC-timeline-event:hover {
-        background: rgba(145, 35, 215, 0.28);
+        background: rgba(43,157,232, 0.28);
         color: #fff;
-        box-shadow: 0 0 12px rgba(145, 35, 215, 0.35);
+        box-shadow: 0 0 12px rgba(43,157,232, 0.35);
     }
 
     .YETIMC-timeline-meta {
@@ -332,7 +332,7 @@ export default createGlobalStyle`
         backdrop-filter: blur(18px);
         -webkit-backdrop-filter: blur(18px);
         border: 1px solid rgba(255, 255, 255, 0.09);
-        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45), 0 0 32px rgba(145, 35, 215, 0.12);
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45), 0 0 32px rgba(43,157,232, 0.12);
     }
 
     /* Dark autofill fix */
@@ -368,7 +368,7 @@ export default createGlobalStyle`
     select:focus,
     textarea:focus {
         border-color: #2B9DE8 !important;
-        box-shadow: 0 0 0 3px rgba(145, 35, 215, 0.18), 0 0 18px rgba(145, 35, 215, 0.25) !important;
+        box-shadow: 0 0 0 3px rgba(43,157,232, 0.18), 0 0 18px rgba(43,157,232, 0.25) !important;
     }
 
     /* Floating logo */
@@ -389,7 +389,7 @@ export default createGlobalStyle`
     }
 
     .YETIMC-shimmer-text {
-        background: linear-gradient(110deg, #C084FC 15%, #F5F3FF 38%, #55B8F0 55%, #1E86D6 80%);
+        background: linear-gradient(110deg, #7DD3FC 15%, #F5F3FF 38%, #55B8F0 55%, #1E86D6 80%);
         background-size: 220% auto;
         -webkit-background-clip: text;
         background-clip: text;
@@ -400,11 +400,11 @@ export default createGlobalStyle`
         margin-right: -0.14em;
         padding-bottom: 0.1em;
         margin-bottom: -0.1em;
-        filter: drop-shadow(0 0 22px rgba(168, 85, 247, 0.35));
+        filter: drop-shadow(0 0 22px rgba(85,184,240, 0.35));
     }
 
     ::selection {
-        background: rgba(145, 35, 215, 0.35);
+        background: rgba(43,157,232, 0.35);
         color: #fff;
     }
 
@@ -413,12 +413,12 @@ export default createGlobalStyle`
     }
 
     a:hover {
-        color: #C084FC;
+        color: #7DD3FC;
     }
 
     @keyframes YETIMC-glow {
-        0%, 100% { box-shadow: 0 0 5px rgba(145, 35, 215, 0.2); }
-        50% { box-shadow: 0 0 20px rgba(145, 35, 215, 0.45); }
+        0%, 100% { box-shadow: 0 0 5px rgba(43,157,232, 0.2); }
+        50% { box-shadow: 0 0 20px rgba(43,157,232, 0.45); }
     }
 
     .YETIMC-glow {

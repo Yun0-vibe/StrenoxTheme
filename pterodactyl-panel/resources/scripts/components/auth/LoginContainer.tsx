@@ -23,7 +23,7 @@ const inputClass =
 const LoginButton = styled.button`
     ${tw`relative w-full overflow-hidden rounded-2xl py-4 text-base font-bold tracking-[0.2em] text-white transition-all duration-200 flex items-center justify-center gap-3`};
     background: linear-gradient(135deg, #55B8F0 0%, #2B9DE8 45%, #1E86D6 100%);
-    box-shadow: 0 8px 32px rgba(145, 35, 215, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(43,157,232, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
     border: 1px solid rgba(255, 255, 255, 0.15);
 
     &::after {
@@ -40,7 +40,7 @@ const LoginButton = styled.button`
 
     &:hover:not(:disabled) {
         transform: translateY(-2px);
-        box-shadow: 0 12px 44px rgba(145, 35, 215, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        box-shadow: 0 12px 44px rgba(43,157,232, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.25);
         filter: brightness(1.08);
     }
 

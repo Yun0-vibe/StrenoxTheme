@@ -23,10 +23,10 @@ import { getOverview, getYETIMCAnnouncements, YETIMCAnnouncement } from '@/api/Y
 const Header = styled.div`
     ${tw`rounded-2xl px-6 py-5 mb-6 flex items-center gap-4 relative overflow-hidden`};
     background:
-        radial-gradient(ellipse 60% 120% at 90% 0%, rgba(145, 35, 215, 0.3), transparent),
+        radial-gradient(ellipse 60% 120% at 90% 0%, rgba(43,157,232, 0.3), transparent),
         linear-gradient(135deg, rgba(30, 21, 53, 0.9) 0%, rgba(13, 13, 18, 0.95) 100%);
-    border: 1px solid rgba(145, 35, 215, 0.3);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(145, 35, 215, 0.12);
+    border: 1px solid rgba(43,157,232, 0.3);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(43,157,232, 0.12);
 `;
 
 const StatGrid = styled.div`
@@ -37,13 +37,13 @@ const StatCard = styled(Link)`
     ${tw`block rounded-2xl p-4 no-underline transition-all duration-200 cursor-pointer overflow-hidden`};
     background: linear-gradient(135deg, rgba(30, 21, 53, 0.75) 0%, rgba(22, 22, 31, 0.9) 100%);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(145, 35, 215, 0.28);
-    box-shadow: 0 0 20px rgba(145, 35, 215, 0.1);
+    border: 1px solid rgba(43,157,232, 0.28);
+    box-shadow: 0 0 20px rgba(43,157,232, 0.1);
     min-width: 0;
 
     &:hover {
-        border-color: rgba(145, 35, 215, 0.65);
-        box-shadow: 0 0 30px rgba(145, 35, 215, 0.25);
+        border-color: rgba(43,157,232, 0.65);
+        box-shadow: 0 0 30px rgba(43,157,232, 0.25);
         transform: translateY(-2px);
     }
 `;
@@ -51,7 +51,7 @@ const StatCard = styled(Link)`
 const StatIcon = styled.div`
     ${tw`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-white`};
     background: linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%);
-    box-shadow: 0 4px 16px rgba(145, 35, 215, 0.4);
+    box-shadow: 0 4px 16px rgba(43,157,232, 0.4);
 `;
 
 const ActionDock = styled.div`
@@ -61,15 +61,15 @@ const ActionDock = styled.div`
 const ActionTile = styled(Link)`
     ${tw`block rounded-2xl px-3 py-4 text-center no-underline transition-all duration-200`};
     background: rgba(22, 22, 31, 0.8);
-    border: 1px solid rgba(145, 35, 215, 0.22);
-    box-shadow: 0 0 16px rgba(145, 35, 215, 0.08);
+    border: 1px solid rgba(43,157,232, 0.22);
+    box-shadow: 0 0 16px rgba(43,157,232, 0.08);
     color: #e2e2f0 !important;
 
     &:hover {
         background: linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%);
         border-color: #2B9DE8;
         color: white !important;
-        box-shadow: 0 0 28px rgba(145, 35, 215, 0.45);
+        box-shadow: 0 0 28px rgba(43,157,232, 0.45);
         transform: translateY(-2px);
     }
 `;
@@ -78,8 +78,8 @@ const ActionIconBox = styled.div`
     ${tw`mx-auto mb-2 flex items-center justify-center rounded-xl`};
     width: 2.5rem;
     height: 2.5rem;
-    background: rgba(145, 35, 215, 0.15);
-    border: 1px solid rgba(145, 35, 215, 0.3);
+    background: rgba(43,157,232, 0.15);
+    border: 1px solid rgba(43,157,232, 0.3);
     font-size: 1.05rem;
     color: #55B8F0;
 `;
@@ -150,10 +150,10 @@ export default function HomePage() {
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
                 <Header>
                     <img
-                        src={'/favicons/YETIMC PANEL-logo.png'}
+                        src={'/favicons/yetimc-logo.png'}
                         alt={'YETIMC PANEL'}
                         css={tw`w-14 h-14 flex-shrink-0`}
-                        style={{ filter: 'drop-shadow(0 0 16px rgba(145,35,215,0.6))' }}
+                        style={{ filter: 'drop-shadow(0 0 16px rgba(43,157,232,0.6))' }}
                     />
                     <div css={tw`flex-1 min-w-0`}>
                         <div css={tw`text-2xl font-bold text-neutral-100 font-header leading-snug`}>Home</div>

@@ -22,8 +22,8 @@ const TitledGreyBox = ({ icon, title, children, className }: Props) => (
         <div
             css={tw`rounded-t p-3 border-b`}
             style={{
-                background: 'linear-gradient(90deg, rgba(145,35,215,0.22) 0%, rgba(22,22,31,0.6) 100%)',
-                borderColor: 'rgba(145,35,215,0.3)',
+                background: 'linear-gradient(90deg, rgba(43,157,232,0.22) 0%, rgba(22,22,31,0.6) 100%)',
+                borderColor: 'rgba(43,157,232,0.3)',
             }}
         >
             {typeof title === 'string' ? (

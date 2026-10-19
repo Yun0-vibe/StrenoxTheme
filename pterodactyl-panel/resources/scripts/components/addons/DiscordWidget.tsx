@@ -18,8 +18,8 @@ import { getDiscordStatus, updateDiscordPrefs, unlinkDiscord, YETIMCDiscordStatu
 const DiscordCard = styled.div`
     ${tw`rounded-2xl p-6 border`};
     background: linear-gradient(135deg, rgba(30, 21, 53, 0.85) 0%, rgba(22, 22, 31, 0.94) 100%);
-    border-color: rgba(145, 35, 215, 0.35);
-    box-shadow: 0 0 30px rgba(145, 35, 215, 0.16), 0 8px 40px rgba(0, 0, 0, 0.45);
+    border-color: rgba(43,157,232, 0.35);
+    box-shadow: 0 0 30px rgba(43,157,232, 0.16), 0 8px 40px rgba(0, 0, 0, 0.45);
 `;
 
 const StatItem = styled.div`

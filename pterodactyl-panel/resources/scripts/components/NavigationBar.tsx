@@ -30,9 +30,9 @@ const LINK_CLASS =
     'sx-side-link flex items-center gap-3 px-4 py-2.5 mx-2 rounded-xl text-sm no-underline text-neutral-400 hover:text-neutral-100 transition-all duration-150';
 const ACTIVE_STYLE = {
     color: '#fff',
-    background: 'linear-gradient(90deg, rgba(145,35,215,0.30) 0%, rgba(145,35,215,0.08) 100%)',
-    boxShadow: 'inset 2px 0 0 #55B8F0, 0 0 20px rgba(145,35,215,0.22)',
-    border: '1px solid rgba(145,35,215,0.30)',
+    background: 'linear-gradient(90deg, rgba(43,157,232,0.30) 0%, rgba(43,157,232,0.08) 100%)',
+    boxShadow: 'inset 2px 0 0 #55B8F0, 0 0 20px rgba(43,157,232,0.22)',
+    border: '1px solid rgba(43,157,232,0.30)',
 };
 
 const SectionLabel = ({ children }: { children: React.ReactNode }) => (
@@ -92,20 +92,20 @@ export default () => {
                 onClick={() => setMobileOpen(false)}
             >
                 <img
-                    src={'/favicons/YETIMC PANEL-logo.png'}
+                    src={'/favicons/yetimc-logo.png'}
                     alt={'YETIMC PANEL'}
-                    style={{ width: '2.1rem', height: '2.1rem', filter: 'drop-shadow(0 0 12px rgba(145,35,215,0.7))' }}
+                    style={{ width: '2.1rem', height: '2.1rem', filter: 'drop-shadow(0 0 12px rgba(43,157,232,0.7))' }}
                 />
                 <span
                     style={{
                         fontSize: '1.3rem',
                         fontWeight: 800,
                         letterSpacing: '0.01em',
-                        background: 'linear-gradient(135deg, #FFFFFF 0%, #C084FC 55%, #2B9DE8 100%)',
+                        background: 'linear-gradient(135deg, #FFFFFF 0%, #7DD3FC 55%, #2B9DE8 100%)',
                         WebkitBackgroundClip: 'text',
                         backgroundClip: 'text',
                         color: 'transparent',
-                        filter: 'drop-shadow(0 0 10px rgba(145,35,215,0.45))',
+                        filter: 'drop-shadow(0 0 10px rgba(43,157,232,0.45))',
                     }}
                 >
                     {name}
@@ -136,7 +136,7 @@ export default () => {
             </div>
             <div
                 className={'flex items-center gap-3 px-4 py-3'}
-                style={{ borderTop: '1px solid rgba(145,35,215,0.2)' }}
+                style={{ borderTop: '1px solid rgba(43,157,232,0.2)' }}
             >
                 <span className={'flex items-center w-8 h-8'}>
                     <Avatar.User />
@@ -161,7 +161,7 @@ export default () => {
                 className={'hidden md:flex flex-col fixed left-0 top-0 h-screen w-60 z-40'}
                 style={{
                     background: 'linear-gradient(180deg, rgba(30,21,53,0.92) 0%, rgba(10,10,15,0.97) 100%)',
-                    borderRight: '1px solid rgba(145,35,215,0.25)',
+                    borderRight: '1px solid rgba(43,157,232,0.25)',
                     backdropFilter: 'blur(16px)',
                 }}
             >
@@ -181,8 +181,8 @@ export default () => {
                 className={'md:hidden fixed inset-y-0 left-0 w-64 z-50 flex flex-col transition-transform duration-200'}
                 style={{
                     background: 'linear-gradient(180deg, rgba(30,21,53,0.97) 0%, rgba(10,10,15,0.99) 100%)',
-                    borderRight: '1px solid rgba(145,35,215,0.3)',
-                    boxShadow: '0 0 40px rgba(145,35,215,0.2)',
+                    borderRight: '1px solid rgba(43,157,232,0.3)',
+                    boxShadow: '0 0 40px rgba(43,157,232,0.2)',
                     transform: mobileOpen ? 'translateX(0)' : 'translateX(-100%)',
                 }}
             >
@@ -201,7 +201,7 @@ export default () => {
                 className={'md:hidden w-full flex items-center px-2 h-14 gap-1 overflow-x-auto'}
                 style={{
                     background: 'linear-gradient(180deg, rgba(30,21,53,0.9) 0%, rgba(13,13,18,0.95) 100%)',
-                    borderBottom: '1px solid rgba(145,35,215,0.3)',
+                    borderBottom: '1px solid rgba(43,157,232,0.3)',
                 }}
             >
                 <SpinnerOverlay visible={isLoggingOut} />
@@ -214,7 +214,7 @@ export default () => {
                 </button>
                 <Link to={'/'} className={'flex items-center gap-2 mr-2 no-underline flex-shrink-0'}>
                     <img
-                        src={'/favicons/YETIMC PANEL-logo.png'}
+                        src={'/favicons/yetimc-logo.png'}
                         alt={'YETIMC PANEL'}
                         style={{ width: '1.6rem', height: '1.6rem' }}
                     />

@@ -44,16 +44,16 @@
 .primary {
     @apply text-white;
     background: linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%);
-    border: 1px solid rgba(145, 35, 215, 0.8);
-    box-shadow: 0 4px 16px rgba(145, 35, 215, 0.35);
+    border: 1px solid rgba(43,157,232, 0.8);
+    box-shadow: 0 4px 16px rgba(43,157,232, 0.35);
 
     &:hover, &:active {
-        box-shadow: 0 4px 26px rgba(145, 35, 215, 0.55);
+        box-shadow: 0 4px 26px rgba(43,157,232, 0.55);
         filter: brightness(1.08);
     }
 
     &:focus {
-        box-shadow: 0 0 0 3px rgba(145, 35, 215, 0.35), 0 4px 16px rgba(145, 35, 215, 0.35);
+        box-shadow: 0 0 0 3px rgba(43,157,232, 0.35), 0 4px 16px rgba(43,157,232, 0.35);
     }
 
     &.secondary {
@@ -75,11 +75,11 @@
 
     &:hover, &:active {
         background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(145, 35, 215, 0.5);
+        border-color: rgba(43,157,232, 0.5);
     }
 
     &:focus {
-        box-shadow: 0 0 0 3px rgba(145, 35, 215, 0.25);
+        box-shadow: 0 0 0 3px rgba(43,157,232, 0.25);
     }
 
     &.secondary {

@@ -9,8 +9,8 @@ export default styled.div<{ $hoverable?: boolean }>`
         props.$hoverable !== false &&
         `
         &:hover {
-            border-color: rgba(145, 35, 215, 0.6);
-            box-shadow: 0 0 20px rgba(145, 35, 215, 0.18);
+            border-color: rgba(43,157,232, 0.6);
+            box-shadow: 0 0 20px rgba(43,157,232, 0.18);
             transform: translateY(-1px);
         }
     `};
@@ -18,6 +18,6 @@ export default styled.div<{ $hoverable?: boolean }>`
     & .icon {
         ${tw`rounded-xl w-16 flex items-center justify-center text-white p-3`};
         background: linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%);
-        box-shadow: 0 4px 14px rgba(145, 35, 215, 0.4);
+        box-shadow: 0 4px 14px rgba(43,157,232, 0.4);
     }
 `;

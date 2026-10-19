@@ -23,14 +23,14 @@ const CategoryCard = styled.button<{ active: boolean }>`
     ${tw`rounded-2xl p-5 cursor-pointer transition-all duration-200 text-left border`};
     background: ${(props) =>
         props.active
-            ? 'rgba(145,35,215,0.14)'
+            ? 'rgba(43,157,232,0.14)'
             : 'linear-gradient(135deg, rgba(30,21,53,0.6) 0%, rgba(22,22,31,0.9) 100%)'};
-    border-color: ${(props) => (props.active ? '#2B9DE8' : 'rgba(145,35,215,0.22)')};
-    box-shadow: ${(props) => (props.active ? '0 0 24px rgba(145,35,215,0.2)' : '0 0 16px rgba(145,35,215,0.08)')};
+    border-color: ${(props) => (props.active ? '#2B9DE8' : 'rgba(43,157,232,0.22)')};
+    box-shadow: ${(props) => (props.active ? '0 0 24px rgba(43,157,232,0.2)' : '0 0 16px rgba(43,157,232,0.08)')};
 
     &:hover {
         border-color: #2B9DE8;
-        box-shadow: 0 0 26px rgba(145, 35, 215, 0.22);
+        box-shadow: 0 0 26px rgba(43,157,232, 0.22);
         transform: translateY(-2px);
     }
 `;
@@ -44,7 +44,7 @@ const SearchInput = styled.input`
     &:focus {
         outline: none;
         border-color: #2B9DE8;
-        box-shadow: 0 0 0 3px rgba(145, 35, 215, 0.15);
+        box-shadow: 0 0 0 3px rgba(43,157,232, 0.15);
     }
 
     &::placeholder {

@@ -11,11 +11,11 @@
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <meta name="_token" content="{{ csrf_token() }}">
 
-        <link rel="apple-touch-icon" href="/favicons/YETIMC PANEL-logo.png">
-        <link rel="icon" type="image/png" href="/favicons/YETIMC PANEL-logo.png" sizes="32x32">
-        <link rel="icon" type="image/png" href="/favicons/YETIMC PANEL-logo.png" sizes="16x16">
-        <link rel="mask-icon" href="/favicons/YETIMC PANEL-logo.png" color="#2B9DE8">
-        <link rel="shortcut icon" href="/favicons/YETIMC PANEL-logo.png">
+        <link rel="apple-touch-icon" href="/favicons/yetimc-logo.png">
+        <link rel="icon" type="image/png" href="/favicons/yetimc-logo.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicons/yetimc-logo.png" sizes="16x16">
+        <link rel="mask-icon" href="/favicons/yetimc-logo.png" color="#2B9DE8">
+        <link rel="shortcut icon" href="/favicons/yetimc-logo.png">
         <meta name="msapplication-config" content="/favicons/browserconfig.xml">
         <meta name="theme-color" content="#2B9DE8">
         <meta name="color-scheme" content="dark">
@@ -40,7 +40,7 @@
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         @show
     </head>
-    <body class="hold-transition skin-blue fixed sidebar-mini strenox-admin">
+    <body class="hold-transition skin-blue fixed sidebar-mini YETIMC-admin">
         <div class="wrapper">
             <button class="sx-fab-toggle" data-toggle="push-menu" aria-label="Toggle navigation">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="2" y1="5" x2="18" y2="5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="15" x2="18" y2="15"/></svg>
@@ -48,7 +48,7 @@
             <aside class="main-sidebar sx-sidebar">
                 <section class="sidebar">
                     <a href="{{ route('admin.index') }}" class="sx-brand">
-                        <img src="/favicons/YETIMC PANEL-logo.png" alt="YETIMC PANEL">
+                        <img src="/favicons/yetimc-logo.png" alt="YETIMC PANEL">
                         <span><strong>YETIMC PANEL</strong><small>Control Center</small></span>
                     </a>
                     <a href="{{ route('index') }}" class="sx-back">

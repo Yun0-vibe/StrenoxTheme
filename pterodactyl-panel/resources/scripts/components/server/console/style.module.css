@@ -13,7 +13,7 @@
         @apply transition-colors duration-500;
         @apply sm:flex sm:mr-4;
         background: linear-gradient(135deg, #2B9DE8 0%, #1E86D6 100%);
-        box-shadow: 0 4px 14px rgba(145, 35, 215, 0.4);
+        box-shadow: 0 4px 14px rgba(43,157,232, 0.4);
 
         & > svg {
             @apply w-6 h-6 m-auto;
@@ -23,7 +23,7 @@
 
 .terminal {
     @apply flex flex-col w-full rounded-2xl overflow-hidden border border-white/10;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 24px rgba(145, 35, 215, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 24px rgba(43,157,232, 0.1);
 
     & .overflows_container {
         @apply -ml-4 sm:ml-0;

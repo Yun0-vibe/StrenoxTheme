@@ -31,7 +31,7 @@
                 property="og:description"
                 content="YETIMC PANEL — liquid-fast game server hosting. Deploy, manage, and scale your worlds from one sleek panel."
             >
-            <meta property="og:image" content="{{ url('/favicons/YETIMC PANEL-logo.png') }}">
+            <meta property="og:image" content="{{ url('/favicons/yetimc-logo.png') }}">
 
             {{-- Twitter --}}
             <meta name="twitter:card" content="summary">
@@ -40,14 +40,14 @@
                 name="twitter:description"
                 content="YETIMC PANEL — liquid-fast game server hosting. Deploy, manage, and scale your worlds from one sleek panel."
             >
-            <meta name="twitter:image" content="{{ url('/favicons/YETIMC PANEL-logo.png') }}">
+            <meta name="twitter:image" content="{{ url('/favicons/yetimc-logo.png') }}">
 
-            <link rel="apple-touch-icon" sizes="180x180" href="/favicons/YETIMC PANEL-logo.png">
-            <link rel="icon" type="image/png" href="/favicons/YETIMC PANEL-logo.png" sizes="32x32">
-            <link rel="icon" type="image/png" href="/favicons/YETIMC PANEL-logo.png" sizes="16x16">
+            <link rel="apple-touch-icon" sizes="180x180" href="/favicons/yetimc-logo.png">
+            <link rel="icon" type="image/png" href="/favicons/yetimc-logo.png" sizes="32x32">
+            <link rel="icon" type="image/png" href="/favicons/yetimc-logo.png" sizes="16x16">
             <link rel="manifest" href="/favicons/manifest.json">
             <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#2B9DE8">
-            <link rel="shortcut icon" href="/favicons/YETIMC PANEL-logo.png">
+            <link rel="shortcut icon" href="/favicons/yetimc-logo.png">
             <meta name="msapplication-config" content="/favicons/browserconfig.xml">
             <meta name="theme-color" content="#2B9DE8">
         @show
